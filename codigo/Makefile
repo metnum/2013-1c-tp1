@@ -1,5 +1,5 @@
 CC=gcc
 CFLAGS=-I.
 
-f_x: f_x.c
-	$(CC) -o bin/f_x f_x.c $(CFLAGS)
+tp1: tp1.c
+	$(CC) -o bin/tp1 tp1.c $(CFLAGS)

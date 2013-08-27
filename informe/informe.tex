@@ -14,7 +14,7 @@
 \materia{Métodos Numéricos}
 % \grupo{Grupo Los Amantes de tu Hermana}
 
-\integrante{Escalante, José Luis}{822/06}{joe.escalante@gmail.com}
+\integrante{Escalante, José}{822/06}{joe.escalante@gmail.com}
 \integrante{Raskovsky, Iván Alejandro}{57/07}{iraskovsky@dc.uba.ar}
 \integrante{Osinski, Andrés}{003/01}{email3@dominio.com}
 
@@ -29,7 +29,37 @@
 
 \maketitle
 
+\section{Abstract}
+En este trabajo vamos a mostrar distintas formas de poder calcular la inversa de la raíz cuadrada, a partir de adaptar el problema a la búsqueda de ceros de una función. Iremos documentando también los resultados obtenidos a partir de ciertas familias de inputs elegidas con cierto criterio.\\
+
+En particular veremos el método de Newton y el de la Secante para llegar al resultado mencionado:\\
+
+Los experimentos nos terminaron mostrando que el método de Newton termina siendo mejor en cuestiones de orden de convergencia y error.\\
+
+{\bf Palabras clave:}
+\begin{itemize}
+    \item Método de Newton
+    \item Método de la Secante
+    \item Criterios de comparación
+\end{itemize}
+
+\newpage
 \section{Introducción Teórica}
+La computación científica se caracteriza en trabajar con números reales, los cuales no son representables de manera precisa en la computadora debido a la aritmética finita que esta maneja. Teniendo esto en cuenta es que la manera estándar en cómo se calculan los resultados de ciertas operaciones puede que no sea la óptima.\\
+
+En este caso para calcular la inversa de la raíz cuadrada ($\displaystyle\frac{1}{\sqrt{\alpha}}$) buscaremos los ceros de dos funciones. La resolución de estas 2 funciones es equivalente a resolver el problema de la inversa de la raíz. A partir de que el problema se plantea de esa manera es que podemos hacer uso de métodos para encontrar ceros de funciones.\\
+
+Las funciones en cuestión son:
+\begin{displaymath}
+    f(x) = x^2 - \alpha
+\end{displaymath}
+
+\begin{displaymath}
+    e(x) = \frac{1}{x^2} - \alpha
+\end{displaymath}
+
+Cómo se puede ver los valores que hacen cero a esas funciones son de la forma $x = \sqrt{\alpha}$ en el primer caso y $x = \frac{1}{\sqrt{\alpha}}$ en el segundo.
+
 % Contendra una breve explicacion de la base teorica que fundamenta los metodos
 % involu- crados en el trabajo, junto con los metodos mismos. No deben
 % incluirse demostraciones de propiedades ni teoremas, ejemplos innecesarios,
@@ -37,6 +67,7 @@
 % de deniciones basicas es conveniente citar ejemplos de bibliografa
 % adecuada.  Una cita vale mas que mil palabras
 
+\newpage
 \section{Desarrollo}
 % Deben explicarse los metodos numericos que utilizaron y su aplicacion al
 % problema concreto involucrado en el trabajo practico. Se deben mencionar los

@@ -238,8 +238,8 @@ int main (int argc, char * argv[]) {
     }
     printf(" con limite %f\n", limite);
 
-    double x_prev = 1.1; // Mi x0 con el cual empiezo
-    double x_next = 2;
+    double x_prev = DBL_EPSILON; // Mi x0 con el cual empiezo
+    double x_next = DBL_EPSILON * 10000;
     // Me fijo si uso las x_next y x_prev default o las que pidio el usuario
     if (argc == 8 ) {
         x_prev = strtod(argv[6], &end);

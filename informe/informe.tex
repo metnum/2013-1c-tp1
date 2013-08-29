@@ -1,13 +1,11 @@
-\documentclass[10pt,a4paper]{article}
-\usepackage[utf8]{inputenc} % para poder usar tildes en archivos UTF-8
-\usepackage[spanish]{babel} % para que comandos como \today den el resultado en castellano
-\usepackage{a4wide} % márgenes un poco más anchos que lo usual
-\usepackage[conEntregas]{caratula}
+\documentclass[10pt,a4paper]{article} \usepackage[utf8]{inputenc} % para poder
+usar tildes en archivos UTF-8 \usepackage[spanish]{babel} % para que comandos
+como \today den el resultado en castellano \usepackage{a4wide} % márgenes un
+poco más anchos que lo usual \usepackage[conEntregas]{caratula}
 
 \begin{document}
 
-\titulo{Trabájo Práctico 1}
-\subtitulo{Quake III FastInvSqrt()}
+\titulo{Trabájo Práctico 1} \subtitulo{Quake III FastInvSqrt()}
 
 \fecha{\today}
 
@@ -20,48 +18,140 @@
 
 % TODO: Agregar abstract y 4 palabras claves
 
-% El tutulo debera ser breve y apropiado para una rapida identicacion del contenido del
-% trabajo. El resumen, de no mas de 200 palabras, debera explicar brevemente el trabajo
-% realizado y las conclusiones de los autores de manera que pueda ser util por ser solo para
-% dar una idea del contenido del trabajo. Las palabras clave, no mas de cuatro, deben ser
-% terminos tecnicos que den una idea del contenido del trabajo para facilitar su busqueda
-% en una base de datos tematica.
+% El tutulo debera ser breve y apropiado para una rapida identificacion del
+% contenido del trabajo. El resumen, de no mas de 200 palabras, debera explicar
+% brevemente el trabajo realizado y las conclusiones de los autores de manera
+% que pueda ser util por ser solo para dar una idea del contenido del trabajo.
+% Las palabras clave, no mas de cuatro, deben ser terminos tecnicos que den una
+% idea del contenido del trabajo para facilitar su busqueda en una base de
+% datos tematica.
 
 \maketitle
 
-\section{Abstract}
-En este trabajo vamos a mostrar distintas formas de poder calcular la inversa de la raíz cuadrada, a partir de adaptar el problema a la búsqueda de ceros de una función. Iremos documentando también los resultados obtenidos a partir de ciertas familias de inputs elegidas con cierto criterio.\\
+\section{Abstract} En este trabajo vamos a mostrar distintas formas de poder
+calcular la inversa de la raíz cuadrada, a partir de adaptar el problema a la
+búsqueda de ceros de una función. Iremos documentando también los resultados
+obtenidos a partir de ciertas familias de inputs elegidas con cierto
+criterio.\\
 
-En particular veremos el método de Newton y el de la Secante para llegar al resultado mencionado:\\
+En particular veremos el método de Newton y el de la Secante para llegar al
+resultado mencionado:\\
 
-Los experimentos nos terminaron mostrando que el método de Newton termina siendo mejor en cuestiones de orden de convergencia y error.\\
+Los experimentos nos terminaron mostrando que el método de Newton termina
+siendo mejor en cuestiones de orden de convergencia y error.\\
 
-{\bf Palabras clave:}
-\begin{itemize}
-    \item Método de Newton
-    \item Método de la Secante
-    \item Criterios de comparación
-\end{itemize}
+{\bf Palabras clave:} \begin{itemize} \item Método de Newton \item Método de la
+        Secante \item Criterios de comparación \end{itemize}
 
-\newpage
-\section{Introducción Teórica}
-%La computación científica se caracteriza en trabajar con números reales, los cuales no son representables de manera precisa en la computadora debido a la aritmética finita que esta maneja. Teniendo esto en cuenta es que la manera estándar en cómo se calculan los resultados de ciertas operaciones puede que no sea la óptima.\\
+\newpage \section{Introducción Teórica}
+%La computación científica se caracteriza en trabajar con números reales, los
+%cuales no son representables de manera precisa en la computadora debido a la
+%aritmética finita que esta maneja. Teniendo esto en cuenta es que la manera
+%estándar en cómo se calculan los resultados de ciertas operaciones puede que
+%no sea la óptima.\\
 
-Lo que queremos es encontrar una forma de calcular la raíz cuadrada. Hay diferentes maneras de calcular la raíz cuadrada%{link a methods square root}
-En este trabajo vamos a tratar de aproximar la inversa de la raíz cuadrada a traves de diferentes metodos de ceros de funciones.
+Lo que queremos es encontrar una forma de calcular la raíz cuadrada. Hay
+diferentes maneras de calcular la raíz cuadrada%{link a methods square root} En
+este trabajo vamos a tratar de aproximar la inversa de la raíz cuadrada a
+traves de diferentes metodos de ceros de funciones.
 
-En este caso para calcular la inversa de la raíz cuadrada ($\displaystyle\frac{1}{\sqrt{\alpha}}$) buscaremos los ceros de dos funciones. La resolución de estas 2 funciones es equivalente a resolver el problema de la inversa de la raíz. A partir de que el problema se plantea de esa manera es que podemos hacer uso de métodos para encontrar ceros de funciones.\\
+En este caso para calcular la inversa de la raíz cuadrada
+($\displaystyle\frac{1}{\sqrt{\alpha}}$) buscaremos los ceros de dos funciones.
 
-Las funciones en cuestión son:
-\begin{displaymath}
-    f(x) = x^2 - \alpha
-\end{displaymath}
+La resolución de estas 2 funciones es equivalente a resolver el problema de la
+inversa de la raíz. A partir de que el problema se plantea de esa manera es que
+podemos hacer uso de métodos para encontrar ceros de funciones.\\
 
-\begin{displaymath}
-    e(x) = \frac{1}{x^2} - \alpha
-\end{displaymath}
+Las funciones en cuestión son
 
-Cómo se puede ver los valores que hacen cero a esas funciones son de la forma $x = \sqrt{\alpha}$ en el primer caso y $x = \frac{1}{\sqrt{\alpha}}$ en el segundo.
+\begin{displaymath} f(x) = x^2 - \alpha \end{displaymath}
+
+\begin{displaymath} e(x) = \frac{1}{x^2} - \alpha \end{displaymath}
+
+Cada una de estas funciones provee formas de encontrar la raiz de un numero.
+Veamos el caso de f(x).
+
+Los métodos elegidos para encontrar las raices de estas funciones son el método
+de Newton y el método de la Secante.
+
+\subsubsection{Análisis de las funciones}
+
+Notemos que alpha siempre tiene que ser positivo, sino no se le puede calcular la raiz cuadrada a un numero negativo. Mas aún alhpa > 0 ya que sino estaríamos diviendo por cero.
+
+\subsubsubsection{f(x)}
+
+primero demostrar que cuando f(x) == 0 -> x == sqrt(alpha)
+entonces una vez encontradas las raices podemos hacer 1/x para encontrar
+1/sqrt(alpha).
+
+en el caso de e(x) == 0 -> x == 1/sqrt(alpha) por lo que no tenemos que hacer
+ninguna otra cuenta.
+
+analicemos graficamente las funciones.
+
+% intertart grafico lindo de f(x)
+
+f(x) es una parabola. Al ser alpha > 0 podemos ver que *siempre* tiene dos
+raices. Más aún f(x) es simétrica por lo cual podemos encontrar cualquiera de
+las dos raices y con esta cambiarle el signo y obtener la otra. De esta forma
+no nos preocuparemos por obtener la raiz positiva ya que nos es indistinto que
+raiz conseguimos con los metodos.
+
+% insertar grafico lindo de e(x)
+
+e(x) con alpha > 0 tambien tiene siempre dos raices por lo que al igual que con
+f(x) nos es indistinto cual de las dos obtenemos. En este casi es importante
+notar que en el 0 hay una asíntota de las ordenadas.
+ 
+
+Los dos métodos que elegimos trabajan o con la tangente de las funciones en un
+punto o con una aproximación de esta. Veamos la convavidad de las funciones.o
+
+% a partir de aca es todo chamuyo... ver que dejar y que sacar, porque en
+% realida se puede hacer buen analisis analitico pero no se como.. buscar en
+% google o wikipedia quizas
+
+
+% graficos lindos de f''(x) y e''(x).
+
+veamos que f\'\'(x) == 2. esta funcion es convexa. al ser constante y por la
+forma que tienen las derivadas asumimos que siempre va a converger.
+
+veamos e\'\'(x) se nos va al sorete en el 0. por algo que no se, que nos tenemos
+que sacar de la galera esta no siempre va a converger!!! pero no sabemos bien
+por que
+
+
+Cómo se puede ver los valores que hacen cero a esas funciones son de la forma
+$x = \sqrt{\alpha}$ en el primer caso y $x = \frac{1}{\sqrt{\alpha}}$ en el
+segundo.
+
+\subsubsectioj{metodos}
+podemos ver que se puede utilziar tanto newton como secante porque las
+funciones cumplen lo que pida cada una.
+
+podemos utilizar la secante porque .. y tambien newton porque pide todo esto y
+que exista la derivada primera de la funcion, las cuales tenemos para e y para
+f.
+
+\subsubsection{hipotesis}
+creemos que newton va a funcionar mucho mejor que secante porque su orden de
+convergencia teorico es mejor.
+
+Por otro lado no estamos seguros de cual de las dos funciones va a ser mejor
+porque no podemos interpretar funciones y como afectan las tangentes a los
+metodos.
+
+% no se si esto viene aca o mas abajo, quizas mas abajo o arriba, pero si nos
+% interesa ver los dos casos, el caso con bajo error y el caso rapido.
+Por ultimo queremos hacer un analisis para un calculo aproximado pero MUY
+RAPIDO al estilo quake. Para este puede ser que las conclusiones sean
+diferentes a casos donde puede haber mas iteraciones.  por que? porque para un
+caso podemos empezar mucho ma cerca de la raiz y hacer pocas iteraciones y en
+el otro caso podemos empezar muy lejos pero con algunas iteraciones mas ya
+estar mucho mas cerca. pero para ej 3 iteraciones es mejor el metodo y funcion
+"lento".
+
 
 % Contendra una breve explicacion de la base teorica que fundamenta los metodos
 % involu- crados en el trabajo, junto con los metodos mismos. No deben
@@ -70,8 +160,7 @@ Cómo se puede ver los valores que hacen cero a esas funciones son de la forma $
 % de deniciones basicas es conveniente citar ejemplos de bibliografa
 % adecuada.  Una cita vale mas que mil palabras
 
-\newpage
-\section{Desarrollo}
+\newpage \section{Desarrollo}
 % Deben explicarse los metodos numericos que utilizaron y su aplicacion al
 % problema concreto involucrado en el trabajo practico. Se deben mencionar los
 % pasos que si- guieron para implementar los algoritmos, las dicultades que
@@ -81,6 +170,97 @@ Cómo se puede ver los valores que hacen cero a esas funciones son de la forma $
 % metodos malogrados deben gurar en esta seccion, con una breve explicacion
 % de los motivos de estas fallas (en caso de ser conocidas)
 
+\subsection{implementacion}
+
+hicimos una implementacion que nos permite decidir parametricamente lo siguiente:
+
+* funcion e o f
+* metodo newton o secante
+* criterio de parada
+  * iteraciones
+  * tiempo
+  * error absoluto
+  * error relativo
+* eleccion de x0 y x1 (x1 solo para la secante)
+
+esto lo desarrollamos en C y luego hicimos unos helpers en Python para poder
+crear experimentos y analizar los resultados. Cada corrida nos devuelve todos
+los valores de los criterios de parada y las aproximaciones en cada iteracion.
+
+Estos experimentos son replicables y los puede ver en el axexo {detalle de experimentos}
+
+El codigo se puede optimizar MUCHO, sobre todo en las cuantas que realiza el
+cuerpo de cada metodo. Ahora hay una implementacion naif que replica el enfoque
+analitico pero que a nivel fierro se puede mejorar.
+
+Por otro lado, agregamos mucho overhead con la flexibilidad, pero podemos ver
+que esto afecta a los dos metodos y funciones por igual por lo que no deberia
+afectar las comparaciones y resultados.
+
+\subsection{Convergencia}
+
+empezamos con x0 fijos y vimos que tanto newton como secante siempre convergian
+para f(x). % mentira, hacer alguas corridas, tengan fe Esto es tanto para
+alphas muy chicos (cercanos al cero) como para alhpas muy grandes.
+
+en cambio para e(x) vimos que nunca convergia, al menos las aproximaciones
+crecian muy rapidamente, tanto que en un puñado de iteraciones superaban el
+mayor número representable por punto flotante doble (devolvia inf). % mostrar
+alguna corrida donde pase esto.
+
+Entonces para f(x) decidimos utilizar un x0=alpha que siempre funciona. Newton
+tiene una convergencia teorica muy rapida por lo que no deberia influir.
+
+En el caso de e(x) es muy interesante notar como las aproximaciones se alternan
+entre positivas y negativas cuando no converge. esto se debe a ???.
+
+% todavia no encontramos un x0 y x1 para e(x) para que converja
+
+empiricamente (diseñar y pensar exp) encontramos que si elejimos un x1 y x0
+cerca de e(x) converge pero sino no.
+
+un primer acercamiento a x0 que se nos ocurrio fue utilizar 0.0alpha y
+0.00alpha. Esto funciona hasta alphas no muy grandes (mas o menos hasta 10^4,
+ajustar es numero con un experimento).
+
+% explicar que es DBL EPSILON y que es DBL MIN
+Al hacer estas pruebas nos parece que si x0 y x1 son menos que la raiz
+converge. Entonce decidimos utilizar DBL_MIN y DBL_MIN * 2 pero estas rompian
+las operaciones aritmeticas de punto flotante. Entonce pasamos a utilizar
+DBL_EPSILON y encontramos que funciona muy bien tanto para numeros muy chicos
+como para numeros muy grandes. El problema que tiene es que requiere de muchas
+iteraciones.
+
+Grafiquemos la cantidad de iteraciones necesarias para diferentes alphas (muy
+chicos y cercanos al 1 y muy grandes) para DBL_EPSILON. Lo podemos mejorar?
+creemos que si, pero quedará para futura investigacion.
+
+Otra cosa que se nos ocurrio es utilizar aproximaciones de f(x) primero hasta
+un cierto error grosero y luego continuar refinando con e(x). Pero para que
+esto tenga sentido tuvimos que hacer una comparacion entre los metodos. Ver mas
+abajo.
+
+\subsection{comparacion entre criterios de convergencia para f(x) y newton}
+
+hacer muchos exp con grafiquitos y decir o refutar que relativo conviene
+siempre mas que absoluto. luego el tiempo y la cantidad de iteraciones.
+
+\subsection{comparacion entre f y e, newton}
+
+para los mismos alphas y criterios de convergencia (probamos con iteraciones,
+tiempo, error relativo) vemos cual tarda mas iteraciones y cual tarda mas
+tiempo.
+
+Podemos ver que .. es mas rapido que .. que es de suponer por la pendiente que
+tiene.
+
+\subsection{comparacion entre newton y secante para e(x)}
+
+ver cual es mas rapido
+calcular experimentalmente el orden de convergencia, hay que dividir entre
+iteraciones, deberia dar un grafico que luego de algunas iteraciones sea
+constante en 2 y en phi.
+
 \section{Resultados}
 % Deben incluir los resultados de los experimentos, utilizando el formato mas
 % adecuado para su presentacion. Deberan especicar claramente a que
@@ -88,6 +268,9 @@ Cómo se puede ver los valores que hacen cero a esas funciones son de la forma $
 % maquina. Algo fundamental en su aprendizaje en la materia es la presentacion
 % de resultados de forma clara y concisa para el lector
 
+blah blah blah cual es mejor con cual nos quedamos para el caso preciso y con
+cual para el caso rapido donde rapido puede ser 1 2 o 3 iteraciones y preciso
+cientos.
 \section{Discusión}
 % Se incluira aqu un analisis de los resultados obtenidos en la seccion
 % anterior (se analizara su validez, coherencia, etc.). Deben analizarse como
@@ -96,12 +279,66 @@ Cómo se puede ver los valores que hacen cero a esas funciones son de la forma $
 % teoremasa a la cual se ajustan. Ademas, se deben mencionar los resul- tados
 % interesantes y los casos \patologicos" encontrados.
 
+\subsection{Casos intersantes}
+
+primer caso
+===========
+
+bin/tp1 0.0000000000000000000000000000000001 e n r 0.000000000000000000000000000001 1 2
+se queda saltando entre dos numeros diferentes
+
+con numeros tan chicos de alhpa el punto flotante explota y se pone a hacer cosas raras, analizarlo un poco mas y decir por que parece que hace esto.
+
+
+segundo caso
+============
+
+una corrida, si le agregamos un 0 al error relativo corta por cantidad de iteraciones y no por llegar al error relativo
+
+*********************** bin/tp1 9999 e s r 0.000000000000001 0.09999 0.009999
+Buscando 1 / sqrt(9999.000000)
+Utilizando e(x)
+Utilizando Secante
+Criterio de parada error relativo con limite 0.000000
+Utilizando x0=0.099990 y x1=0.009999
+
+0.010026267273090912895971982266019040253013372421264648437500000000000000000000000000000000000000000 Iter
+0.010000505837327295852179354085365048376843333244323730468750000000000000000000000000000000000000000 Iter
+0.010000500015077814705555248053769901162013411521911621093750000000000000000000000000000000000000000 Iter
+0.010000500037503143660466697895117249572649598121643066406250000000000000000000000000000000000000000 Iter
+0.010000500037503126313231938127046305453404784202575683593750000000000000000000000000000000000000000 Iter
+
+0.010000500037503126313231938127046305453404784202575683593750000000000000000000000000000000000000000 resultado
+5 iteraciones
+-0.000000000001818989403545856475830078125000000000000000000000000000000000000000000000000000000000000 error absoluto
+-0.000000000000000181917132067792432769858681142675088907883197372229722166281362660811282694339752197 error relativo
+0.000067999999999999999463970445923166607826715335249900817871093750000000000000000000000000000000000 tiempo
+
+*********************** bin/tp1 9999 e s r 0.0000000000000001 0.09999 0.009999
+0.010000500037503124578508462150239211041480302810668945312500000000000000000000000000000000000000000 Iter
+0.010000500037503124578508462150239211041480302810668945312500000000000000000000000000000000000000000 Iter
+0.010000500037503124578508462150239211041480302810668945312500000000000000000000000000000000000000000 Iter
+0.010000500037503124578508462150239211041480302810668945312500000000000000000000000000000000000000000 Iter
+0.010000500037503124578508462150239211041480302810668945312500000000000000000000000000000000000000000 Iter
+0.010000500037503124578508462150239211041480302810668945312500000000000000000000000000000000000000000 Iter
+
+0.010000500037503124578508462150239211041480302810668945312500000000000000000000000000000000000000000 resultado
+1000 iteraciones
+0.000000000001818989403545856475830078125000000000000000000000000000000000000000000000000000000000000 error absoluto
+0.000000000000000181917132067792432769858681142675088907883197372229722166281362660811282694339752197 error relativo
+0.011587999999999999342636947119444812415167689323425292968750000000000000000000000000000000000000000 tiempo
+
+
 \section{Conclusiones}
 % Esta seccion debe contener las conclusiones generales del trabajo. Se deben
 % mencionar las relaciones de la discusion sobre las que se tiene certeza,
 % junto con comentarios y observaciones generales aplicables a todo el proceso.
 % Mencionar tambien posibles extensiones a los metodos, experimentos que hayan
 % quedado pendientes, etc
+
+todo depende, de que depende? de si buscas velocidad o precision
+
+
 
 \section{Apéndices}
 % En el apendice A se incluira el enunciado del TP. En el apendice B se
@@ -118,5 +355,21 @@ Cómo se puede ver los valores que hacen cero a esas funciones son de la forma $
 % Internet consultados durante el desarrollo del trabajo, haciendo referencia a
 % estos materiales a lo largo del informe. Se deben citar tambien las
 % comunicaciones personales con otros grupos
+
+Wikipedia
+Burden
+
+\section{Anexos}
+\subsection{Pseudocodigo de metodos}
+copiar pseudocodigo (comentarios) de newton_start newton_iter secante_start
+secante_iter y loop principal
+
+\subsection{Detalle de experimentos}
+
+en este anexo detallamos los diferentes experimentos, como replicarlos y la
+motivacion detras de cada uno de ellos.
+
+por cada experimento indicar en que archivo esta, y que corridas se hicieron
+con que datos y por que elegimos hacer ese exp.
 
 \end{document}

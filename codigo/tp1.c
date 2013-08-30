@@ -177,6 +177,7 @@ int main (int argc, char * argv[]) {
     double (*g)(double *, double *);
     double (*g1)(double *, double *);
     double (*g_end)(double *, double *);
+
     if (strcmp(argv[2], "f") == 0) {
         // utilizo g = f
         g = f;
@@ -197,6 +198,7 @@ int main (int argc, char * argv[]) {
     // Selecciono las funciones start e iter de newton o de secante
     void (*start)(double *, double *, double *);
     void (*iter)(double * x_prev, double * x_next, double * alpha, double (*g)(double *, double *), double (*g1)(double *, double *));
+
     if (strcmp(argv[3], "n") == 0) {
         // utilizo metodo = newton
         start = newton_start;
@@ -214,6 +216,7 @@ int main (int argc, char * argv[]) {
 
     // Selecciono los criterios de parada
     int (*criterio)(double *, double, double *, int *, double, int);
+
     if (strcmp(argv[4], "i") == 0) {
         criterio = iteraciones;
         printf("Criterio de parada iteraciones");
@@ -230,6 +233,7 @@ int main (int argc, char * argv[]) {
         printf("Error: El valor de <metodo> debe ser i, a, r o t\n");
         exit(-1);
     }
+
     // Cargo el limite
     double limite = strtod(argv[5], &end);
     if (argv[5] == end) {
@@ -240,8 +244,9 @@ int main (int argc, char * argv[]) {
 
     double x_prev = DBL_EPSILON; // Mi x0 con el cual empiezo
     double x_next = DBL_EPSILON * 10000;
+
     // Me fijo si uso las x_next y x_prev default o las que pidio el usuario
-    if (argc == 8 ) {
+    if (argc == 8) {
         x_prev = strtod(argv[6], &end);
         if (argv[6] == end) {
             printf("Error: El <x0> debe ser un double\n");
@@ -261,7 +266,7 @@ int main (int argc, char * argv[]) {
     printf("Utilizando x0=%f y x1=%f\n", x_prev, x_next);
 
     // Terminado el preambulo, linea en blanco
-    printf("\n");
+    //printf("\n");
 
     int i = 0;
 
@@ -271,13 +276,13 @@ int main (int argc, char * argv[]) {
 
     while ((*criterio)(&limite, (*g_end)(&x_next, &alpha), &alpha, &i, get_time(), 0) &&  i < MAX_ITER) {
         (*iter)(&x_prev, &x_next, &alpha, g, g1);
-        printf("%.99f Iter\n", x_next);
+        //printf("%.99f Iter\n", x_next);
         i++;
     }
     double tiempo_total = get_time();
 
     // Terminadas las iteraciones, linea en blanco
-    printf("\n");
+    printf("\n\n");
 
     printf("%.99f resultado\n", (*g_end)(&x_next, &alpha));
     iteraciones(&limite, (*g_end)(&x_next, &alpha), &alpha, &i, tiempo_total, 1);

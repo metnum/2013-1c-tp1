@@ -10,20 +10,32 @@ def e(x, alpha):
     return 1 / (x * x) - alpha
 
 class Experimento(object):
-    # configuracion
+    """
+    Clase que realiza experimentos para probar distintos resultados
+
+    entradas: iterable de alfas
+    funcion: funcion a calcular ('f' o 'e')
+    metodo: algoritmo de aproximación ('n' o 's')
+    criterio: criterio de detención ('i', 't', 'r', 'a')
+    limite: argumento de limite para el criterio
+    x0, x1: puntos iniciales de aproximación
+    x0s, x1s: iterables de puntos iniciales de aproximación (uno por cada alfa)
+    """
     entradas = None
     funcion = None
     metodo = None
     criterio = None
     limite = None
     x0 = None
+    x0s = None
     x1 = None
+    x1s = None
 
     _has_run = False
 
     resultados = None
 
-    def __init__(self, entradas=None, funcion=None, metodo=None, criterio=None, limite=None, x0=None, x1=None):
+    def __init__(self, entradas=None, funcion=None, metodo=None, criterio=None, limite=None, x0=None, x1=None, x0s=None, x1s=None):
         if entradas:
             self.entradas = entradas
         if funcion:
@@ -38,7 +50,7 @@ class Experimento(object):
             self.x0 = x0
         if x1:
             self.x1 = x1
-    
+
     def run(self):
 
         if self.resultados:  # ya se corrio
@@ -92,11 +104,14 @@ class Experimento(object):
         if self.metodo == 'secante' and self.x0 and not self.x1:
             raise ValueError(u"Hay que elegir tanto un x0 como un x1.")
 
+        if self.x0 and self.x0s:
+            raise ValueError(u"Se acepta un x0 o una lista en x0s, pero no ambas.")
+
         if self.metodo == 'newton' and self.x0 and not self.x1:
             self.x1 = self.x0
 
-        if not isinstance(self.entradas, collections.Iterable):
-            raise ValueError(u"Entradas no es un iterable.")
+        #if not isinstance(self.entradas, collections.Iterable):
+        #    raise ValueError(u"Entradas no es un iterable.")
 
         args = [
             params['funcion'],
@@ -113,32 +128,40 @@ class Experimento(object):
 
         self.resultados = []
 
-        for alpha in self.entradas:
-            final_args = ("%s" % arg for arg in [executable, alpha] + args)
-            output = check_output(final_args)
-            segmentos = output.split("\n\n")
-            if len(segmentos) == 3:
-                detalle, iteraciones, resultados = segmentos
-                iteraciones = map(lambda line: line.split(" ")[0], iteraciones.split("\n"))
-            else:
-                detalle, resultados = segmentos
-                resultados = resultados.lstrip("\n")
-                iteraciones = [] 
+        try:  # Para poder detener el test y poder ver resultados
+            for alpha in self.entradas:
+                prog_args = ("%s" % arg for arg in [executable, alpha] + args)
 
-            resultados = map(lambda line: line.split(" ")[0], resultados.split("\n"))
-            resultado = float(resultados[0])
-            iteraciones = int(resultados[1])
-            absoluto = float(resultados[2])
-            relativo = float(resultados[3])
-            tiempo = float(resultados[4])
-            
-            self.resultados.append({
-                'alpha': alpha,
-                'iteraciones': iteraciones,
-                'resultado': resultado,
-                'absoluto': absoluto,
-                'relativo': relativo,
-                'tiempo': tiempo,
-            })
-        from pprint import pprint
-        pprint(self.resultados)
+                if self.x0s:
+                    prog_args.append(str(self.x0s.next()))
+                    if self.x1s:
+                        prog_args.append(str(self.x1s.next()))
+
+                output = check_output(prog_args)
+                segmentos = output.split("\n\n")
+                if len(segmentos) == 3:
+                    detalle, iteraciones, resultados = segmentos
+                    iteraciones = map(lambda line: line.split(" ")[0], iteraciones.split("\n"))
+                else:
+                    detalle, resultados = segmentos
+                    resultados = resultados.lstrip("\n")
+                    iteraciones = []
+
+                resultados = map(lambda line: line.split(" ")[0], resultados.split("\n"))
+                resultado = float(resultados[0])
+                iteraciones = int(resultados[1])
+                absoluto = float(resultados[2])
+                relativo = float(resultados[3])
+                tiempo = float(resultados[4])
+
+                self.resultados.append({
+                    'alpha': alpha,
+                    'iteraciones': iteraciones,
+                    'resultado': resultado,
+                    'absoluto': absoluto,
+                    'relativo': relativo,
+                    'tiempo': tiempo,
+                })
+        except KeyboardInterrupt:
+            import sys
+            sys.exc_clear()

@@ -171,57 +171,6 @@ x1s = {'cercanos': cercanos_x1, 'fijo': fijo}
 detencion = 'relativo',
 detencion_args = (0.01, 0.0001, 0.000001)
 
-for params in itertools.product(funcion[0], metodos, intervalos, detencion, detencion_args, x0s):
-    intervalo = list(intervalos[params[2]]())
-    experimento = Experimento(
-        funcion=params[0], metodo=params[1], entradas=intervalo,
-        criterio=params[3], limite=params[4], x0s=x0s[params[5]](intervalo), x1s=x1s[params[5]](intervalo))
-    experimento.name = '-'.join(map(str, params))
-
-    # Obtener x0 y x1 para alpha
-    experimento_filename = 'resultados/' + experimento.name + '.json'
-    if os.path.exists(experimento_filename):
-        print "Salteando test %s..." % experimento.name
-        continue
-
-    with open(experimento_filename, 'w') as datafile:
-        try:
-            print "Corriendo tests para experimento %s..." % experimento.name
-            experimento.run()
-            json.dump(experimento.resultados, datafile, indent=4)
-
-            # Make plots
-            fig1 = plt.figure(1)
-            plt.title(experimento.name.replace('-', ', '))
-            plt.xlabel('alpha')
-            plt.ylabel('tiempo ms')
-            plt.grid(True)
-            plt.plot(intervalo, [res['tiempo'] * 1000 for res in experimento.resultados])
-            fig1.savefig('resultados/' + 'tiempo-' + experimento.name + '.png')
-            plt.close()
-
-            fig2 = plt.figure(2)
-            plt.title(experimento.name.replace('-', ', '))
-            plt.xlabel('alpha')
-            plt.ylabel('error relativo')
-            plt.grid(True)
-            plt.plot(intervalo, [res['relativo'] for res in experimento.resultados])
-            fig2.savefig('resultados/' + 'relativo-' + experimento.name + '.png')
-            plt.close()
-
-            fig3 = plt.figure(3)
-            plt.title(experimento.name.replace('-', ', '))
-            plt.xlabel('alpha')
-            plt.ylabel('iteraciones')
-            plt.grid(True)
-            plt.plot(intervalo, [res['iteraciones']for res in experimento.resultados])
-            fig3.savefig('resultados/' + 'iteraciones-' + experimento.name + '.png')
-            plt.close()
-        except KeyboardInterrupt:
-            print "Saliendo del programa. Experimento actual: %s..." % experimento.name
-            exit(1)
-
-
 def make_experimentos(params_list):
     """
     Toma una lista de listas de argumentos para el experimento,

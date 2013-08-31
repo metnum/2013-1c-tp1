@@ -37,20 +37,18 @@ def chicos():
     Casos chicos de alfa
     """
     def make_chico():
-        start = 1 * 10 ** (-6)
+        start = 1 * 10 ** (-5)
         end = 1 * 10 ** (-3)
-        step = 1 * 10 ** (-6)
+        step = 1 * 10 ** (-5)
 
         iters = 0
         a = start
-        while a <= end:
+        while a < end:
             yield a
             a += step
             iters += 1
             if iters % 100 == 0:
                 print("%s iterations, a=%s, end=%s" % (iters, a, end))
-            if iters % 10 == 0:
-                step *= 10
         raise StopIteration
     return make_chico()
 
@@ -66,7 +64,7 @@ def regulares():
 
         a = start
         iters = 0
-        while a <= end:
+        while a < end:
             yield a
             a += step
             iters += 1
@@ -81,20 +79,18 @@ def grandes():
     Casos "grandes" de todo tiempo, arrancando en 10e4 hasta 10e12 en intervalos que incrementan logaritmicamente
     """
     def make_grande():
-        start = 1 * 10 ** (4)
+        start = 1 * 10 ** (8)
         end = 1 * 10 ** (10)
-        step = 1 * 10 ** (4)
+        step = 1 * 10 ** (8)
 
         iters = 0
         a = start
-        while a <= end:
+        while a < end:
             yield a
             a += step
             iters += 1
             if iters % 100 == 0:
                 print("%s iterations, a=%s, end=%s" % (iters, a, end))
-            if iters % 10 == 0:
-                step *= 10
         raise StopIteration
     return make_grande()
 
@@ -102,10 +98,11 @@ def grandes():
 def fijo(alfas):
     """
     Genera los x0s cercanos para un conjunto de parámetros
+    El valor es 0 + epsilon para poder ser utilizado al resolver secantes
     """
     def make_fijos(alfas):
         for alfa in alfas:
-            yield 0
+            yield 1 * 10 ** (-7)
         raise StopIteration
     return make_fijos(alfas)
 

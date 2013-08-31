@@ -50,9 +50,12 @@ class Experimento(object):
             self.x0 = x0
         if x1:
             self.x1 = x1
+        if x0s:
+            self.x0s = x0s
+        if x1s:
+            self.x1s = x1s
 
     def run(self):
-
         if self.resultados:  # ya se corrio
             return
 
@@ -130,7 +133,7 @@ class Experimento(object):
 
         try:  # Para poder detener el test y poder ver resultados
             for alpha in self.entradas:
-                prog_args = ("%s" % arg for arg in [executable, alpha] + args)
+                prog_args = ["%s" % arg for arg in [executable, alpha] + args]
 
                 if self.x0s:
                     prog_args.append(str(self.x0s.next()))

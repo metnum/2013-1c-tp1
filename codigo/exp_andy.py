@@ -1,6 +1,7 @@
 #coding: utf8
 from matplotlib import pyplot as plt
 from tp1 import Experimento
+import math
 import json
 import itertools
 import os
@@ -115,6 +116,22 @@ def fijo_x1(alfas):
     return make_fijos(alfas)
 
 
+def cercanos(alfas):
+    def make_cercanos(alfas):
+        for alfa in alfas:
+            result = math.sqrt(alfa)
+            yield result - 0.5
+        raise StopIteration
+    return make_cercanos(alfas)
+
+def cercanos_x1(alfas):
+    def make_cercanos(alfas):
+        for alfa in alfas:
+            result = math.sqrt(alfa)
+            yield result + 0.5
+        raise StopIteration
+    return make_cercanos(alfas)
+
 def normales(alfas):
     def make_normales(alfas):
         for alfa in alfas:
@@ -147,8 +164,10 @@ def distantes_x1(alfas):
 funcion = ['f']
 metodos = ['newton', 'secante']  # Newton, Secante, F
 intervalos = {'chicos': chicos, 'regulares': regulares, 'grandes': grandes}
-x0s = {'fijo': fijo} #, 'normales': normales, 'distantes': distantes}
-x1s = {'fijo': fijo_x1} # 'normales': normales_x1, 'distantes': distantes_x1}
+#x0s = {'fijo': fijo, 'cercanos': cercanos} #, 'normales': normales, 'distantes': distantes}
+#x1s = {'fijo': fijo_x1, 'cercanos': cercanos_x1} # 'normales': normales_x1, 'distantes': distantes_x1}
+x0s = {'cercanos': cercanos, 'fijo': fijo}
+x1s = {'cercanos': cercanos_x1, 'fijo': fijo}
 detencion = 'relativo',
 detencion_args = (0.01, 0.0001, 0.000001)
 
@@ -202,51 +221,62 @@ for params in itertools.product(funcion[0], metodos, intervalos, detencion, dete
             print "Saliendo del programa. Experimento actual: %s..." % experimento.name
             exit(1)
 
-# def make_rango():
-#     def test_rango():
-#         start = 10**(-4)
-#         end = 10**(4)
-#         step = 10**(-2)
-#
-#         a = start
-#         iters = 0
-#         while a != end:
-#             yield a
-#             a += step
-#             iters += 1
-#             if iters % 100 == 0:
-#                 print("%s iterations, a=%s, end=%s" % (iters, a, end))
-#         raise StopIteration
-#     return test_rango()
-#
-# class MiExp(Experimento):
-#     funcion = 'f'
-#     criterio = 'relativo'
-#     limite = 0.01
-#
-# newton = MiExp(metodo='newton', entradas=make_rango())
-# secante = MiExp(metodo='secante', entradas=make_rango())
-#
-#
-# newton.run()
-# secante.run()
-#
-# common_length = min(len(newton.resultados), len(secante.resultados))
-# list_rango = list(itertools.islice(make_rango(), 0, common_length))
-#
-#
-# fig1 = plt.figure(1)
-# plt.title("comparacion de tiempo")
-# plt.xlabel('alpha')
-# plt.ylabel('tiempo ms')
-# plt.grid(True)
-# plt.plot(list_rango, [res['tiempo'] * 1000 for res in newton.resultados[0:common_length]])
-# plt.plot(list_rango, [res['tiempo'] * 1000 for res in secante.resultados[0:common_length]])
-#
-# fig2 = plt.figure(2)
-# plt.title("comparacion de iteraciones")
-# plt.xlabel('alpha')
-# plt.ylabel('iteraciones')
-# plt.plot(list_rango, [res['iteraciones'] for res in newton.resultados[0:common_length]])
-# plt.plot(list_rango, [res['iteraciones'] for res in secante.resultados[0:common_length]])
-#
+
+def make_experimentos(params_list):
+    """
+    Toma una lista de listas de argumentos para el experimento,
+    los realiza, y guarda los gráficos de las mismas.
+    """
+    for params in params_list:
+        intervalo = list(intervalos[params[2]]())
+        experimento = Experimento(
+            funcion=params[0], metodo=params[1], entradas=intervalo,
+            criterio=params[3], limite=params[4], x0s=x0s[params[5]](intervalo), x1s=x1s[params[5]](intervalo))
+        experimento.name = '-'.join(map(str, params))
+
+        # Obtener x0 y x1 para alpha
+        experimento_filename = 'resultados/' + experimento.name + '.json'
+        if os.path.exists(experimento_filename):
+            print "Salteando test %s..." % experimento.name
+            continue
+
+        with open(experimento_filename, 'w') as datafile:
+            try:
+                print "Corriendo tests para experimento %s..." % experimento.name
+                experimento.run()
+                json.dump(experimento.resultados, datafile, indent=4)
+
+                # Make plots
+                fig1 = plt.figure(1)
+                plt.title(experimento.name.replace('-', ', '))
+                plt.xlabel('alpha')
+                plt.ylabel('tiempo ms')
+                plt.grid(True)
+                plt.plot(intervalo, [res['tiempo'] * 1000 for res in experimento.resultados])
+                fig1.savefig('resultados/' + 'tiempo-' + experimento.name + '.png')
+                plt.close()
+
+                fig2 = plt.figure(2)
+                plt.title(experimento.name.replace('-', ', '))
+                plt.xlabel('alpha')
+                plt.ylabel('error relativo')
+                plt.grid(True)
+                plt.plot(intervalo, [res['relativo'] for res in experimento.resultados])
+                fig2.savefig('resultados/' + 'relativo-' + experimento.name + '.png')
+                plt.close()
+
+                fig3 = plt.figure(3)
+                plt.title(experimento.name.replace('-', ', '))
+                plt.xlabel('alpha')
+                plt.ylabel('iteraciones')
+                plt.grid(True)
+                plt.plot(intervalo, [res['iteraciones']for res in experimento.resultados])
+                fig3.savefig('resultados/' + 'iteraciones-' + experimento.name + '.png')
+                plt.close()
+            except KeyboardInterrupt:
+                print "Saliendo del programa. Experimento actual: %s..." % experimento.name
+                exit(1)
+
+
+make_experimentos(list(itertools.product(
+    funcion[0], metodos, intervalos, detencion, detencion_args, x0s)))

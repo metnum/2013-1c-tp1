@@ -1,0 +1,794 @@
+[
+    {
+        "tiempo": 2.7e-05, 
+        "resultado": 9.999999987499376e-05, 
+        "absoluto": 0.25001248531771125, 
+        "alpha": 100000000, 
+        "relativo": 2.5001248531771124e-09, 
+        "iteraciones": 1
+    }, 
+    {
+        "tiempo": 1.3e-05, 
+        "resultado": 7.070817820719472e-05, 
+        "absoluto": 14142.38474829054, 
+        "alpha": 200000000, 
+        "relativo": 7.07119237414527e-05, 
+        "iteraciones": 0
+    }, 
+    {
+        "tiempo": 2.7e-05, 
+        "resultado": 5.773336030036962e-05, 
+        "absoluto": 17320.75846461585, 
+        "alpha": 300000000, 
+        "relativo": 5.77358615487195e-05, 
+        "iteraciones": 0
+    }, 
+    {
+        "tiempo": 2.9e-05, 
+        "resultado": 4.999875003124922e-05, 
+        "absoluto": 20000.250000030384, 
+        "alpha": 400000000, 
+        "relativo": 5.000062500007596e-05, 
+        "iteraciones": 0
+    }, 
+    {
+        "tiempo": 3.2e-05, 
+        "resultado": 4.4720359572351764e-05, 
+        "absoluto": 22360.92986913101, 
+        "alpha": 500000000, 
+        "relativo": 4.472185973826202e-05, 
+        "iteraciones": 0
+    }, 
+    {
+        "tiempo": 3.1e-05, 
+        "resultado": 4.082399573011593e-05, 
+        "absoluto": 24495.145870849257, 
+        "alpha": 600000000, 
+        "relativo": 4.082524311808209e-05, 
+        "iteraciones": 0
+    }, 
+    {
+        "tiempo": 2.8e-05, 
+        "resultado": 3.779573302877249e-05, 
+        "absoluto": 26457.760681589425, 
+        "alpha": 700000000, 
+        "relativo": 3.779680097369918e-05, 
+        "iteraciones": 0
+    }, 
+    {
+        "tiempo": 2.8e-05, 
+        "resultado": 3.53547140703281e-05, 
+        "absoluto": 28284.523402694555, 
+        "alpha": 800000000, 
+        "relativo": 3.5355654253368193e-05, 
+        "iteraciones": 0
+    }, 
+    {
+        "tiempo": 2.8e-05, 
+        "resultado": 3.333277778703688e-05, 
+        "absoluto": 30000.249999996682, 
+        "alpha": 900000000, 
+        "relativo": 3.3333611111107425e-05, 
+        "iteraciones": 0
+    }, 
+    {
+        "tiempo": 2.7e-05, 
+        "resultado": 3.1622276609573154e-05, 
+        "absoluto": 31623.027626849944, 
+        "alpha": 1000000000, 
+        "relativo": 3.1623027626849944e-05, 
+        "iteraciones": 0
+    }, 
+    {
+        "tiempo": 2.7e-05, 
+        "resultado": 3.0150679919132424e-05, 
+        "absoluto": 33166.500955125666, 
+        "alpha": 1100000000, 
+        "relativo": 3.0151364504659698e-05, 
+        "iteraciones": 0
+    }, 
+    {
+        "tiempo": 2.7e-05, 
+        "resultado": 2.886709679880989e-05, 
+        "absoluto": 34641.26770694519, 
+        "alpha": 1200000000, 
+        "relativo": 2.8867723089120993e-05, 
+        "iteraciones": 0
+    }, 
+    {
+        "tiempo": 2.7e-05, 
+        "resultado": 2.773462520124111e-05, 
+        "absoluto": 36055.759877873235, 
+        "alpha": 1300000000, 
+        "relativo": 2.7735199906056336e-05, 
+        "iteraciones": 0
+    }, 
+    {
+        "tiempo": 3.1e-05, 
+        "resultado": 2.6725767053185907e-05, 
+        "absoluto": 37416.82091808808, 
+        "alpha": 1400000000, 
+        "relativo": 2.67263006557772e-05, 
+        "iteraciones": 0
+    }, 
+    {
+        "tiempo": 3.1e-05, 
+        "resultado": 2.5819555645668817e-05, 
+        "absoluto": 38730.085463082185, 
+        "alpha": 1500000000, 
+        "relativo": 2.5820056975388122e-05, 
+        "iteraciones": 0
+    }, 
+    {
+        "tiempo": 4.3e-05, 
+        "resultado": 2.49996875039062e-05, 
+        "absoluto": 40000.25000008312, 
+        "alpha": 1600000000, 
+        "relativo": 2.500015625005195e-05, 
+        "iteraciones": 0
+    }, 
+    {
+        "tiempo": 2.8e-05, 
+        "resultado": 2.4253268389539136e-05, 
+        "absoluto": 41231.30818521138, 
+        "alpha": 1700000000, 
+        "relativo": 2.4253710697183168e-05, 
+        "iteraciones": 0
+    }, 
+    {
+        "tiempo": 1.5e-05, 
+        "resultado": 2.3569948265043437e-05, 
+        "absoluto": 42426.65747807117, 
+        "alpha": 1800000000, 
+        "relativo": 2.3570365265595093e-05, 
+        "iteraciones": 0
+    }, 
+    {
+        "tiempo": 1.4e-05, 
+        "resultado": 2.294131023218358e-05, 
+        "absoluto": 43589.23884791881, 
+        "alpha": 1900000000, 
+        "relativo": 2.294170465679937e-05, 
+        "iteraciones": 0
+    }, 
+    {
+        "tiempo": 1.3e-05, 
+        "resultado": 2.2360429777790846e-05, 
+        "absoluto": 44721.60992650199, 
+        "alpha": 2000000000, 
+        "relativo": 2.2360804963250993e-05, 
+        "iteraciones": 0
+    }, 
+    {
+        "tiempo": 1.3e-05, 
+        "resultado": 2.1821550930939138e-05, 
+        "absoluto": 45826.01076225971, 
+        "alpha": 2100000000, 
+        "relativo": 2.182190988679034e-05, 
+        "iteraciones": 0
+    }, 
+    {
+        "tiempo": 1.5e-05, 
+        "resultado": 2.1319844365272068e-05, 
+        "absoluto": 46904.404381137574, 
+        "alpha": 2200000000, 
+        "relativo": 2.132018380960799e-05, 
+        "iteraciones": 0
+    }, 
+    {
+        "tiempo": 1.4e-05, 
+        "resultado": 2.085122401668139e-05, 
+        "absoluto": 47958.562624732265, 
+        "alpha": 2300000000, 
+        "relativo": 2.0851548967274898e-05, 
+        "iteraciones": 0
+    }, 
+    {
+        "tiempo": 1.4e-05, 
+        "resultado": 2.0412206191970907e-05, 
+        "absoluto": 48990.048425734974, 
+        "alpha": 2400000000, 
+        "relativo": 2.0412520177389573e-05, 
+        "iteraciones": 0
+    }, 
+    {
+        "tiempo": 1.3e-05, 
+        "resultado": 1.999980000199998e-05, 
+        "absoluto": 50000.249999622116, 
+        "alpha": 2500000000, 
+        "relativo": 2.0000099999848847e-05, 
+        "iteraciones": 0
+    }, 
+    {
+        "tiempo": 1.4e-05, 
+        "resultado": 1.961142120802252e-05, 
+        "absoluto": 50990.44229565933, 
+        "alpha": 2600000000, 
+        "relativo": 1.961170857525359e-05, 
+        "iteraciones": 0
+    }, 
+    {
+        "tiempo": 1.5e-05, 
+        "resultado": 1.9244823789571793e-05, 
+        "absoluto": 51961.77772775199, 
+        "alpha": 2700000000, 
+        "relativo": 1.9245102862130366e-05, 
+        "iteraciones": 0
+    }, 
+    {
+        "tiempo": 1.3e-05, 
+        "resultado": 1.889804508071719e-05, 
+        "absoluto": 52915.27708849427, 
+        "alpha": 2800000000, 
+        "relativo": 1.8898313245890812e-05, 
+        "iteraciones": 0
+    }, 
+    {
+        "tiempo": 2.2e-05, 
+        "resultado": 1.856936140552842e-05, 
+        "absoluto": 53851.89322056505, 
+        "alpha": 2900000000, 
+        "relativo": 1.8569618351918983e-05, 
+        "iteraciones": 0
+    }, 
+    {
+        "tiempo": 2.4e-05, 
+        "resultado": 1.8257251918365845e-05, 
+        "absoluto": 54772.503930746345, 
+        "alpha": 3000000000, 
+        "relativo": 1.825750131024878e-05, 
+        "iteraciones": 0
+    }, 
+    {
+        "tiempo": 2.8e-05, 
+        "resultado": 1.7960368913803397e-05, 
+        "absoluto": 55677.8936040306, 
+        "alpha": 3100000000, 
+        "relativo": 1.796061084000987e-05, 
+        "iteraciones": 0
+    }, 
+    {
+        "tiempo": 2.8e-05, 
+        "resultado": 1.7677513281052183e-05, 
+        "absoluto": 56568.7898015494, 
+        "alpha": 3200000000, 
+        "relativo": 1.767774681298419e-05, 
+        "iteraciones": 0
+    }, 
+    {
+        "tiempo": 2.8e-05, 
+        "resultado": 1.7407614081731054e-05, 
+        "absoluto": 57445.87873034435, 
+        "alpha": 3300000000, 
+        "relativo": 1.740784203949829e-05, 
+        "iteraciones": 0
+    }, 
+    {
+        "tiempo": 2.7e-05, 
+        "resultado": 1.714971145667454e-05, 
+        "absoluto": 58309.77442923561, 
+        "alpha": 3400000000, 
+        "relativo": 1.7149933655657532e-05, 
+        "iteraciones": 0
+    }, 
+    {
+        "tiempo": 2.8e-05, 
+        "resultado": 1.690294223863373e-05, 
+        "absoluto": 59161.04828537768, 
+        "alpha": 3500000000, 
+        "relativo": 1.6903156652965052e-05, 
+        "iteraciones": 0
+    }, 
+    {
+        "tiempo": 2.8e-05, 
+        "resultado": 1.6666527778935175e-05, 
+        "absoluto": 60000.250000067055, 
+        "alpha": 3600000000, 
+        "relativo": 1.6666736111129736e-05, 
+        "iteraciones": 0
+    }, 
+    {
+        "tiempo": 2.8e-05, 
+        "resultado": 1.643976359650658e-05, 
+        "absoluto": 60827.877468206454, 
+        "alpha": 3700000000, 
+        "relativo": 1.643996688329904e-05, 
+        "iteraciones": 0
+    }, 
+    {
+        "tiempo": 2.7e-05, 
+        "resultado": 1.622201053519343e-05, 
+        "absoluto": 61644.39129144908, 
+        "alpha": 3800000000, 
+        "relativo": 1.6222208234591864e-05, 
+        "iteraciones": 0
+    }, 
+    {
+        "tiempo": 2.8e-05, 
+        "resultado": 1.6012687176402856e-05, 
+        "absoluto": 62450.231984491926, 
+        "alpha": 3900000000, 
+        "relativo": 1.601287999602357e-05, 
+        "iteraciones": 0
+    }, 
+    {
+        "tiempo": 2.8e-05, 
+        "resultado": 1.5811263301821998e-05, 
+        "absoluto": 63245.807303350884, 
+        "alpha": 4000000000, 
+        "relativo": 1.5811451825837722e-05, 
+        "iteraciones": 0
+    }, 
+    {
+        "tiempo": 2.7e-05, 
+        "resultado": 1.5617254238600312e-05, 
+        "absoluto": 64031.48872700031, 
+        "alpha": 4100000000, 
+        "relativo": 1.5617436274878125e-05, 
+        "iteraciones": 0
+    }, 
+    {
+        "tiempo": 2.7e-05, 
+        "resultado": 1.5430215949503515e-05, 
+        "absoluto": 64807.65975717222, 
+        "alpha": 4200000000, 
+        "relativo": 1.54303951802791e-05, 
+        "iteraciones": 0
+    }, 
+    {
+        "tiempo": 2.8e-05, 
+        "resultado": 1.5249740755081966e-05, 
+        "absoluto": 65574.63261833461, 
+        "alpha": 4300000000, 
+        "relativo": 1.5249914562403398e-05, 
+        "iteraciones": 0
+    }, 
+    {
+        "tiempo": 2.8e-05, 
+        "resultado": 1.5075453593382922e-05, 
+        "absoluto": 66332.74474622775, 
+        "alpha": 4400000000, 
+        "relativo": 1.5075623805960851e-05, 
+        "iteraciones": 0
+    }, 
+    {
+        "tiempo": 2.8e-05, 
+        "resultado": 1.490700873971425e-05, 
+        "absoluto": 67082.29017232126, 
+        "alpha": 4500000000, 
+        "relativo": 1.4907175593849168e-05, 
+        "iteraciones": 0
+    }, 
+    {
+        "tiempo": 2.7e-05, 
+        "resultado": 1.4744086920628562e-05, 
+        "absoluto": 67823.55624993378, 
+        "alpha": 4600000000, 
+        "relativo": 1.4744251358681258e-05, 
+        "iteraciones": 0
+    }, 
+    {
+        "tiempo": 2.7e-05, 
+        "resultado": 1.4586392767588825e-05, 
+        "absoluto": 68556.79457248328, 
+        "alpha": 4700000000, 
+        "relativo": 1.458655203669857e-05, 
+        "iteraciones": 0
+    }, 
+    {
+        "tiempo": 2.8e-05, 
+        "resultado": 1.4433652563816374e-05, 
+        "absoluto": 69282.28852568008, 
+        "alpha": 4800000000, 
+        "relativo": 1.4433810109516684e-05, 
+        "iteraciones": 0
+    }, 
+    {
+        "tiempo": 2.8e-05, 
+        "resultado": 1.4285612245626817e-05, 
+        "absoluto": 70000.24999967543, 
+        "alpha": 4900000000, 
+        "relativo": 1.4285765306056211e-05, 
+        "iteraciones": 0
+    }, 
+    {
+        "tiempo": 2.8e-05, 
+        "resultado": 1.4142035624429003e-05, 
+        "absoluto": 70710.93451785203, 
+        "alpha": 5000000000, 
+        "relativo": 1.4142186903570406e-05, 
+        "iteraciones": 0
+    }, 
+    {
+        "tiempo": 2.8e-05, 
+        "resultado": 1.4002702801756406e-05, 
+        "absoluto": 71414.53021512926, 
+        "alpha": 5100000000, 
+        "relativo": 1.400284906179005e-05, 
+        "iteraciones": 0
+    }, 
+    {
+        "tiempo": 2.5e-05, 
+        "resultado": 1.386740875244739e-05, 
+        "absoluto": 72111.27842465509, 
+        "alpha": 5200000000, 
+        "relativo": 1.3867553543202902e-05, 
+        "iteraciones": 0
+    }, 
+    {
+        "tiempo": 1.7e-05, 
+        "resultado": 1.3735962055895162e-05, 
+        "absoluto": 72801.34813798219, 
+        "alpha": 5300000000, 
+        "relativo": 1.373610342226079e-05, 
+        "iteraciones": 0
+    }, 
+    {
+        "tiempo": 2.9e-05, 
+        "resultado": 1.3608183756831987e-05, 
+        "absoluto": 73484.942968552, 
+        "alpha": 5400000000, 
+        "relativo": 1.3608322771954075e-05, 
+        "iteraciones": 0
+    }, 
+    {
+        "tiempo": 2.8e-05, 
+        "resultado": 1.3483906340778954e-05, 
+        "absoluto": 74162.24130240642, 
+        "alpha": 5500000000, 
+        "relativo": 1.3484043873164802e-05, 
+        "iteraciones": 0
+    }, 
+    {
+        "tiempo": 3e-05, 
+        "resultado": 1.3362972810499716e-05, 
+        "absoluto": 74833.40090300702, 
+        "alpha": 5600000000, 
+        "relativo": 1.3363107304108396e-05, 
+        "iteraciones": 0
+    }, 
+    {
+        "tiempo": 2.7e-05, 
+        "resultado": 1.3245235851934438e-05, 
+        "absoluto": 75498.593221772, 
+        "alpha": 5700000000, 
+        "relativo": 1.3245367231889825e-05, 
+        "iteraciones": 0
+    }, 
+    {
+        "tiempo": 2.7e-05, 
+        "resultado": 1.3130557079648416e-05, 
+        "absoluto": 76157.97510481579, 
+        "alpha": 5800000000, 
+        "relativo": 1.3130685362899274e-05, 
+        "iteraciones": 0
+    }, 
+    {
+        "tiempo": 2.9e-05, 
+        "resultado": 1.301880635286896e-05, 
+        "absoluto": 76811.70961703453, 
+        "alpha": 5900000000, 
+        "relativo": 1.3018933833395683e-05, 
+        "iteraciones": 0
+    }, 
+    {
+        "tiempo": 2.8e-05, 
+        "resultado": 1.2909861154570689e-05, 
+        "absoluto": 77459.90943694906, 
+        "alpha": 6000000000, 
+        "relativo": 1.2909984906158178e-05, 
+        "iteraciones": 0
+    }, 
+    {
+        "tiempo": 2.7e-05, 
+        "resultado": 1.2803606026595735e-05, 
+        "absoluto": 78102.75198573247, 
+        "alpha": 6100000000, 
+        "relativo": 1.2803729833726634e-05, 
+        "iteraciones": 0
+    }, 
+    {
+        "tiempo": 3.1e-05, 
+        "resultado": 1.2699932055372774e-05, 
+        "absoluto": 78740.32588860253, 
+        "alpha": 6200000000, 
+        "relativo": 1.2700052562677827e-05, 
+        "iteraciones": 0
+    }, 
+    {
+        "tiempo": 2.8e-05, 
+        "resultado": 1.2598736402400813e-05, 
+        "absoluto": 79372.78334361874, 
+        "alpha": 6300000000, 
+        "relativo": 1.25988544989871e-05, 
+        "iteraciones": 0
+    }, 
+    {
+        "tiempo": 3.2e-05, 
+        "resultado": 1.2499921875488278e-05, 
+        "absoluto": 80000.24999990826, 
+        "alpha": 6400000000, 
+        "relativo": 1.2500039062485667e-05, 
+        "iteraciones": 0
+    }, 
+    {
+        "tiempo": 2.8e-05, 
+        "resultado": 1.2403396536318744e-05, 
+        "absoluto": 80622.82982236659, 
+        "alpha": 6500000000, 
+        "relativo": 1.240351228036409e-05, 
+        "iteraciones": 0
+    }, 
+    {
+        "tiempo": 2.8e-05, 
+        "resultado": 1.2309073340817648e-05, 
+        "absoluto": 81240.6406094837, 
+        "alpha": 6600000000, 
+        "relativo": 1.2309187971133894e-05, 
+        "iteraciones": 0
+    }, 
+    {
+        "tiempo": 2.7e-05, 
+        "resultado": 1.221686980922436e-05, 
+        "absoluto": 81853.77370923758, 
+        "alpha": 6700000000, 
+        "relativo": 1.2216981150632473e-05, 
+        "iteraciones": 0
+    }, 
+    {
+        "tiempo": 2.8e-05, 
+        "resultado": 1.2126707722843839e-05, 
+        "absoluto": 82462.37022817973, 
+        "alpha": 6800000000, 
+        "relativo": 1.2126819151202902e-05, 
+        "iteraciones": 0
+    }, 
+    {
+        "tiempo": 2.8e-05, 
+        "resultado": 1.2038512845242192e-05, 
+        "absoluto": 83066.49182754988, 
+        "alpha": 6900000000, 
+        "relativo": 1.2038622003992736e-05, 
+        "iteraciones": 0
+    }, 
+    {
+        "tiempo": 2.8e-05, 
+        "resultado": 1.1952214665200451e-05, 
+        "absoluto": 83666.25139024574, 
+        "alpha": 7000000000, 
+        "relativo": 1.1952321627177963e-05, 
+        "iteraciones": 0
+    }, 
+    {
+        "tiempo": 4.3e-05, 
+        "resultado": 1.1867746159816072e-05, 
+        "absoluto": 84261.75386866601, 
+        "alpha": 7100000000, 
+        "relativo": 1.1867852657558593e-05, 
+        "iteraciones": 0
+    }, 
+    {
+        "tiempo": 3.2e-05, 
+        "resultado": 1.1785043575738564e-05, 
+        "absoluto": 84853.0661691539, 
+        "alpha": 7200000000, 
+        "relativo": 1.1785148079049153e-05, 
+        "iteraciones": 0
+    }, 
+    {
+        "tiempo": 2.8e-05, 
+        "resultado": 1.1704046226859814e-05, 
+        "absoluto": 85440.29167115036, 
+        "alpha": 7300000000, 
+        "relativo": 1.1704149543993201e-05, 
+        "iteraciones": 0
+    }, 
+    {
+        "tiempo": 1.3e-05, 
+        "resultado": 1.1624696307210635e-05, 
+        "absoluto": 86023.49815265602, 
+        "alpha": 7400000000, 
+        "relativo": 1.1624797047656218e-05, 
+        "iteraciones": 0
+    }, 
+    {
+        "tiempo": 2.8e-05, 
+        "resultado": 1.1546938717516595e-05, 
+        "absoluto": 86602.78278057883, 
+        "alpha": 7500000000, 
+        "relativo": 1.1547037704077177e-05, 
+        "iteraciones": 0
+    }, 
+    {
+        "tiempo": 2.8e-05, 
+        "resultado": 1.1470720904433504e-05, 
+        "absoluto": 87178.22652117303, 
+        "alpha": 7600000000, 
+        "relativo": 1.1470819279101714e-05, 
+        "iteraciones": 0
+    }, 
+    {
+        "tiempo": 2.8e-05, 
+        "resultado": 1.1395992711271615e-05, 
+        "absoluto": 87749.89015056472, 
+        "alpha": 7700000000, 
+        "relativo": 1.139608962994347e-05, 
+        "iteraciones": 0
+    }, 
+    {
+        "tiempo": 2.7e-05, 
+        "resultado": 1.1322706239242002e-05, 
+        "absoluto": 88317.86246639257, 
+        "alpha": 7800000000, 
+        "relativo": 1.132280288030674e-05, 
+        "iteraciones": 0
+    }, 
+    {
+        "tiempo": 2.8e-05, 
+        "resultado": 1.1250815718471454e-05, 
+        "absoluto": 88882.20201391494, 
+        "alpha": 7900000000, 
+        "relativo": 1.1250911647331004e-05, 
+        "iteraciones": 0
+    }, 
+    {
+        "tiempo": 2.8e-05, 
+        "resultado": 1.118027738784728e-05, 
+        "absoluto": 89442.97060570912, 
+        "alpha": 8000000000, 
+        "relativo": 1.1180371325713641e-05, 
+        "iteraciones": 0
+    }, 
+    {
+        "tiempo": 2.9e-05, 
+        "resultado": 1.1111049383058983e-05, 
+        "absoluto": 90000.24999965727, 
+        "alpha": 8100000000, 
+        "relativo": 1.111114197526633e-05, 
+        "iteraciones": 0
+    }, 
+    {
+        "tiempo": 4e-05, 
+        "resultado": 1.1043091632208427e-05, 
+        "absoluto": 90554.10606058361, 
+        "alpha": 8200000000, 
+        "relativo": 1.1043183665924831e-05, 
+        "iteraciones": 0
+    }, 
+    {
+        "tiempo": 2.8e-05, 
+        "resultado": 1.0976365758340972e-05, 
+        "absoluto": 91104.57795802131, 
+        "alpha": 8300000000, 
+        "relativo": 1.0976455175665219e-05, 
+        "iteraciones": 0
+    }, 
+    {
+        "tiempo": 2.9e-05, 
+        "resultado": 1.0910834988316823e-05, 
+        "absoluto": 91651.76081811683, 
+        "alpha": 8400000000, 
+        "relativo": 1.091092390691867e-05, 
+        "iteraciones": 0
+    }, 
+    {
+        "tiempo": 2.8e-05, 
+        "resultado": 1.0846464067725807e-05, 
+        "absoluto": 92195.68924957467, 
+        "alpha": 8500000000, 
+        "relativo": 1.084655167642055e-05, 
+        "iteraciones": 0
+    }, 
+    {
+        "tiempo": 3.1e-05, 
+        "resultado": 1.0783219181117427e-05, 
+        "absoluto": 92736.44292469416, 
+        "alpha": 8600000000, 
+        "relativo": 1.0783307316824901e-05, 
+        "iteraciones": 0
+    }, 
+    {
+        "tiempo": 2.8e-05, 
+        "resultado": 1.0721067877420294e-05, 
+        "absoluto": 93274.04274275061, 
+        "alpha": 8700000000, 
+        "relativo": 1.0721154338247196e-05, 
+        "iteraciones": 0
+    }, 
+    {
+        "tiempo": 4e-05, 
+        "resultado": 1.0659978999897975e-05, 
+        "absoluto": 93808.57108821813, 
+        "alpha": 8800000000, 
+        "relativo": 1.0660064896388423e-05, 
+        "iteraciones": 0
+    }, 
+    {
+        "tiempo": 1.3e-05, 
+        "resultado": 1.0599922620582253e-05, 
+        "absoluto": 94340.0677291574, 
+        "alpha": 8900000000, 
+        "relativo": 1.0600007610017685e-05, 
+        "iteraciones": 0
+    }, 
+    {
+        "tiempo": 1.4e-05, 
+        "resultado": 1.0540869978626442e-05, 
+        "absoluto": 94868.58902981039, 
+        "alpha": 9000000000, 
+        "relativo": 1.0540954336645598e-05, 
+        "iteraciones": 0
+    }, 
+    {
+        "tiempo": 1.3e-05, 
+        "resultado": 1.048279342245163e-05, 
+        "absoluto": 95394.17117880844, 
+        "alpha": 9100000000, 
+        "relativo": 1.0482875953715213e-05, 
+        "iteraciones": 0
+    }, 
+    {
+        "tiempo": 1.7e-05, 
+        "resultado": 1.0425666355305999e-05, 
+        "absoluto": 95916.88921694364, 
+        "alpha": 9200000000, 
+        "relativo": 1.0425748827928657e-05, 
+        "iteraciones": 0
+    }, 
+    {
+        "tiempo": 1.5e-05, 
+        "resultado": 1.0369463184145319e-05, 
+        "absoluto": 96436.75191113073, 
+        "alpha": 9300000000, 
+        "relativo": 1.0369543216250617e-05, 
+        "iteraciones": 0
+    }, 
+    {
+        "tiempo": 2e-05, 
+        "resultado": 1.0314159271375712e-05, 
+        "absoluto": 96953.84199546278, 
+        "alpha": 9400000000, 
+        "relativo": 1.0314238510155614e-05, 
+        "iteraciones": 0
+    }, 
+    {
+        "tiempo": 2.2e-05, 
+        "resultado": 1.0259730889541495e-05, 
+        "absoluto": 97468.19546876103, 
+        "alpha": 9500000000, 
+        "relativo": 1.0259810049343266e-05, 
+        "iteraciones": 0
+    }, 
+    {
+        "tiempo": 2.7e-05, 
+        "resultado": 1.0206155178531852e-05, 
+        "absoluto": 97979.83439666871, 
+        "alpha": 9600000000, 
+        "relativo": 1.0206232749652991e-05, 
+        "iteraciones": 0
+    }, 
+    {
+        "tiempo": 2.8e-05, 
+        "resultado": 1.0153410105202108e-05, 
+        "absoluto": 98488.83569122758, 
+        "alpha": 9700000000, 
+        "relativo": 1.0153488215590472e-05, 
+        "iteraciones": 0
+    }, 
+    {
+        "tiempo": 2.8e-05, 
+        "resultado": 1.0101474425373334e-05, 
+        "absoluto": 98995.19606835768, 
+        "alpha": 9800000000, 
+        "relativo": 1.0101550619220171e-05, 
+        "iteraciones": 0
+    }, 
+    {
+        "tiempo": 3.6e-05, 
+        "resultado": 1.0050327647791574e-05, 
+        "absoluto": 99499.001272358, 
+        "alpha": 9900000000, 
+        "relativo": 1.005040416892505e-05, 
+        "iteraciones": 0
+    }
+]

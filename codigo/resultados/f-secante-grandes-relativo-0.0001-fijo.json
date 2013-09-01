@@ -1,0 +1,794 @@
+[
+    {
+        "tiempo": 0.000202, 
+        "resultado": 10000000.0, 
+        "absoluto": -100000000.0, 
+        "alpha": 100000000, 
+        "relativo": -1.0, 
+        "iteraciones": 1000
+    }, 
+    {
+        "tiempo": 0.000204, 
+        "resultado": 10000000.0, 
+        "absoluto": -200000000.0, 
+        "alpha": 200000000, 
+        "relativo": -1.0, 
+        "iteraciones": 1000
+    }, 
+    {
+        "tiempo": 0.0002, 
+        "resultado": 10000000.0, 
+        "absoluto": -300000000.0, 
+        "alpha": 300000000, 
+        "relativo": -1.0, 
+        "iteraciones": 1000
+    }, 
+    {
+        "tiempo": 0.000226, 
+        "resultado": 10000000.0, 
+        "absoluto": -400000000.0, 
+        "alpha": 400000000, 
+        "relativo": -1.0, 
+        "iteraciones": 1000
+    }, 
+    {
+        "tiempo": 0.000267, 
+        "resultado": 10000000.0, 
+        "absoluto": -500000000.0, 
+        "alpha": 500000000, 
+        "relativo": -1.0, 
+        "iteraciones": 1000
+    }, 
+    {
+        "tiempo": 0.000269, 
+        "resultado": 10000000.0, 
+        "absoluto": -600000000.0, 
+        "alpha": 600000000, 
+        "relativo": -1.0, 
+        "iteraciones": 1000
+    }, 
+    {
+        "tiempo": 0.00023, 
+        "resultado": 10000000.0, 
+        "absoluto": -700000000.0, 
+        "alpha": 700000000, 
+        "relativo": -1.0, 
+        "iteraciones": 1000
+    }, 
+    {
+        "tiempo": 0.000262, 
+        "resultado": 10000000.0, 
+        "absoluto": -800000000.0, 
+        "alpha": 800000000, 
+        "relativo": -1.0, 
+        "iteraciones": 1000
+    }, 
+    {
+        "tiempo": 0.000201, 
+        "resultado": 10000000.0, 
+        "absoluto": -900000000.0, 
+        "alpha": 900000000, 
+        "relativo": -1.0, 
+        "iteraciones": 1000
+    }, 
+    {
+        "tiempo": 0.0002, 
+        "resultado": 10000000.0, 
+        "absoluto": -1000000000.0, 
+        "alpha": 1000000000, 
+        "relativo": -1.0, 
+        "iteraciones": 1000
+    }, 
+    {
+        "tiempo": 0.0002, 
+        "resultado": 10000000.0, 
+        "absoluto": -1100000000.0, 
+        "alpha": 1100000000, 
+        "relativo": -1.0, 
+        "iteraciones": 1000
+    }, 
+    {
+        "tiempo": 0.0002, 
+        "resultado": 10000000.0, 
+        "absoluto": -1200000000.0, 
+        "alpha": 1200000000, 
+        "relativo": -1.0, 
+        "iteraciones": 1000
+    }, 
+    {
+        "tiempo": 0.000201, 
+        "resultado": 10000000.0, 
+        "absoluto": -1300000000.0, 
+        "alpha": 1300000000, 
+        "relativo": -1.0, 
+        "iteraciones": 1000
+    }, 
+    {
+        "tiempo": 0.000201, 
+        "resultado": 10000000.0, 
+        "absoluto": -1400000000.0, 
+        "alpha": 1400000000, 
+        "relativo": -1.0, 
+        "iteraciones": 1000
+    }, 
+    {
+        "tiempo": 0.000202, 
+        "resultado": 10000000.0, 
+        "absoluto": -1500000000.0, 
+        "alpha": 1500000000, 
+        "relativo": -1.0, 
+        "iteraciones": 1000
+    }, 
+    {
+        "tiempo": 0.000208, 
+        "resultado": 10000000.0, 
+        "absoluto": -1600000000.0, 
+        "alpha": 1600000000, 
+        "relativo": -1.0, 
+        "iteraciones": 1000
+    }, 
+    {
+        "tiempo": 0.000201, 
+        "resultado": 10000000.0, 
+        "absoluto": -1700000000.0, 
+        "alpha": 1700000000, 
+        "relativo": -1.0, 
+        "iteraciones": 1000
+    }, 
+    {
+        "tiempo": 0.0002, 
+        "resultado": 10000000.0, 
+        "absoluto": -1800000000.0, 
+        "alpha": 1800000000, 
+        "relativo": -1.0, 
+        "iteraciones": 1000
+    }, 
+    {
+        "tiempo": 0.000201, 
+        "resultado": 10000000.0, 
+        "absoluto": -1900000000.0, 
+        "alpha": 1900000000, 
+        "relativo": -1.0, 
+        "iteraciones": 1000
+    }, 
+    {
+        "tiempo": 0.0002, 
+        "resultado": 10000000.0, 
+        "absoluto": -2000000000.0, 
+        "alpha": 2000000000, 
+        "relativo": -1.0, 
+        "iteraciones": 1000
+    }, 
+    {
+        "tiempo": 0.0002, 
+        "resultado": 10000000.0, 
+        "absoluto": -2100000000.0, 
+        "alpha": 2100000000, 
+        "relativo": -1.0, 
+        "iteraciones": 1000
+    }, 
+    {
+        "tiempo": 0.000201, 
+        "resultado": 10000000.0, 
+        "absoluto": -2200000000.0, 
+        "alpha": 2200000000, 
+        "relativo": -1.0, 
+        "iteraciones": 1000
+    }, 
+    {
+        "tiempo": 0.0002, 
+        "resultado": 10000000.0, 
+        "absoluto": -2300000000.0, 
+        "alpha": 2300000000, 
+        "relativo": -1.0, 
+        "iteraciones": 1000
+    }, 
+    {
+        "tiempo": 0.00025, 
+        "resultado": 10000000.0, 
+        "absoluto": -2400000000.0, 
+        "alpha": 2400000000, 
+        "relativo": -1.0, 
+        "iteraciones": 1000
+    }, 
+    {
+        "tiempo": 0.000201, 
+        "resultado": 10000000.0, 
+        "absoluto": -2500000000.0, 
+        "alpha": 2500000000, 
+        "relativo": -1.0, 
+        "iteraciones": 1000
+    }, 
+    {
+        "tiempo": 0.000201, 
+        "resultado": 10000000.0, 
+        "absoluto": -2600000000.0, 
+        "alpha": 2600000000, 
+        "relativo": -1.0, 
+        "iteraciones": 1000
+    }, 
+    {
+        "tiempo": 0.0002, 
+        "resultado": 10000000.0, 
+        "absoluto": -2700000000.0, 
+        "alpha": 2700000000, 
+        "relativo": -1.0, 
+        "iteraciones": 1000
+    }, 
+    {
+        "tiempo": 0.000249, 
+        "resultado": 10000000.0, 
+        "absoluto": -2800000000.0, 
+        "alpha": 2800000000, 
+        "relativo": -1.0, 
+        "iteraciones": 1000
+    }, 
+    {
+        "tiempo": 0.000206, 
+        "resultado": 10000000.0, 
+        "absoluto": -2900000000.0, 
+        "alpha": 2900000000, 
+        "relativo": -1.0, 
+        "iteraciones": 1000
+    }, 
+    {
+        "tiempo": 0.0002, 
+        "resultado": 10000000.0, 
+        "absoluto": -3000000000.0, 
+        "alpha": 3000000000, 
+        "relativo": -1.0, 
+        "iteraciones": 1000
+    }, 
+    {
+        "tiempo": 0.0002, 
+        "resultado": 10000000.0, 
+        "absoluto": -3100000000.0, 
+        "alpha": 3100000000, 
+        "relativo": -1.0, 
+        "iteraciones": 1000
+    }, 
+    {
+        "tiempo": 0.000203, 
+        "resultado": 10000000.0, 
+        "absoluto": -3200000000.0, 
+        "alpha": 3200000000, 
+        "relativo": -1.0, 
+        "iteraciones": 1000
+    }, 
+    {
+        "tiempo": 0.000182, 
+        "resultado": 10000000.0, 
+        "absoluto": -3300000000.0, 
+        "alpha": 3300000000, 
+        "relativo": -1.0, 
+        "iteraciones": 1000
+    }, 
+    {
+        "tiempo": 0.000495, 
+        "resultado": 10000000.0, 
+        "absoluto": -3400000000.0, 
+        "alpha": 3400000000, 
+        "relativo": -1.0, 
+        "iteraciones": 1000
+    }, 
+    {
+        "tiempo": 0.000441, 
+        "resultado": 10000000.0, 
+        "absoluto": -3500000000.0, 
+        "alpha": 3500000000, 
+        "relativo": -1.0, 
+        "iteraciones": 1000
+    }, 
+    {
+        "tiempo": 0.000441, 
+        "resultado": 10000000.0, 
+        "absoluto": -3600000000.0, 
+        "alpha": 3600000000, 
+        "relativo": -1.0, 
+        "iteraciones": 1000
+    }, 
+    {
+        "tiempo": 0.000444, 
+        "resultado": 10000000.0, 
+        "absoluto": -3700000000.0, 
+        "alpha": 3700000000, 
+        "relativo": -1.0, 
+        "iteraciones": 1000
+    }, 
+    {
+        "tiempo": 0.000441, 
+        "resultado": 10000000.0, 
+        "absoluto": -3800000000.0, 
+        "alpha": 3800000000, 
+        "relativo": -1.0, 
+        "iteraciones": 1000
+    }, 
+    {
+        "tiempo": 0.00048, 
+        "resultado": 10000000.0, 
+        "absoluto": -3900000000.0, 
+        "alpha": 3900000000, 
+        "relativo": -1.0, 
+        "iteraciones": 1000
+    }, 
+    {
+        "tiempo": 0.000444, 
+        "resultado": 10000000.0, 
+        "absoluto": -4000000000.0, 
+        "alpha": 4000000000, 
+        "relativo": -1.0, 
+        "iteraciones": 1000
+    }, 
+    {
+        "tiempo": 0.000441, 
+        "resultado": 10000000.0, 
+        "absoluto": -4100000000.0, 
+        "alpha": 4100000000, 
+        "relativo": -1.0, 
+        "iteraciones": 1000
+    }, 
+    {
+        "tiempo": 0.000442, 
+        "resultado": 10000000.0, 
+        "absoluto": -4200000000.0, 
+        "alpha": 4200000000, 
+        "relativo": -1.0, 
+        "iteraciones": 1000
+    }, 
+    {
+        "tiempo": 0.000441, 
+        "resultado": 10000000.0, 
+        "absoluto": -4300000000.0, 
+        "alpha": 4300000000, 
+        "relativo": -1.0, 
+        "iteraciones": 1000
+    }, 
+    {
+        "tiempo": 0.000441, 
+        "resultado": 10000000.0, 
+        "absoluto": -4400000000.0, 
+        "alpha": 4400000000, 
+        "relativo": -1.0, 
+        "iteraciones": 1000
+    }, 
+    {
+        "tiempo": 0.000441, 
+        "resultado": 10000000.0, 
+        "absoluto": -4500000000.0, 
+        "alpha": 4500000000, 
+        "relativo": -1.0, 
+        "iteraciones": 1000
+    }, 
+    {
+        "tiempo": 0.000442, 
+        "resultado": 10000000.0, 
+        "absoluto": -4600000000.0, 
+        "alpha": 4600000000, 
+        "relativo": -1.0, 
+        "iteraciones": 1000
+    }, 
+    {
+        "tiempo": 0.000459, 
+        "resultado": 10000000.0, 
+        "absoluto": -4700000000.0, 
+        "alpha": 4700000000, 
+        "relativo": -1.0, 
+        "iteraciones": 1000
+    }, 
+    {
+        "tiempo": 0.000442, 
+        "resultado": 10000000.0, 
+        "absoluto": -4800000000.0, 
+        "alpha": 4800000000, 
+        "relativo": -1.0, 
+        "iteraciones": 1000
+    }, 
+    {
+        "tiempo": 0.000441, 
+        "resultado": 10000000.0, 
+        "absoluto": -4900000000.0, 
+        "alpha": 4900000000, 
+        "relativo": -1.0, 
+        "iteraciones": 1000
+    }, 
+    {
+        "tiempo": 0.000442, 
+        "resultado": 10000000.0, 
+        "absoluto": -5000000000.0, 
+        "alpha": 5000000000, 
+        "relativo": -1.0, 
+        "iteraciones": 1000
+    }, 
+    {
+        "tiempo": 0.000441, 
+        "resultado": 10000000.0, 
+        "absoluto": -5100000000.0, 
+        "alpha": 5100000000, 
+        "relativo": -1.0, 
+        "iteraciones": 1000
+    }, 
+    {
+        "tiempo": 0.000461, 
+        "resultado": 10000000.0, 
+        "absoluto": -5200000000.0, 
+        "alpha": 5200000000, 
+        "relativo": -1.0, 
+        "iteraciones": 1000
+    }, 
+    {
+        "tiempo": 0.000592, 
+        "resultado": 10000000.0, 
+        "absoluto": -5300000000.0, 
+        "alpha": 5300000000, 
+        "relativo": -1.0, 
+        "iteraciones": 1000
+    }, 
+    {
+        "tiempo": 0.00028, 
+        "resultado": 10000000.0, 
+        "absoluto": -5400000000.0, 
+        "alpha": 5400000000, 
+        "relativo": -1.0, 
+        "iteraciones": 1000
+    }, 
+    {
+        "tiempo": 0.0002, 
+        "resultado": 10000000.0, 
+        "absoluto": -5500000000.0, 
+        "alpha": 5500000000, 
+        "relativo": -1.0, 
+        "iteraciones": 1000
+    }, 
+    {
+        "tiempo": 0.00026, 
+        "resultado": 10000000.0, 
+        "absoluto": -5600000000.0, 
+        "alpha": 5600000000, 
+        "relativo": -1.0, 
+        "iteraciones": 1000
+    }, 
+    {
+        "tiempo": 0.000224, 
+        "resultado": 10000000.0, 
+        "absoluto": -5700000000.0, 
+        "alpha": 5700000000, 
+        "relativo": -1.0, 
+        "iteraciones": 1000
+    }, 
+    {
+        "tiempo": 0.000223, 
+        "resultado": 10000000.0, 
+        "absoluto": -5800000000.0, 
+        "alpha": 5800000000, 
+        "relativo": -1.0, 
+        "iteraciones": 1000
+    }, 
+    {
+        "tiempo": 0.00027, 
+        "resultado": 10000000.0, 
+        "absoluto": -5900000000.0, 
+        "alpha": 5900000000, 
+        "relativo": -1.0, 
+        "iteraciones": 1000
+    }, 
+    {
+        "tiempo": 0.000183, 
+        "resultado": 10000000.0, 
+        "absoluto": -6000000000.0, 
+        "alpha": 6000000000, 
+        "relativo": -1.0, 
+        "iteraciones": 1000
+    }, 
+    {
+        "tiempo": 0.000307, 
+        "resultado": 10000000.0, 
+        "absoluto": -6100000000.0, 
+        "alpha": 6100000000, 
+        "relativo": -1.0, 
+        "iteraciones": 1000
+    }, 
+    {
+        "tiempo": 0.000443, 
+        "resultado": 10000000.0, 
+        "absoluto": -6200000000.0, 
+        "alpha": 6200000000, 
+        "relativo": -1.0, 
+        "iteraciones": 1000
+    }, 
+    {
+        "tiempo": 0.000441, 
+        "resultado": 10000000.0, 
+        "absoluto": -6300000000.0, 
+        "alpha": 6300000000, 
+        "relativo": -1.0, 
+        "iteraciones": 1000
+    }, 
+    {
+        "tiempo": 0.000518, 
+        "resultado": 10000000.0, 
+        "absoluto": -6400000000.0, 
+        "alpha": 6400000000, 
+        "relativo": -1.0, 
+        "iteraciones": 1000
+    }, 
+    {
+        "tiempo": 0.000441, 
+        "resultado": 10000000.0, 
+        "absoluto": -6500000000.0, 
+        "alpha": 6500000000, 
+        "relativo": -1.0, 
+        "iteraciones": 1000
+    }, 
+    {
+        "tiempo": 0.000445, 
+        "resultado": 10000000.0, 
+        "absoluto": -6600000000.0, 
+        "alpha": 6600000000, 
+        "relativo": -1.0, 
+        "iteraciones": 1000
+    }, 
+    {
+        "tiempo": 0.000441, 
+        "resultado": 10000000.0, 
+        "absoluto": -6700000000.0, 
+        "alpha": 6700000000, 
+        "relativo": -1.0, 
+        "iteraciones": 1000
+    }, 
+    {
+        "tiempo": 0.000444, 
+        "resultado": 10000000.0, 
+        "absoluto": -6800000000.0, 
+        "alpha": 6800000000, 
+        "relativo": -1.0, 
+        "iteraciones": 1000
+    }, 
+    {
+        "tiempo": 0.000441, 
+        "resultado": 10000000.0, 
+        "absoluto": -6900000000.0, 
+        "alpha": 6900000000, 
+        "relativo": -1.0, 
+        "iteraciones": 1000
+    }, 
+    {
+        "tiempo": 0.000443, 
+        "resultado": 10000000.0, 
+        "absoluto": -7000000000.0, 
+        "alpha": 7000000000, 
+        "relativo": -1.0, 
+        "iteraciones": 1000
+    }, 
+    {
+        "tiempo": 0.000443, 
+        "resultado": 10000000.0, 
+        "absoluto": -7100000000.0, 
+        "alpha": 7100000000, 
+        "relativo": -1.0, 
+        "iteraciones": 1000
+    }, 
+    {
+        "tiempo": 0.000579, 
+        "resultado": 10000000.0, 
+        "absoluto": -7200000000.0, 
+        "alpha": 7200000000, 
+        "relativo": -1.0, 
+        "iteraciones": 1000
+    }, 
+    {
+        "tiempo": 0.000442, 
+        "resultado": 10000000.0, 
+        "absoluto": -7300000000.0, 
+        "alpha": 7300000000, 
+        "relativo": -1.0, 
+        "iteraciones": 1000
+    }, 
+    {
+        "tiempo": 0.000495, 
+        "resultado": 10000000.0, 
+        "absoluto": -7400000000.0, 
+        "alpha": 7400000000, 
+        "relativo": -1.0, 
+        "iteraciones": 1000
+    }, 
+    {
+        "tiempo": 0.000442, 
+        "resultado": 10000000.0, 
+        "absoluto": -7500000000.0, 
+        "alpha": 7500000000, 
+        "relativo": -1.0, 
+        "iteraciones": 1000
+    }, 
+    {
+        "tiempo": 0.000494, 
+        "resultado": 10000000.0, 
+        "absoluto": -7600000000.0, 
+        "alpha": 7600000000, 
+        "relativo": -1.0, 
+        "iteraciones": 1000
+    }, 
+    {
+        "tiempo": 0.000441, 
+        "resultado": 10000000.0, 
+        "absoluto": -7700000000.0, 
+        "alpha": 7700000000, 
+        "relativo": -1.0, 
+        "iteraciones": 1000
+    }, 
+    {
+        "tiempo": 0.000441, 
+        "resultado": 10000000.0, 
+        "absoluto": -7800000000.0, 
+        "alpha": 7800000000, 
+        "relativo": -1.0, 
+        "iteraciones": 1000
+    }, 
+    {
+        "tiempo": 0.000443, 
+        "resultado": 10000000.0, 
+        "absoluto": -7900000000.0, 
+        "alpha": 7900000000, 
+        "relativo": -1.0, 
+        "iteraciones": 1000
+    }, 
+    {
+        "tiempo": 0.000442, 
+        "resultado": 10000000.0, 
+        "absoluto": -8000000000.0, 
+        "alpha": 8000000000, 
+        "relativo": -1.0, 
+        "iteraciones": 1000
+    }, 
+    {
+        "tiempo": 0.000477, 
+        "resultado": 10000000.0, 
+        "absoluto": -8100000000.0, 
+        "alpha": 8100000000, 
+        "relativo": -1.0, 
+        "iteraciones": 1000
+    }, 
+    {
+        "tiempo": 0.000442, 
+        "resultado": 10000000.0, 
+        "absoluto": -8200000000.0, 
+        "alpha": 8200000000, 
+        "relativo": -1.0, 
+        "iteraciones": 1000
+    }, 
+    {
+        "tiempo": 0.003148, 
+        "resultado": 10000000.0, 
+        "absoluto": -8300000000.0, 
+        "alpha": 8300000000, 
+        "relativo": -1.0, 
+        "iteraciones": 1000
+    }, 
+    {
+        "tiempo": 0.000442, 
+        "resultado": 10000000.0, 
+        "absoluto": -8400000000.0, 
+        "alpha": 8400000000, 
+        "relativo": -1.0, 
+        "iteraciones": 1000
+    }, 
+    {
+        "tiempo": 0.000517, 
+        "resultado": 10000000.0, 
+        "absoluto": -8500000000.0, 
+        "alpha": 8500000000, 
+        "relativo": -1.0, 
+        "iteraciones": 1000
+    }, 
+    {
+        "tiempo": 0.000442, 
+        "resultado": 10000000.0, 
+        "absoluto": -8600000000.0, 
+        "alpha": 8600000000, 
+        "relativo": -1.0, 
+        "iteraciones": 1000
+    }, 
+    {
+        "tiempo": 0.000442, 
+        "resultado": 10000000.0, 
+        "absoluto": -8700000000.0, 
+        "alpha": 8700000000, 
+        "relativo": -1.0, 
+        "iteraciones": 1000
+    }, 
+    {
+        "tiempo": 0.000441, 
+        "resultado": 10000000.0, 
+        "absoluto": -8800000000.0, 
+        "alpha": 8800000000, 
+        "relativo": -1.0, 
+        "iteraciones": 1000
+    }, 
+    {
+        "tiempo": 0.000458, 
+        "resultado": 10000000.0, 
+        "absoluto": -8900000000.0, 
+        "alpha": 8900000000, 
+        "relativo": -1.0, 
+        "iteraciones": 1000
+    }, 
+    {
+        "tiempo": 0.000442, 
+        "resultado": 10000000.0, 
+        "absoluto": -9000000000.0, 
+        "alpha": 9000000000, 
+        "relativo": -1.0, 
+        "iteraciones": 1000
+    }, 
+    {
+        "tiempo": 0.000442, 
+        "resultado": 10000000.0, 
+        "absoluto": -9100000000.0, 
+        "alpha": 9100000000, 
+        "relativo": -1.0, 
+        "iteraciones": 1000
+    }, 
+    {
+        "tiempo": 0.000442, 
+        "resultado": 10000000.0, 
+        "absoluto": -9200000000.0, 
+        "alpha": 9200000000, 
+        "relativo": -1.0, 
+        "iteraciones": 1000
+    }, 
+    {
+        "tiempo": 0.000442, 
+        "resultado": 10000000.0, 
+        "absoluto": -9300000000.0, 
+        "alpha": 9300000000, 
+        "relativo": -1.0, 
+        "iteraciones": 1000
+    }, 
+    {
+        "tiempo": 0.000441, 
+        "resultado": 10000000.0, 
+        "absoluto": -9400000000.0, 
+        "alpha": 9400000000, 
+        "relativo": -1.0, 
+        "iteraciones": 1000
+    }, 
+    {
+        "tiempo": 0.000441, 
+        "resultado": 10000000.0, 
+        "absoluto": -9500000000.0, 
+        "alpha": 9500000000, 
+        "relativo": -1.0, 
+        "iteraciones": 1000
+    }, 
+    {
+        "tiempo": 0.000442, 
+        "resultado": 10000000.0, 
+        "absoluto": -9600000000.0, 
+        "alpha": 9600000000, 
+        "relativo": -1.0, 
+        "iteraciones": 1000
+    }, 
+    {
+        "tiempo": 0.000442, 
+        "resultado": 10000000.0, 
+        "absoluto": -9700000000.0, 
+        "alpha": 9700000000, 
+        "relativo": -1.0, 
+        "iteraciones": 1000
+    }, 
+    {
+        "tiempo": 0.000442, 
+        "resultado": 10000000.0, 
+        "absoluto": -9800000000.0, 
+        "alpha": 9800000000, 
+        "relativo": -1.0, 
+        "iteraciones": 1000
+    }, 
+    {
+        "tiempo": 0.000442, 
+        "resultado": 10000000.0, 
+        "absoluto": -9900000000.0, 
+        "alpha": 9900000000, 
+        "relativo": -1.0, 
+        "iteraciones": 1000
+    }
+]

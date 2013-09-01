@@ -1,0 +1,103 @@
+\begin{center}
+\begin{tabular}{r|cr}
+ \begin{tabular}{c}
+{\large\bf\textsf{\ M\'etodos Num\'ericos\ }}\\ 
+Segundo Cuatrimestre 2013\\
+{\bf Trabajo Pr\'actico 1}
+\end{tabular} &
+\begin{tabular}{@{} p{1.6cm} @{}}
+\includegraphics[width=1.6cm]{../../logodpt.jpg}
+\end{tabular} &
+\begin{tabular}{l @{}}
+ \emph{Departamento de Computaci\'on} \\
+ \emph{Facultad de Ciencias Exactas y Naturales} \\
+ \emph{Universidad de Buenos Aires} \\
+\end{tabular} 
+\end{tabular}
+\end{center}
+
+\vskip 25pt
+\hrule
+\vskip 11pt
+ 
+\textbf{Introducci\'on}
+
+En las \'ultimas dos d\'ecadas se han producido avances muy significativos en el \'area de Computaci\'on Gr\'afica, en
+particular en el desarrollo de animaciones y video juegos en 3D donde se obtienen resultados muy detallados y con un
+alto nivel de realismo. 
+
+Un aspecto importante que contribuye en este sentido es la iluminaci\'on de la escena y el reflejo de la luz en los
+objetos o personajes de la misma. A grandes rasgos, el manejo de la iluminaci\'on se hace de la siguiente forma. Dada
+una superficie en el espacio, se calculan los vectores normales a la misma (recordar \emph{An\'alisis II}) sobre un
+conjunto determinado de puntos y luego estos vectores son utilizados, en conjunto con el modelo de iluminaci\'on, para
+calcular su color final y la interacci\'on con otras superficies. Adem\'as, por cuestiones pr\'acticas, los vectores
+normales deber ser almacenados como vectores unitarios, es decir, que su norma Euclideana ($\|~\|_2$) sea 1.
+
+Dado un vector $y \in \mathbb{R}^3$ cualquiera, podemos convertirlo en uno unitario dividi\'endolo por $\|y\|_2$, es
+decir, 
+\begin{eqnarray*}
+\| y \|_2 & = & \sqrt{y_1^2 + y_2^2 + y_3^2}\\
+z & = & \frac{y}{\|y\|_2}.
+\end{eqnarray*}
+\noindent Durante la ejecuci\'on del programa, esta operaci\'on es realizada millones de veces por segundo, por lo cual
+es importante realizarla en el menor tiempo posible, eventualmente resignando precisi\'on en el
+resultado. Dado el contexto, peque\~nas reducciones en el tiempo de ejecuci\'on pueden mejorar considerablemente el
+comportamiento general.
+
+\textbf{El problema}
+
+Sean $y = (y_1, y_2, y_3) \in \mathbb{R}^3$ un vector gen\'erico y $\alpha = y_1^2 + y_2^2 + y_3^2$. El problema de
+obtener un vector unitario que posea la misma direcci\'on que $y$ lo podemos plantear como multiplicarlo por
+$1/\sqrt{\alpha}$. Luego, el problema de normalizar un vector radica principalmente en el c\'alculo de este valor, que
+involucra una divisi\'on y el c\'alculo de una ra\'iz cuadrada. 
+
+Sin utilizar funciones ya provistas por el lenguaje de programaci\'on a utilizar, el c\'alculo de $1/\sqrt{\alpha}$ se
+pueden formular como un problema de b\'usqueda de ceros de una funci\'on de (al menos) las siguientes dos formas:
+\begin{itemize}
+\item Aproximar $\beta = \sqrt{\alpha}$ como un cero de $f(x) = x^2 - \alpha$, y luego realizar $1/\beta$. 
+\item Definir la funci\'on $e(x) = \frac{1}{x^2} - \alpha$, que permite calcular el error de una aproximaci\'on de
+$1/\sqrt{\alpha}$. En particular, uno de los ceros de esta funci\'on es el valor buscado.
+\end{itemize}
+
+Estas dos reformulaciones del problema nos permiten atacarlo con m\'etodos de b\'usqueda de ceros de funciones en una
+variable.
+
+\textbf{Enunciado}
+
+El objetivo del trabajo pr\'actico consiste en implementar un programa que permita calcular, dado $\alpha \in
+\mathbb{R}$, $1/\sqrt{\alpha}$. Para ello, se deber\'a considerar las funciones $f(x)$ y $e(x)$ definidas
+anteriormente, distintos m\'etodos vistos en clase que permitan resolver el problema planteado y realizar un an\'alisis
+completo del comportamiento de los mismos. 
+
+Los requisitos m\'inimos a cumplir son los siguientes:
+
+\begin{itemize}
+\item Implementar el m\'etodo de Newton para la funci\'on $f(x)$. Incluir en el informe la demostraci\'on de
+convergencia (Ejercicio 3, Pr\'actica 1). Para la funci\'on $e(x)$, implementar al menos dos m\'etodos (uno de los
+cuales debe ser el de Newton).   
+\item Para cada m\'etodo, estudiar experimentalmente la convergencia, tiempo de ejecuci\'on, cantidad de iteraciones,
+criterios de parada, precisi\'on en el resultado, y cualquier otro par\'ametro que considere necesario evaluar. Realizar experimentos
+computacionales considerando un rango amplio de valores posibles para $\alpha$ y distintos puntos iniciales
+para los m\'etodos. Analizar y justificar detalladamente los resultados obtenidos.
+\item Una vez fijados los mejores par\'ametros para cada m\'etodo, realizar una comparaci\'on entre las tres formas
+alternativas de resolver el problema (Newton para $f(x)$, y Newton m\'as el otro m\'etodo para $e(x)$) en t\'erminos de
+tiempo de ejecuci\'on, precisi\'on en la soluci\'on, cantidad de iteraciones, etc. Determinar experimentalmente que
+variante seleccionar\'ia para su utilizaci\'on en la pr\'actica.
+\end{itemize}
+
+\vskip 15pt
+
+\hrule
+
+\vskip 11pt
+
+
+{\bf \underline{Fechas de entrega}}
+\begin{itemize}
+ \item \emph{Formato Electr\'onico:} Domingo 1° de Septiembre de 2013, hasta las 23:59 hs, enviando el trabajo (informe +
+ c\'odigo) a la direcci\'on \verb+metnum.lab@gmail.com+. El subject del email debe comenzar con el texto \verb+[TP1]+
+ seguido de la lista de apellidos  de los integrantes del grupo.
+ \item \emph{Formato f\'isico:} Lunes 2 de Septiembre de 2013, de 17 a 18 hs.
+\end{itemize}
+
+\noindent \textbf{Importante:} El horario es estricto. Los correos recibidos despu\'es de la hora indicada ser\'an considerados re-entrega.

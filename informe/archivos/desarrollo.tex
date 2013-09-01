@@ -1,0 +1,100 @@
+\newpage \section{Desarrollo}
+% Deben explicarse los metodos numericos que utilizaron y su aplicacion al
+% problema concreto involucrado en el trabajo practico. Se deben mencionar los
+% pasos que si- guieron para implementar los algoritmos, las dicultades que
+% fueron encontrando y la descripcion de como las fueron resolviendo. Explicar
+% tambien como fueron planteadas y realizadas las mediciones experimentales.
+% Los ensayos fallidos, hipotesis y conjeturas equivocadas, experimentos y
+% metodos malogrados deben gurar en esta seccion, con una breve explicacion
+% de los motivos de estas fallas (en caso de ser conocidas)
+
+\subsection{implementacion}
+
+hicimos una implementacion que nos permite decidir parametricamente lo siguiente:
+
+* funcion e o f
+* metodo newton o secante
+* criterio de parada
+  * iteraciones
+  * tiempo
+  * error absoluto
+  * error relativo
+* eleccion de x0 y x1 (x1 solo para la secante)
+
+esto lo desarrollamos en C y luego hicimos unos helpers en Python para poder
+crear experimentos y analizar los resultados. Cada corrida nos devuelve todos
+los valores de los criterios de parada y las aproximaciones en cada iteracion.
+
+Estos experimentos son replicables y los puede ver en el axexo {detalle de experimentos}
+
+El codigo se puede optimizar MUCHO, sobre todo en las cuantas que realiza el
+cuerpo de cada metodo. Ahora hay una implementacion naif que replica el enfoque
+analitico pero que a nivel fierro se puede mejorar.
+
+Por otro lado, agregamos mucho overhead con la flexibilidad, pero podemos ver
+que esto afecta a los dos metodos y funciones por igual por lo que no deberia
+afectar las comparaciones y resultados.
+
+\subsection{Convergencia}
+
+empezamos con x0 fijos y vimos que tanto newton como secante siempre convergian
+para f(x). % mentira, hacer alguas corridas, tengan fe Esto es tanto para
+alphas muy chicos (cercanos al cero) como para alhpas muy grandes.
+
+en cambio para e(x) vimos que nunca convergia, al menos las aproximaciones
+crecian muy rapidamente, tanto que en un puñado de iteraciones superaban el
+mayor número representable por punto flotante doble (devolvia inf). % mostrar
+alguna corrida donde pase esto.
+
+Entonces para f(x) decidimos utilizar un x0=alpha que siempre funciona. Newton
+tiene una convergencia teorica muy rapida por lo que no deberia influir.
+
+En el caso de e(x) es muy interesante notar como las aproximaciones se alternan
+entre positivas y negativas cuando no converge. esto se debe a ???.
+
+% todavia no encontramos un x0 y x1 para e(x) para que converja
+
+empiricamente (diseñar y pensar exp) encontramos que si elejimos un x1 y x0
+cerca de e(x) converge pero sino no.
+
+un primer acercamiento a x0 que se nos ocurrio fue utilizar 0.0alpha y
+0.00alpha. Esto funciona hasta alphas no muy grandes (mas o menos hasta $10^4$,
+ajustar es numero con un experimento).
+
+% explicar que es DBL EPSILON y que es DBL MIN
+Al hacer estas pruebas nos parece que si x0 y x1 son menos que la raiz
+converge. Entonce decidimos utilizar $DBL_MIN$ y $DBL_MIN * 2$ pero estas rompian
+las operaciones aritmeticas de punto flotante. Entonce pasamos a utilizar
+$DBL_EPSILON$ y encontramos que funciona muy bien tanto para numeros muy chicos
+como para numeros muy grandes. El problema que tiene es que requiere de muchas
+iteraciones.
+
+Grafiquemos la cantidad de iteraciones necesarias para diferentes alphas (muy
+chicos y cercanos al $1$ y muy grandes) para $DBL_EPSILON$. Lo podemos mejorar?
+creemos que si, pero quedará para futura investigacion.
+
+Otra cosa que se nos ocurrio es utilizar aproximaciones de f(x) primero hasta
+un cierto error grosero y luego continuar refinando con e(x). Pero para que
+esto tenga sentido tuvimos que hacer una comparacion entre los metodos. Ver mas
+abajo.
+
+\subsection{comparacion entre criterios de convergencia para f(x) y newton}
+
+hacer muchos exp con grafiquitos y decir o refutar que relativo conviene
+siempre mas que absoluto. luego el tiempo y la cantidad de iteraciones.
+
+\subsection{comparacion entre f y e, newton}
+
+para los mismos alphas y criterios de convergencia (probamos con iteraciones,
+tiempo, error relativo) vemos cual tarda mas iteraciones y cual tarda mas
+tiempo.
+
+Podemos ver que .. es mas rapido que .. que es de suponer por la pendiente que
+tiene.
+
+\subsection{comparacion entre newton y secante para e(x)}
+
+ver cual es mas rapido
+calcular experimentalmente el orden de convergencia, hay que dividir entre
+iteraciones, deberia dar un grafico que luego de algunas iteraciones sea
+constante en 2 y en phi.

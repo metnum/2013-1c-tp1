@@ -4,5 +4,15 @@
 % junto con comentarios y observaciones generales aplicables a todo el proceso.
 % Mencionar tambien posibles extensiones a los metodos, experimentos que hayan
 % quedado pendientes, etc
-
 todo depende, de que depende? de si buscas velocidad o precision
+Veamos lo que podemos implicar a partir de la comparación que se hizo de cada gráfico
+\begin{itemize}
+\item {\bf Cantidad de iteraciones f(x) con Newton y Secante:} Acá se puede observar que a medida que el $x_0$ la parábola que se dibuja para alcanzar el criterio de parada se va tornando mas suave. Sin embargo es apreciable que en el gŕafico de 
+
+\end{itemize}
+
+
+
+Las variaciones de tiempo se deben al hecho de que la máquina donde se realizan las pruebas corre tareas de fondo; quitando la mayoria de los procesos que corrían en la maquina y realizando las pruebas varias veces mostró que las variaciones de tiempo no siguen un patrón establecido.\\
+
+A los valores de tiempo se les restó $0,03$ milisegundos, que se estima que es el tiempo fijo que el programa se toma en invocar la función \verb|gettimeofday()| dos veces (podemos ver que a veces, por cuestiones del scheduler de la CPU, las funciones toman dramáticamente menos tiempo en correr y hacer un cambio de contexto, por lo que el tiempo resulta "negativo" en unos pocos casos). Podemos observar luego que el tiempo para obtener los resultados incrementan en una curva logarítmica muy suave, correspondiente a la cantidad de iteraciones necesarias, no obstante la distancia de $x_0$ se tuvo que aumentar dramáticamente (hasta 1 millón) para que la diferencia sea claramente observable.

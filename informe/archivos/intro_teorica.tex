@@ -25,14 +25,11 @@ Donde $\displaystyle h(x) = f(x)$ o $\displaystyle h(x) = e(x)$
 En este caso para calcular la inversa de la raíz cuadrada
 ($\displaystyle\frac{1}{\sqrt{\alpha}}$) buscaremos los ceros de dos funciones.
 
-La resolución de estas 2 funciones es equivalente a resolver el problema de la
-inversa de la raíz. A partir de que el problema se plantea de esa manera es que
+La resolución de estas dos funciones es equivalente a resolver el problema de la
+inversa de la raíz. A partir de este planteo
 podemos hacer uso de métodos para encontrar ceros de funciones.\\
 
-Las funciones en cuestión son
-
-
-Cada una de estas funciones provee formas de encontrar la raiz de un numero.
+Cada una de estas funciones provee formas de encontrar la raiz de un número.
 Veamos el caso de $f(x)$.
 
 Los métodos elegidos para encontrar las raices de estas funciones son el método
@@ -40,23 +37,24 @@ de Newton y el método de la Secante.
 
 \subsubsection{Análisis de las funciones}
 
-Notemos que $\alpha$ siempre tiene que ser positivo, sino no se le puede calcular la raiz cuadrada a un numero negativo. Mas aún $\alpha > 0$ ya que sino estaríamos diviendo por cero.
+Notemos que $\alpha > 0$, dado que si no estará fuera del dominio.
 
 \subsubsection{f(x)}
 
-Primero vamos a demostrar que cuando $f(x) = 0 \implies x = \sqrt{\alpha}$
-entonces una vez encontradas las raices podemos hacer $\frac{1}{x}$ para encontrar
-$\displaystyle\frac{1}{\sqrt{\alpha}}$.
 
-En el caso de $\displaystyle e(x) = 0 \implies x = \frac{1}{\sqrt{\alpha}}$ por lo que no tenemos que hacer
-ninguna otra cuenta.\\
+%Primero vamos a demostrar que cuando $f(x) = 0 \implies x = \sqrt{\alpha}$
+%entonces una vez encontradas las raices podemos hacer $\frac{1}{x}$ para encontrar
+%$\displaystyle\frac{1}{\sqrt{\alpha}}$.
+
+%En el caso de $\displaystyle e(x) = 0 \implies x = \frac{1}{\sqrt{\alpha}}$ por lo que no tenemos que hacer
+%ninguna otra cuenta.\\
 
 %Analicemos graficamente las funciones:\\
 
 % intertart grafico lindo de f(x)
 
 $f(x)$ es una parábola. Al ser $\alpha > 0$ podemos ver que tiene dos
-raíces. Más aún $f(x)$ es simétrica por lo cual podemos encontrar cualquiera de
+raíces. Más aún $f(x)$ es simétrica, por lo cual es posible encontrar cualquiera de
 las dos raíces y con esta cambiarle el signo y obtener la otra. De esta forma
 no nos preocuparemos por obtener la raíz positiva ya que nos es indistinto que
 raíz conseguimos con los métodos.\\
@@ -65,7 +63,7 @@ raíz conseguimos con los métodos.\\
 
 $e(x)$ con $\alpha > 0$ también tiene siempre dos raíces por lo que al igual que con
 $f(x)$ nos es indistinto cuál de las dos obtenemos. En este caso es importante
-notar que en el 0 hay una asíntota de las ordenadas.\\
+notar que en el 0, hay una asíntota de las ordenadas.\\
  
 Los dos métodos que elegimos trabajan con la tangente de las funciones en un
 punto o con una aproximación de esta.
@@ -77,28 +75,24 @@ punto o con una aproximación de esta.
 
 % graficos lindos de f''(x) y e''(x).
 
-veamos que $f''(x) == 2$. esta funcion es convexa. al ser constante y por la
+Veamos que $f''(x) == 2$. esta funcion es convexa. al ser constante y por la
 forma que tienen las derivadas asumimos que siempre va a converger.
 
-veamos $e''(x)$ se nos va al sorete en el 0. por algo que no se, que nos tenemos
-que sacar de la galera esta no siempre va a converger!!! pero no sabemos bien
-por que
-
+Observamos $e''(x) == 6/x^4$. Esto quiere decir que la misma tiene una asíntota en el 0,
+y una pendiente que se agudiza rápidamente cerca de 0, lo cual puede dificultar la convergencia,
+dado que para que las operaciones aritméticas involucradas en los métodos de aproximación 
+den resultados de buena precisión, dependen de trabajar con números bien representables en punto flotante.
 
 Cómo se puede ver los valores que hacen cero a esas funciones son de la forma
 $x = \sqrt{\alpha}$ en el primer caso y $x = \frac{1}{\sqrt{\alpha}}$ en el
 segundo.
 
 \subsubsection{Métodos}
-Podemos ver que se puede utilizar tanto Newton como Secante porque las
-funciones cumplen lo que pida cada una.
-
-Podemos utilizar la secante porque .. y también Newton porque pide todo esto y
-que exista la derivada primera de la funcion, las cuales tenemos para $e$ y para
-$f$.
+Tanto el método de Newton como el de Secante se pueden utilizar para resolver ambas funciones,
+en particular porque, para Newton, existen las derivada primeras de las funciones.
 
 \subsubsection{Hipótesis}
-Creemos que Newton va a funcionar mucho mejor que Secante porque su órden de
+Creemos que Newton va a funcionar mucho mejor que Secante, porque su órden de
 convergencia teórico es mejor.
 
 Por otro lado no estamos seguros de cuál de las dos funciones va a ser mejor
@@ -107,13 +101,10 @@ métodos.
 
 % no se si esto viene aca o mas abajo, quizas mas abajo o arriba, pero si nos
 % interesa ver los dos casos, el caso con bajo error y el caso rapido.
-Por último queremos hacer un análisis para un cálculo aproximado pero MUY
-RAPIDO al estilo quake. Para este puede ser que las conclusiones sean
-diferentes a casos donde puede haber mas iteraciones.  por que? porque para un
-caso podemos empezar mucho ma cerca de la raiz y hacer pocas iteraciones y en
-el otro caso podemos empezar muy lejos pero con algunas iteraciones mas ya
-estar mucho mas cerca. pero para ej 3 iteraciones es mejor el metodo y funcion
-\"lento\".
+Por último queremos hacer un análisis para un cálculo aproximado muy rápido,
+como lo necesario para aplicaciones de alto rendimiento. Para este puede ser que las conclusiones sean
+diferentes a casos donde puede haber mas iteraciones, o se arranque con aproximaciones buenas del resultado,
+o hayan criterios más acotados sobre los que tiene que funcionar.
 
 \subsection{Prueba de la convergencia de Newton}
 Vamos a demostrar inductivamente la convergencia del método de Newton usando la función $\displaystyle f(x) = x^2 - \alpha$\\

@@ -115,6 +115,47 @@ el otro caso podemos empezar muy lejos pero con algunas iteraciones mas ya
 estar mucho mas cerca. pero para ej 3 iteraciones es mejor el metodo y funcion
 \"lento\".
 
+\subsection{Prueba de la convergencia de Newton}
+Vamos a demostrar inductivamente la convergencia del método de Newton usando la función $\displaystyle f(x) = x^2 - \alpha$\\
+
+Lo que queremos demostrar es que si $x_0 > \sqrt{\alpha}$ entonces $x_{n + 1} < x_n$ para todo $n > 0$ donde $\displaystyle x_{n + 1} = \frac{1}{2}(x_n + \frac{\alpha}{x_n})$.\\
+
+{\large \bf Inducción en k}\\
+Queremos probar que $x_{k + 1} < x_k$.\\
+
+{\bf Caso base: $P(0)$}\\
+Sea $k = 1$, queremos ver que $x_1 < x_0$. Supongamos que no vale. Entonces $x_1 \ge x_0$. Por lo tanto:
+
+\begin{displaymath}
+    \frac{1}{2}(x_0 + \frac{\alpha}{x_0}) \ge x_0 \implies x_0 + \frac{\alpha}{x_0} \ge 2x_0 \implies \frac{\alpha}{x_0} \ge x_0 \implies \alpha \ge x_0^2 \implies x_0 \le \sqrt{\alpha}
+\end{displaymath}
+
+Pero esto es absurdo pues por hipótesis sabíamos que $x_0 > \sqrt{\alpha}$. Por lo tanto $x_1 < x_0$ $\square$\\
+
+Veamos también que $x_1 > \sqrt{\alpha}$\\
+
+Supongamos que no vale. Entonces $x_1 \le \sqrt{\alpha}$
+
+\begin{displaymath}
+    x_1 \le \sqrt{\alpha} \implies \frac{1}{2}(x_0 + \frac{\alpha}{x_0}) \le \sqrt{\alpha} \implies x_0 + \frac{\alpha}{x_0} \le 2\sqrt{\alpha}
+\end{displaymath}
+
+\begin{displaymath}
+    \implies x_0 - 2\sqrt{\alpha} \le -\frac{\alpha}{x_0} \implies x_0^2 - 2\sqrt{\alpha}x_0 \le -\alpha
+\end{displaymath}
+
+Luego las raíces de $x_0^2 - 2\sqrt{\alpha}x_0$ son $0$ y $2\sqrt{\alpha}$. Ahora $\alpha$ es positivo pues es el resultado de aproximar una raíz, al haber demostrado que el polinomio tiene raíces, quiere decir que va a tomar valores positivos, contrariamente a lo que mostramos en la desigualdad. ¡Absurdo! Por lo tanto vale que $x_1 > \sqrt{\alpha}$ $\square$\\
+
+{\bf Caso n + 1: $P(n) \implies P(n + 1)$}\\
+Sea $k = n + 1$. Queremos probar que $x_{n + 1} < x_n$. Nuestra hipótesis inductiva es $x_n < x_{n - 1}$. Esto además implica por lo visto en el caso base que $x_n > \sqrt{\alpha}$.\\
+
+Entonces:
+\begin{displaymath}
+    x_{n + 1} = \frac{1}{2}(x_n + \frac{\alpha}{x_n}) = \frac{x_n^2 + \alpha x_n}{2x_n} > \frac{x_n^2 + x_n^2}{2x_n} = x_n
+\end{displaymath}
+
+Esto vale porque $x_n > \sqrt{\alpha} \implies x_n^2 > \alpha$. Por lo tanto $x_{n + 1} < x_n$ $\square$
+
 
 % Contendra una breve explicacion de la base teorica que fundamenta los metodos
 % involu- crados en el trabajo, junto con los metodos mismos. No deben

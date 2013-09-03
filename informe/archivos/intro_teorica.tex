@@ -20,7 +20,7 @@ A partir de este momento nos enfocaremos en encontrar los ceros de estas dos fun
     x_{n + 1} = x_{n - 1} - h(x_{n - 1})\frac{x_{n - 1} - x_{n - 2}}{h(x_{n - 1}) - h(x_{n - 2})}
 \end{displaymath}
 
-Donde $\displaystyle h(x) = f(x)$ o $\displaystyle h(x) = e(x)$
+Donde $\displaystyle h(x) = f(x)$ o $\displaystyle h(x) = e(x)$ cuando corresponda
 
 En este caso para calcular la inversa de la raíz cuadrada
 ($\displaystyle\frac{1}{\sqrt{\alpha}}$) buscaremos los ceros de dos funciones.
@@ -107,21 +107,25 @@ diferentes a casos donde puede haber mas iteraciones, o se arranque con aproxima
 o hayan criterios más acotados sobre los que tiene que funcionar.
 
 \subsection{Prueba de la convergencia de Newton}
-Vamos a demostrar inductivamente la convergencia del método de Newton usando la función $\displaystyle f(x) = x^2 - \alpha$\\
+Vamos a demostrar inductivamente la convergencia del método de Newton usando la función $\displaystyle f(x) = x^2 - \alpha$. De esta manera la sucesión nos queda:
 
-Lo que queremos demostrar es que si $x_0 > \sqrt{\alpha}$ entonces $x_{n + 1} < x_n$ para todo $n > 0$ donde $\displaystyle x_{n + 1} = \frac{1}{2}(x_n + \frac{\alpha}{x_n})$.\\
+\begin{displaymath}
+    x_{n + 1} = \frac{1}{2}(x_n + \frac{\alpha}{x_n})
+\end{displaymath}
 
-{\large \bf Inducción en k}\\
+Lo que queremos demostrar es que si $x_0 > \sqrt{\alpha}$ entonces $x_{n + 1} < x_n$ para todo $n > 0$.\\
+
+{\large \bf Inducción en k $\in \mathbb{N}$}\\
 Queremos probar que $x_{k + 1} < x_k$.\\
 
 {\bf Caso base: $P(0)$}\\
-Sea $k = 1$, queremos ver que $x_1 < x_0$. Supongamos que no vale. Entonces $x_1 \ge x_0$. Por lo tanto:
+Sea $k = 1$, queremos ver que $x_1 < x_0$. Entonces reemplazando $x_1$ por su definición tenemos:
 
 \begin{displaymath}
-    \frac{1}{2}(x_0 + \frac{\alpha}{x_0}) \ge x_0 \implies x_0 + \frac{\alpha}{x_0} \ge 2x_0 \implies \frac{\alpha}{x_0} \ge x_0 \implies \alpha \ge x_0^2 \implies x_0 \le \sqrt{\alpha}
+    \frac{1}{2}(x_0 + \frac{\alpha}{x_0}) < x_0 \iff x_0 + \frac{\alpha}{x_0} < 2x_0 \iff \frac{\alpha}{x_0} < x_0 \iff \alpha < x_0^2 \iff \sqrt{\alpha} < x_0
 \end{displaymath}
 
-Pero esto es absurdo pues por hipótesis sabíamos que $x_0 > \sqrt{\alpha}$. Por lo tanto $x_1 < x_0$ $\square$\\
+Y esto último es la precondición. Por lo tanto $x_1 < x_0$ $_\square$\\
 
 Veamos también que $x_1 > \sqrt{\alpha}$\\
 
@@ -140,15 +144,24 @@ Luego esto último vale pues $x_0 > \sqrt{\alpha}$. Por lo tanto, por esto y por
 \end{displaymath}
 
 {\bf Caso n + 1: $P(n) \implies P(n + 1)$}\\
-Sea $k = n + 1$. Queremos probar que $x_{n + 1} < x_n$. Nuestra hipótesis inductiva es $x_n < x_{n - 1}$. Esto además implica por lo visto en el caso base que $x_n > \sqrt{\alpha}$.\\
+Sea $k = n + 1$. Queremos probar que $x_{n + 1} < x_n$. Por lo visto en nuestro caso base la {\bf Hipótesis Inductiva} es:
+
+\begin{displaymath}
+    \sqrt{\alpha} < x_n < x_{n - 1}
+\end{displaymath}
 
 Entonces:
 \begin{displaymath}
-    x_{n + 1} = \frac{1}{2}(x_n + \frac{\alpha}{x_n}) = \frac{x_n^2 + \alpha}{2x_n} < \frac{x_n^2 + x_n^2}{2x_n} = x_n
+    x_{n + 1} = \frac{1}{2}(x_n + \frac{\alpha}{x_n}) = \frac{x_n^2 + \alpha}{2x_n}
 \end{displaymath}
 
-Esto vale porque $x_n > \sqrt{\alpha} \implies x_n^2 > \alpha$. Por lo tanto $x_{n + 1} < x_n$ $\square$
+Luego por {\bf HI} vale que $\sqrt{\alpha} < x_n \iff \alpha < x_n^2 $ Entonces:
 
+\begin{displaymath}
+    \frac{x_n^2 + \alpha}{2x_n} < \frac{x_n^2 + x_n^2}{2x_n} = x_n
+\end{displaymath}
+
+Por lo tanto $x_{n + 1} < x_n$ $\square$
 
 % Contendra una breve explicacion de la base teorica que fundamenta los metodos
 % involu- crados en el trabajo, junto con los metodos mismos. No deben

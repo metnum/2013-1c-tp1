@@ -26,7 +26,7 @@ $f(x)$ aproximada con Newton, criterio de parada error absoluto igual a $0.001$
 
 \begin{center}
 \includegraphics[scale=0.5]{graficos/iteraciones-f-secante-alfa_fijo-absoluto-0.001-alejando.png}\\
-$f(x)$ aproximada con Newton, criterio de parada error absoluto igual a $0.001$
+$f(x)$ aproximada con Secante, criterio de parada error absoluto igual a $0.001$
 \end{center}
 
 \subsection{Error Absoluto f(x) con Newton y Secante}
@@ -44,7 +44,12 @@ Secante. Criterio de parada: Error absoluto igual a 1 $\times$ $10^{-3}$
 
 
 \subsection{Tiempo de Computo f(x) con Newton y Secante}
-Nuevamente se utilizaron inputs similares para ambos gráficos. La idea era comparar los tiempos de CPU para cada método.
+Nuevamente se utilizaron inputs similares para ambos gráficos. La idea era comparar los tiempos de CPU para cada método.\\
+
+Las variaciones de tiempo se deben al hecho de que la máquina donde se realizan las pruebas corre tareas de fondo; quitando la mayoria de los procesos que corrían en la maquina y realizando las pruebas varias veces mostró que las variaciones de tiempo no siguen un patrón establecido.\\
+
+A los valores de tiempo se les restó $0,03$ milisegundos, que se estima que es el tiempo fijo que el programa se toma en invocar la función \verb|gettimeofday()| dos veces (podemos ver que a veces, por cuestiones del scheduler de la CPU, las funciones toman dramáticamente menos tiempo en correr y hacer un cambio de contexto, por lo que el tiempo resulta "negativo" en unos pocos casos). Podemos observar luego que el tiempo para obtener los resultados incrementan en una curva logarítmica muy suave, correspondiente a la cantidad de iteraciones necesarias, no obstante la distancia de $x_0$ se tuvo que aumentar dramáticamente (hasta 1 millón) para que la diferencia sea claramente observable.\\
+
 \begin{center}
 \includegraphics[scale=0.5]{graficos/tiempo-f-newton-alfa_fijo-absoluto-0.001-alejando.png}\\
 Newton con $\alpha$ fijo y error absoluto de $0.001$ con $x_0$ creciente.
@@ -56,25 +61,26 @@ Secante con $\alpha$ fijo y error absoluto de $0.001$ con $x_0$ creciente.
 \end{center}
 
 \subsection{Graficos para f(x) con error absoluto 0.0001}
+Los siguiente gráficos detallan la resolución de $f(x)$ con Newton, específicamente cuando el $x_0$ inicial es cercano a la respuesta conocida, con $\alpha = 10$. Vemos que requiere una cantidad mucho menor de iteraciones, y el comportamiento del resultado es mucho más simple de entender.
 
 \begin{center}
 \includegraphics[scale=0.5]{graficos/iteraciones-f-newton-alfa_fijo-absoluto-0.0001-alejando_cercano.png}\\
-poner titulo
+Cantidad de iteraciones.
 \end{center}
 
 \begin{center}
 \includegraphics[scale=0.5]{graficos/x0s-f-newton-alfa_fijo-absoluto-0.0001-alejando_cercano.png}\\
-poner titulo
+Error absoluto.
 \end{center}
 
 \begin{center}
 \includegraphics[scale=0.5]{graficos/tiempo-f-newton-alfa_fijo-absoluto-0.0001-alejando_cercano.png}\\
-poner titulo
+Tiempo de computo.
 \end{center}
 
 \subsection{Graficos para e(x)}
 
-Los $x_0$ y $x_1$ se tomaron en $\frac{1}{\sqrt{\alpha}} + 0.001$ y superiores y $-\frac{1}{\sqrt{\alpha}} - 0.001$
+Los $x_0$ y $x_1$ se tomaron en $\frac{1}{\sqrt{\alpha}} + 0.001$ y superiores a $-\frac{1}{\sqrt{\alpha}} - 0.001$
 
 Se observa que la función converge solo para un intervalo limitado, probablemente debido a que la función tiene dos asíntotas, y su derivada en los límites al infinito tiende a cero, dificultando cálculos por números demasiado grandes y demasiado chicos.
 
@@ -82,49 +88,40 @@ Se ve que el comportamiento es errático y difícil de predecir, en comparación
 
 Las mismas observaciones sobre la dificultad de medir el tiempo de ejecución se aplican aquí.
 
-
-------------------------
 \begin{center}
 \includegraphics[scale=0.5]{graficos/iteraciones-e-secante-alfa_fijo-absoluto-0.0001-alejando.png}\\
 poner titulos
 \end{center}
-------------------------
+
 \begin{center}
 \includegraphics[scale=0.5]{graficos/x0s-e-secante-alfa_fijo-absoluto-0.0001-alejando.png}\\
 poner titulos
 \end{center}
-------------------------
+
 \begin{center}
 \includegraphics[scale=0.5]{graficos/tiempo-e-secante-alfa_fijo-absoluto-0.0001-alejando.png}\\
 poner titulos
 \end{center}
-------------------------
+
 \begin{center}
 \includegraphics[scale=0.5]{graficos/relativo-e-newton-alfa_fijo-absoluto-0.0001-alejando.png}\\
 poner titulos
 \end{center}
-------------------------
+
 \begin{center}
 \includegraphics[scale=0.5]{graficos/iteraciones-e-newton-alfa_fijo-absoluto-0.0001-alejando.png}\\
 poner titulos
 \end{center}
-------------------------
+
 \begin{center}
 \includegraphics[scale=0.5]{graficos/x0s-e-newton-alfa_fijo-absoluto-0.0001-alejando.png}\\
 poner titulos
 \end{center}
-------------------------
+
 \begin{center}
 \includegraphics[scale=0.5]{graficos/tiempo-e-newton-alfa_fijo-absoluto-0.0001-alejando.png}\\
 poner titulos
 \end{center}
-------------------------
-
-
-
-
-
-
 
 % Ver un grafico que muestra los picos del error relativo conforme el alapha se aleja del x0. La explicacion es que conforme mas lejos esta el x0 del resultado, tiene que realizar mas itreraciones y el error relativo de la ultima iteracion que vale crece conforme aumenta la distancia entre alpah y x0 hasta que la iteracion no califica para entrar en el criterio de tension relativo. Entonces debe realizar una iteracion mas que resulta mas precisa y asi sucesivamente
 

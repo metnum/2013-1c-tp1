@@ -125,24 +125,26 @@ Pero esto es absurdo pues por hipótesis sabíamos que $x_0 > \sqrt{\alpha}$. Po
 
 Veamos también que $x_1 > \sqrt{\alpha}$\\
 
-Supongamos que no vale. Entonces $x_1 \le \sqrt{\alpha}$
-
 \begin{displaymath}
-    x_1 \le \sqrt{\alpha} \implies \frac{1}{2}(x_0 + \frac{\alpha}{x_0}) \le \sqrt{\alpha} \implies x_0 + \frac{\alpha}{x_0} \le 2\sqrt{\alpha}
+    x_1 > \sqrt{\alpha} \iff \frac{1}{2}(x_0 + \frac{\alpha}{x_0}) > \sqrt{\alpha} \iff x_0 + \frac{\alpha}{x_0} > 2\sqrt{\alpha}
 \end{displaymath}
 
 \begin{displaymath}
-    \implies x_0 - 2\sqrt{\alpha} \le -\frac{\alpha}{x_0} \implies x_0^2 - 2\sqrt{\alpha}x_0 \le -\alpha
+    \iff x_0 - 2\sqrt{\alpha} > -\frac{\alpha}{x_0} \iff x_0^2 - 2\sqrt{\alpha}x_0 + \alpha > 0 \iff (x_0 - \sqrt{\alpha})^2 > 0
 \end{displaymath}
 
-Luego las raíces de $x_0^2 - 2\sqrt{\alpha}x_0$ son $0$ y $2\sqrt{\alpha}$. Ahora $\alpha$ es positivo pues es el resultado de aproximar una raíz, al haber demostrado que el polinomio tiene raíces, quiere decir que va a tomar valores positivos, contrariamente a lo que mostramos en la desigualdad. ¡Absurdo! Por lo tanto vale que $x_1 > \sqrt{\alpha}$ $\square$\\
+Luego esto último vale pues $x_0 > \sqrt{\alpha}$. Por lo tanto, por esto y por lo demostrado antes vale que:
+
+\begin{displaymath}
+    \sqrt{\alpha} < x_1 < x_0
+\end{displaymath}
 
 {\bf Caso n + 1: $P(n) \implies P(n + 1)$}\\
 Sea $k = n + 1$. Queremos probar que $x_{n + 1} < x_n$. Nuestra hipótesis inductiva es $x_n < x_{n - 1}$. Esto además implica por lo visto en el caso base que $x_n > \sqrt{\alpha}$.\\
 
 Entonces:
 \begin{displaymath}
-    x_{n + 1} = \frac{1}{2}(x_n + \frac{\alpha}{x_n}) = \frac{x_n^2 + \alpha x_n}{2x_n} > \frac{x_n^2 + x_n^2}{2x_n} = x_n
+    x_{n + 1} = \frac{1}{2}(x_n + \frac{\alpha}{x_n}) = \frac{x_n^2 + \alpha}{2x_n} < \frac{x_n^2 + x_n^2}{2x_n} = x_n
 \end{displaymath}
 
 Esto vale porque $x_n > \sqrt{\alpha} \implies x_n^2 > \alpha$. Por lo tanto $x_{n + 1} < x_n$ $\square$

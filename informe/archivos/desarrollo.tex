@@ -1,4 +1,4 @@
-\newpage \section{Desarrollo}
+\section{Desarrollo}
 % Deben explicarse los metodos numericos que utilizaron y su aplicacion al
 % problema concreto involucrado en el trabajo practico. Se deben mencionar los
 % pasos que si- guieron para implementar los algoritmos, las dicultades que
@@ -34,6 +34,26 @@ analitico pero que a nivel fierro se puede mejorar.
 Por otro lado, agregamos mucho overhead con la flexibilidad, pero podemos ver
 que esto afecta a los dos metodos y funciones por igual por lo que no deberia
 afectar las comparaciones y resultados.
+
+\subsubsection{Métodos}
+Tanto el método de Newton como el de Secante se pueden utilizar para resolver ambas funciones,
+en particular porque, para Newton, existen las derivada primeras de las funciones.
+
+\subsubsection{Hipótesis}
+Creemos que Newton va a funcionar mucho mejor que Secante, porque su órden de
+convergencia teórico es mejor.
+
+Por otro lado no estamos seguros de cuál de las dos funciones va a ser mejor
+porque no podemos interpretar funciones y como afectan las tangentes a los
+métodos.
+
+% no se si esto viene aca o mas abajo, quizas mas abajo o arriba, pero si nos
+% interesa ver los dos casos, el caso con bajo error y el caso rapido.
+Por último queremos hacer un análisis para un cálculo aproximado muy rápido,
+como lo necesario para aplicaciones de alto rendimiento. Para este puede ser que las conclusiones sean
+diferentes a casos donde puede haber mas iteraciones, o se arranque con aproximaciones buenas del resultado,
+o hayan criterios más acotados sobre los que tiene que funcionar.
+
 
 \subsection{Convergencia}
 

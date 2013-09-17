@@ -20,46 +20,23 @@ A partir de este momento nos enfocaremos en encontrar los ceros de estas dos fun
     x_{n + 1} = x_{n - 1} - h(x_{n - 1})\frac{x_{n - 1} - x_{n - 2}}{h(x_{n - 1}) - h(x_{n - 2})}
 \end{displaymath}
 
-Donde $\displaystyle h(x) = f(x)$ o $\displaystyle h(x) = e(x)$ cuando corresponda
+Donde $h(x) = f(x)$ o $h(x) = e(x)$ cuando corresponda 
 
-En este caso para calcular la inversa de la raíz cuadrada
-($\displaystyle\frac{1}{\sqrt{\alpha}}$) buscaremos los ceros de dos funciones.
+\subsection{Análisis de $f(x)$}
 
-La resolución de estas dos funciones es equivalente a resolver el problema de la
-inversa de la raíz. A partir de este planteo
-podemos hacer uso de métodos para encontrar ceros de funciones.\\
+Llamemos $\displaystyle \beta = \frac{1}{\alpha}$. Por otro lado la expresión de $f(x)$ la podemos reescribir de esta manera:
 
-Cada una de estas funciones provee formas de encontrar la raiz de un número.
-Veamos el caso de $f(x)$.
+\begin{displaymath}
+    f(x) = x^2 - \alpha = (x + \sqrt{\alpha})(x - \sqrt{\alpha})
+\end{displaymath}
 
-Los métodos elegidos para encontrar las raices de estas funciones son el método
-de Newton y el método de la Secante.
+Estas raíces existen pues $\alpha > 0$ (pues no existe la raíz de un negativo en $\mathbb{R}$) y como podemos ver las raíces son iguales en módulo y nos sirven para hallar $\beta$ con la salvedad de que si obtenemos el valor negativo simplemente le cambiamos el signo. Por lo tanto si $\displaystyle x = \sqrt{\alpha} \implies \beta = \frac{1}{x}$
 
-\subsubsection{Análisis de las funciones}
+\subsection{Análisis de $e(x)$}
 
-Notemos que $\alpha > 0$, dado que si no estará fuera del dominio.
-
-\subsubsection{f(x)}
-
-
-%Primero vamos a demostrar que cuando $f(x) = 0 \implies x = \sqrt{\alpha}$
-%entonces una vez encontradas las raices podemos hacer $\frac{1}{x}$ para encontrar
-%$\displaystyle\frac{1}{\sqrt{\alpha}}$.
-
-%En el caso de $\displaystyle e(x) = 0 \implies x = \frac{1}{\sqrt{\alpha}}$ por lo que no tenemos que hacer
-%ninguna otra cuenta.\\
-
-%Analicemos graficamente las funciones:\\
-
-% intertart grafico lindo de f(x)
-
-$f(x)$ es una parábola. Al ser $\alpha > 0$ podemos ver que tiene dos
-raíces. Más aún $f(x)$ es simétrica, por lo cual es posible encontrar cualquiera de
-las dos raíces y con esta cambiarle el signo y obtener la otra. De esta forma
-no nos preocuparemos por obtener la raíz positiva ya que nos es indistinto que
-raíz conseguimos con los métodos.\\
-
-% insertar grafico lindo de e(x)
+\begin{displaymath}
+    e(x) = 0 \implies 0 = \frac{1}{x^2} - \alpha \implies \alpha = \frac{1}{x^2} \implies x^2 = \frac{1}{\alpha}
+\end{displaymath}
 
 $e(x)$ con $\alpha > 0$ también tiene siempre dos raíces por lo que al igual que con
 $f(x)$ nos es indistinto cuál de las dos obtenemos. En este caso es importante
@@ -86,25 +63,6 @@ den resultados de buena precisión, dependen de trabajar con números bien repre
 Cómo se puede ver los valores que hacen cero a esas funciones son de la forma
 $x = \sqrt{\alpha}$ en el primer caso y $x = \frac{1}{\sqrt{\alpha}}$ en el
 segundo.
-
-\subsubsection{Métodos}
-Tanto el método de Newton como el de Secante se pueden utilizar para resolver ambas funciones,
-en particular porque, para Newton, existen las derivada primeras de las funciones.
-
-\subsubsection{Hipótesis}
-Creemos que Newton va a funcionar mucho mejor que Secante, porque su órden de
-convergencia teórico es mejor.
-
-Por otro lado no estamos seguros de cuál de las dos funciones va a ser mejor
-porque no podemos interpretar funciones y como afectan las tangentes a los
-métodos.
-
-% no se si esto viene aca o mas abajo, quizas mas abajo o arriba, pero si nos
-% interesa ver los dos casos, el caso con bajo error y el caso rapido.
-Por último queremos hacer un análisis para un cálculo aproximado muy rápido,
-como lo necesario para aplicaciones de alto rendimiento. Para este puede ser que las conclusiones sean
-diferentes a casos donde puede haber mas iteraciones, o se arranque con aproximaciones buenas del resultado,
-o hayan criterios más acotados sobre los que tiene que funcionar.
 
 \subsection{Prueba de la convergencia de Newton}
 Vamos a demostrar inductivamente la convergencia del método de Newton usando la función $\displaystyle f(x) = x^2 - \alpha$. De esta manera la sucesión nos queda:

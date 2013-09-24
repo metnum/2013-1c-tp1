@@ -28,9 +28,9 @@ Llamemos $\displaystyle \beta = \frac{1}{\alpha}$. Por otro lado la expresión d
     f(x) = x^2 - \alpha = (x + \sqrt{\alpha})(x - \sqrt{\alpha})
 \end{displaymath}
 
-Estas raíces existen pues $\alpha > 0$ (pues no existe la raíz de un negativo en $\mathbb{R}$) y como podemos ver las raíces son iguales en módulo y nos sirven para hallar $\beta$ con la salvedad de que si obtenemos el valor negativo simplemente le cambiamos el signo. Por lo tanto si $\displaystyle x = \sqrt{\alpha} \implies \beta = \frac{1}{x}$
+Estas raíces existen pues $\alpha > 0$ (pues no existe la raíz de un negativo en $\mathbb{R}$) y como podemos ver las raíces son iguales en módulo y nos sirven para hallar $\beta$ con la salvedad de que si obtenemos el valor negativo simplemente le cambiamos el signo. Por lo tanto si $\displaystyle x = \sqrt{\alpha} \implies \beta = \frac{1}{x}$\\
 
-INSERTAR GRÁFICO DE f(x)
+INSERTAR GRÁFICO DE f(x)\\
 
 $f(x)$ es convexa y su derivada segundo es $f''(x) = 2$, al ser constante y por la
 forma que tienen las derivadas asumimos que siempre va a converger.
@@ -48,14 +48,17 @@ notar que en el 0, hay una asíntota de las ordenadas.\\
 INSERTAR GRÁFICO DE e(x)
  
 Los dos métodos que elegimos trabajan con la tangente de las funciones en un
-punto o con una aproximación de esta.
+punto o con una aproximación de esta.\\
 
 Observamos $e''(x) = 6/x^4$. Esto quiere decir que la misma tiene una asíntota en el 0,
 y una pendiente que se agudiza rápidamente cerca de 0, lo cual puede dificultar la convergencia,
 dado que para que las operaciones aritméticas involucradas en los métodos de aproximación 
 den resultados de buena precisión, dependen de trabajar con números bien representables en punto flotante.
 
-\subsection{Prueba de la convergencia de Newton}
+\subsection{Convergencia}
+Por lo visto en la teórica sabemos que el órden de convergencia de Newton es cuadrático, mientras que para Secante es $supralineal$ (específicamente es $\phi \approx 1.618$).
+
+\subsubsection{Prueba de la convergencia de Newton para $f(x)$}
 Vamos a demostrar inductivamente la convergencia del método de Newton usando la función $\displaystyle f(x) = x^2 - \alpha$. De esta manera la sucesión nos queda:
 
 \begin{displaymath}

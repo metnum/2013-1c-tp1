@@ -5,14 +5,29 @@
 % maquina. Algo fundamental en su aprendizaje en la materia es la presentacion
 % de resultados de forma clara y concisa para el lector
 
-%blah blah blah cual es mejor con cual nos quedamos para el caso preciso y con
-%cual para el caso rapido donde rapido puede ser 1 2 o 3 iteraciones y preciso
-%cientos.
+\subsection{Hipótesis}
+Como vimos en la Introducción Teórica, Newton tiene convergencia cuadrática y Secante $supralineal$ (alrededor de 1.6).\\
 
-%\begin{center}
-%\includegraphics[scale=0.5]{../codigo/resultados/relativo-f-newton-chicos-relativo-0.01-cercanos.png}\\
-%$f(x)$ con Newton con $\alpha$'s chicos y $x_0 = 0.01$
-%\end{center}
+Sería normal suponer que Newton tiene mejor performance dado que converge más rápido. Sin embargo para comparar performance, debemos considerar costo como rapidez de convergencia. Un algoritmo que converge rápido pero tarda algunos segundos por iteración podría tomar mas tiempo que uno que converge mas lento pero toma solo algunos milisegundos por iteración.\\
+
+Podemos asumir que el costo de una iteración está marcado por la evaluación de la función, de hecho, este vendría a ser nuestro caso. Entonces la cantidad de evaluaciones de una función puede ser una buena medida de costo.\\
+
+Secante solo requiere una evaluación de la función por iteración, dado que el valor de $f(x_{n - 1})$ se puede guardar de la iteración previa.\\
+
+Newton requiere una evaluación de la función y otra de su derivada por iteración. Es complicado estimar el costo de evaluar la derivada en general. En algunos casos la derivada puede ser fácil de evaluar y en otros puede ser incluso mas difícil de evaluar que la función original.\\
+
+Podemos asumir entonces, que en general, calcular la derivada es al menos tan costoso como calcular la función. Por lo tanto asumimos que Newton va a tomar dos evaluaciones por iteración.\\
+
+Este análisis nos lleva a suponer que Secante debería ser mas performante que Newton en general.
+
+\subsection{Casos de Prueba}
+La aproximación inicial que tuvimos fue tomar cada uno de los parámetros, fijar los demás y hacer un análisis de cada uno de los factores de estudio (tiempo, iteraciones, convergencia, etc.) haciendo crecer los parámetros de turno. Claramente la cantidad de casos era mucha y en general los resultados eran difíciles de interpretar y no aportaban al propósito de develar si nuestra hipótesis se cumplía.\\
+
+Por lo tanto decidimos que lo mejor sería solamente tomar un par de combinaciones de todas las posibles que nos parecieran que fueran representativas. A saber:\\
+
+ACA PONER LOS CASOS PAPA!
+
+\subsection{Gráficos}
 
 Veamos algunos resultados graficamente:
 

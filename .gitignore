@@ -4,3 +4,4 @@ bin
 *.aux
 *.pdf
 *.pyc
+*.toc

@@ -12,13 +12,11 @@ Las funciones que usaremos para aproximar la inversa de la raíz son las siguien
 
 A partir de este momento nos enfocaremos en encontrar los ceros de estas dos funciones usando los métodos de Newton y de la Secante:
 
-\begin{displaymath}
-    x_{n + 1} = x_n - \frac{h(x_n)}{h'(x_n)}
-\end{displaymath}
+\begin{itemize}
+    \item {\bf Newton:} $\displaystyle x_{n + 1} = x_n - \frac{h(x_n)}{h'(x_n)}$
 
-\begin{displaymath}
-    x_{n + 1} = x_{n - 1} - h(x_{n - 1})\frac{x_{n - 1} - x_{n - 2}}{h(x_{n - 1}) - h(x_{n - 2})}
-\end{displaymath}
+    \item {\bf Secante:} $\displaystyle x_{n + 1} = x_{n - 1} - h(x_{n - 1})\frac{x_{n - 1} - x_{n - 2}}{h(x_{n - 1}) - h(x_{n - 2})}$
+\end{itemize}
 
 Donde $h(x) = f(x)$ o $h(x) = e(x)$ cuando corresponda 
 
@@ -32,37 +30,30 @@ Llamemos $\displaystyle \beta = \frac{1}{\alpha}$. Por otro lado la expresión d
 
 Estas raíces existen pues $\alpha > 0$ (pues no existe la raíz de un negativo en $\mathbb{R}$) y como podemos ver las raíces son iguales en módulo y nos sirven para hallar $\beta$ con la salvedad de que si obtenemos el valor negativo simplemente le cambiamos el signo. Por lo tanto si $\displaystyle x = \sqrt{\alpha} \implies \beta = \frac{1}{x}$
 
+INSERTAR GRÁFICO DE f(x)
+
+$f(x)$ es convexa y su derivada segundo es $f''(x) = 2$, al ser constante y por la
+forma que tienen las derivadas asumimos que siempre va a converger.
+
 \subsection{Análisis de $e(x)$}
 
 \begin{displaymath}
     e(x) = 0 \implies 0 = \frac{1}{x^2} - \alpha \implies \alpha = \frac{1}{x^2} \implies x^2 = \frac{1}{\alpha}
 \end{displaymath}
 
-$e(x)$ con $\alpha > 0$ también tiene siempre dos raíces por lo que al igual que con
+$e(x)$ con $\alpha > 0$ también tiene dos raíces por lo que al igual que con
 $f(x)$ nos es indistinto cuál de las dos obtenemos. En este caso es importante
 notar que en el 0, hay una asíntota de las ordenadas.\\
+
+INSERTAR GRÁFICO DE e(x)
  
 Los dos métodos que elegimos trabajan con la tangente de las funciones en un
 punto o con una aproximación de esta.
 
-% a partir de aca es todo chamuyo... ver que dejar y que sacar, porque en
-% realida se puede hacer buen analisis analitico pero no se como.. buscar en
-% google o wikipedia quizas
-
-
-% graficos lindos de f''(x) y e''(x).
-
-Veamos que $f''(x) == 2$. esta funcion es convexa. al ser constante y por la
-forma que tienen las derivadas asumimos que siempre va a converger.
-
-Observamos $e''(x) == 6/x^4$. Esto quiere decir que la misma tiene una asíntota en el 0,
+Observamos $e''(x) = 6/x^4$. Esto quiere decir que la misma tiene una asíntota en el 0,
 y una pendiente que se agudiza rápidamente cerca de 0, lo cual puede dificultar la convergencia,
 dado que para que las operaciones aritméticas involucradas en los métodos de aproximación 
 den resultados de buena precisión, dependen de trabajar con números bien representables en punto flotante.
-
-Cómo se puede ver los valores que hacen cero a esas funciones son de la forma
-$x = \sqrt{\alpha}$ en el primer caso y $x = \frac{1}{\sqrt{\alpha}}$ en el
-segundo.
 
 \subsection{Prueba de la convergencia de Newton}
 Vamos a demostrar inductivamente la convergencia del método de Newton usando la función $\displaystyle f(x) = x^2 - \alpha$. De esta manera la sucesión nos queda:
@@ -120,10 +111,3 @@ Luego por {\bf HI} vale que $\sqrt{\alpha} < x_n \iff \alpha < x_n^2 $ Entonces:
 \end{displaymath}
 
 Por lo tanto $x_{n + 1} < x_n$ $\square$
-
-% Contendra una breve explicacion de la base teorica que fundamenta los metodos
-% involu- crados en el trabajo, junto con los metodos mismos. No deben
-% incluirse demostraciones de propiedades ni teoremas, ejemplos innecesarios,
-% ni deniciones elementales (como por ejemplo la de matriz simetrica). En vez
-% de deniciones basicas es conveniente citar ejemplos de bibliografa
-% adecuada.  Una cita vale mas que mil palabras

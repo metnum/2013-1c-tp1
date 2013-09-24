@@ -8,28 +8,40 @@
 % metodos malogrados deben gurar en esta seccion, con una breve explicacion
 % de los motivos de estas fallas (en caso de ser conocidas)
 
+\subsubsection{Hipótesis}
+Creemos que Newton va a funcionar mucho mejor que Secante, porque su órden de
+convergencia teórico es mejor.
+
+Por otro lado no estamos seguros de cuál de las dos funciones va a ser mejor
+porque no podemos interpretar funciones y como afectan las tangentes a los
+métodos.
+
 \subsection{Implementación}
 
-Hicimos una implementacion que nos permite decidir parametricamente lo siguiente:
+Hicimos una implementación que nos permite decidir paramétricamente lo siguiente:
 
-* funcion e o f
-* metodo newton o secante
-* criterio de parada
-  * iteraciones
-  * tiempo
-  * error absoluto
-  * error relativo
-* eleccion de x0 y x1 (x1 solo para la secante)
+\begin{itemize}
+    \item Función $e$ o $f$
+    \item Método Newton o Secante
+    \item Criterio de parada
+    \begin{itemize}
+        \item Iteraciones
+        \item Tiempo
+        \item Error Absoluto
+        \item Error Relativo
+    \end{itemize}
+    \item Eleccion de $x_0$ y $x_1$ ($x_1$ solo para la Secante)
+\end{itemize}
 
-esto lo desarrollamos en C y luego hicimos unos helpers en Python para poder
+Esto lo desarrollamos en \verb|C| y luego hicimos unos $helpers$ en Python para poder
 crear experimentos y analizar los resultados. Cada corrida nos devuelve todos
-los valores de los criterios de parada y las aproximaciones en cada iteracion.
+los valores de los criterios de parada y las aproximaciones en cada iteracion.\\
 
-Estos experimentos son replicables y los puede ver en el axexo {detalle de experimentos}
+Estos experimentos son replicables y los puede ver en el anexo.\\
 
-El codigo se puede optimizar MUCHO, sobre todo en las cuantas que realiza el
+El codigo se puede optimizar MUCHO, sobre todo en las cuentas que realiza el
 cuerpo de cada metodo. Ahora hay una implementacion naif que replica el enfoque
-analitico pero que a nivel fierro se puede mejorar.
+analitico pero que a nivel fierro se puede mejorar.\\
 
 Por otro lado, agregamos mucho overhead con la flexibilidad, pero podemos ver
 que esto afecta a los dos metodos y funciones por igual por lo que no deberia
@@ -39,20 +51,6 @@ afectar las comparaciones y resultados.
 Tanto el método de Newton como el de Secante se pueden utilizar para resolver ambas funciones,
 en particular porque, para Newton, existen las derivada primeras de las funciones.
 
-\subsubsection{Hipótesis}
-Creemos que Newton va a funcionar mucho mejor que Secante, porque su órden de
-convergencia teórico es mejor.
-
-Por otro lado no estamos seguros de cuál de las dos funciones va a ser mejor
-porque no podemos interpretar funciones y como afectan las tangentes a los
-métodos.
-
-% no se si esto viene aca o mas abajo, quizas mas abajo o arriba, pero si nos
-% interesa ver los dos casos, el caso con bajo error y el caso rapido.
-Por último queremos hacer un análisis para un cálculo aproximado muy rápido,
-como lo necesario para aplicaciones de alto rendimiento. Para este puede ser que las conclusiones sean
-diferentes a casos donde puede haber mas iteraciones, o se arranque con aproximaciones buenas del resultado,
-o hayan criterios más acotados sobre los que tiene que funcionar.
 
 
 \subsection{Convergencia}

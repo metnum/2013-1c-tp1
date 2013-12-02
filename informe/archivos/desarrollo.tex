@@ -8,14 +8,6 @@
 % metodos malogrados deben gurar en esta seccion, con una breve explicacion
 % de los motivos de estas fallas (en caso de ser conocidas)
 
-\subsubsection{Hipótesis}
-Creemos que Newton va a funcionar mucho mejor que Secante, porque su órden de
-convergencia teórico es mejor.
-
-Por otro lado no estamos seguros de cuál de las dos funciones va a ser mejor
-porque no podemos interpretar funciones y como afectan las tangentes a los
-métodos.
-
 \subsection{Implementación}
 
 Hicimos una implementación que nos permite decidir paramétricamente lo siguiente:
@@ -93,23 +85,3 @@ un cierto error grosero y luego continuar refinando con e(x). Pero para que
 esto tenga sentido tuvimos que hacer una comparacion entre los metodos. Ver mas
 abajo.
 
-\subsection{comparacion entre criterios de convergencia para f(x) y newton}
-
-hacer muchos exp con grafiquitos y decir o refutar que relativo conviene
-siempre mas que absoluto. luego el tiempo y la cantidad de iteraciones.
-
-\subsection{comparacion entre f y e, newton}
-
-para los mismos alphas y criterios de convergencia (probamos con iteraciones,
-tiempo, error relativo) vemos cual tarda mas iteraciones y cual tarda mas
-tiempo.
-
-Podemos ver que .. es mas rapido que .. que es de suponer por la pendiente que
-tiene.
-
-\subsection{comparacion entre newton y secante para e(x)}
-
-ver cual es mas rapido
-calcular experimentalmente el orden de convergencia, hay que dividir entre
-iteraciones, deberia dar un grafico que luego de algunas iteraciones sea
-constante en 2 y en phi.

@@ -1,4 +1,5 @@
 from matplotlib import pyplot as plt
+from math import sqrt
 from tp1 import Experimento
 
 # secante vs newton
@@ -6,33 +7,33 @@ from tp1 import Experimento
 # funcion f(x)
 # criterio error relativo > 0.001
 
-rango = range(1, 10000, 10)
-
-class MiExp(Experimento):
+alpha = 0.00001
+rango = [10**n + sqrt(alpha) for n in range(-5,5)]
+class Newton05(Experimento):
     entradas = rango
     funcion = 'f'
     criterio = 'relativo'
     limite = 0.01
 
-newton = MiExp(metodo='newton')
-secante = MiExp(metodo='secante')
+alpha = 10000
+rango2 = [10**n + sqrt(alpha) for n in range(-5,5)]
+class Newton2(Experimento):
+    entradas = rango2
+    funcion = 'f'
+    criterio = 'relativo'
+    limite = 0.01
 
-newton.run()
-secante.run()
+newton_0_5 = Newton05(metodo='newton')
+newton_0_5.run()
+
+newton_2 = Newton2(metodo='newton')
+newton_2.run()
 
 plt.figure(1)
-plt.title("comparacion de tiempo")
-plt.xlabel('alpha')
-plt.ylabel('tiempo ms')
-plt.grid(True)
-plt.plot(rango, [res['tiempo'] * 1000  for res in newton.resultados])
-plt.plot(rango, [res['tiempo'] * 1000 for res in secante.resultados])
-
-plt.figure(2)
 plt.title("comparacion de iteraciones")
 plt.xlabel('alpha')
 plt.ylabel('iteraciones')
-plt.plot(rango, [res['iteraciones'] for res in newton.resultados])
-plt.plot(rango, [res['iteraciones'] for res in secante.resultados])
+plt.plot(rango, [res['iteraciones'] for res in newton_0_5.resultados])
+plt.plot(rango2, [res['iteraciones'] for res in newton_2.resultados])
 
 plt.show()

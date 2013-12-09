@@ -1,13 +1,15 @@
 # coding=UTF-8
-import collections
 import os
 from subprocess import check_output
+
 
 def f(x, alpha):
     return x * x - alpha
 
+
 def e(x, alpha):
     return 1 / (x * x) - alpha
+
 
 class Experimento(object):
     """
@@ -46,9 +48,9 @@ class Experimento(object):
             self.criterio = criterio
         if limite:
             self.limite = limite
-        if x0:
+        if x0 is not None:
             self.x0 = x0
-        if x1:
+        if x1 is not None:
             self.x1 = x1
         if x0s:
             self.x0s = x0s
@@ -92,26 +94,26 @@ class Experimento(object):
         else:
             raise ValueError(u"El limite tiene que ser un numero.")
 
-        if self.x0:
+        if self.x0 is not None:
             if isinstance(self.x0, (float, int)):
-                params['limite'] = self.limite
+                params['x0'] = self.x0
             else:
                 raise ValueError(u"El x0 tiene que ser un numero.")
 
-        if self.x1:
+        if self.x1 is not None:
             if isinstance(self.x1, (float, int)):
-                params['limite'] = self.limite
+                params['x1'] = self.x1
             else:
                 raise ValueError(u"El x1 tiene que ser un numero.")
 
         if self.metodo == 'secante' and self.x0 and not self.x1:
             raise ValueError(u"Hay que elegir tanto un x0 como un x1.")
 
-        if self.x0 and self.x0s:
+        if self.x0 is not None and self.x0s is not None:
             raise ValueError(u"Se acepta un x0 o una lista en x0s, pero no ambas.")
 
-        if self.metodo == 'newton' and self.x0 and not self.x1:
-            self.x1 = self.x0
+        # if self.metodo == 'newton' and self.x0 and not self.x1:
+        #     self.x1 = self.x0
 
         #if not isinstance(self.entradas, collections.Iterable):
         #    raise ValueError(u"Entradas no es un iterable.")
@@ -125,6 +127,7 @@ class Experimento(object):
 
         if self.x0:
             args.append(params['x0'])
+        if self.x1:
             args.append(params['x1'])
 
         executable = os.path.join(os.getcwd(), "bin/tp1")
@@ -136,9 +139,9 @@ class Experimento(object):
                 prog_args = ["%s" % arg for arg in [executable, alpha] + args]
 
                 if self.x0s:
-                    prog_args.append(str(self.x0s.next()))
+                    prog_args.append(str(self.x0s.pop()))
                     if self.x1s:
-                        prog_args.append(str(self.x1s.next()))
+                        prog_args.append(str(self.x1s.pop()))
 
                 output = check_output(prog_args)
                 segmentos = output.split("\n\n")

@@ -1,146 +1,225 @@
 \section{Introducción Teórica}
 
-Las funciones que usaremos para aproximar la inversa de la raíz son las siguientes:
+El objetivo de este trabajo es encontrar la inversa de la raiz cuadrada de un
+número, de forma eficiente. Para esto analizamos dos funciones diferentes cuyos
+ceros nos ayudarán a encontrar la inversa de la raíz deseada. Estas dos
+funciones son:
 
-\begin{displaymath}
+\begin{equation}\label{f_x}
     f(x) = x^2 - \alpha
-\end{displaymath}
+\end{equation}
 
-\begin{displaymath}
+\begin{equation}\label{e_x}
     e(x) = \frac{1}{x^2} - \alpha
-\end{displaymath}
+\end{equation}
 
-A partir de este momento nos enfocaremos en encontrar los ceros de estas dos funciones usando los métodos de Newton y de la Secante:
+En este trabajo sólo estudiaremos el dominio de los reales $\Re$. Debido
+a esto, el dominio de estas funciones en el cual estamos interesados es $\alpha
+> 0$ ya que en $\Re$ la raíz cuadrada solo se puede aplicar a números
+positivos y no se existe la división por $0$.
 
-\begin{itemize}
-    \item {\bf Newton:} $\displaystyle x_{n + 1} = x_n - \frac{h(x_n)}{h'(x_n)}$
+Para encontrar los puntos en que las funciones se anulan utilizaremos los
+métodos iterativos de Newton y de la Secante.
 
-    \item {\bf Secante:} $\displaystyle x_{n + 1} = x_{n - 1} - h(x_{n - 1})\frac{x_{n - 1} - x_{n - 2}}{h(x_{n - 1}) - h(x_{n - 2})}$
-\end{itemize}
+\subsection{Análisis de $f(x)$}\label{sec:analisis_f_x}
 
-Donde $h(x) = f(x)$ o $h(x) = e(x)$ cuando corresponda 
+\begin{figure}[h]
+  \begin{center}
+    \includegraphics[scale=0.5]{graficos/new/f_x.eps}
+    \caption{\label{fig:f_x} Gráfico de $f(x)$ variando $\alpha$.}
+  \end{center}
+\end{figure}
 
-\subsection{Análisis de $f(x)$}
+Llamemos $\displaystyle \beta = \frac{ 1 }{ \alpha }$. $\beta$ es el número al
+cual le queremos encontrar la inversa de la raíz cudarada.
 
-Llamemos $\displaystyle \beta = \frac{1}{\alpha}$. Por otro lado la expresión de $f(x)$ la podemos reescribir de esta manera:
+Por otro lado la expresión de $f(x)$ la podemos reescribir de esta manera:
 
-\begin{displaymath}
+\[
     f(x) = x^2 - \alpha = (x + \sqrt{\alpha})(x - \sqrt{\alpha})
-\end{displaymath}
+\]
 
-Estas raíces existen pues $\alpha > 0$ (pues no existe la raíz de un negativo en $\mathbb{R}$) y como podemos ver las raíces son iguales en módulo y nos sirven para hallar $\beta$ con la salvedad de que si obtenemos el valor negativo simplemente le cambiamos el signo. Por lo tanto si $\displaystyle x = \sqrt{\alpha} \implies \beta = \frac{1}{x}$\\
+Podemos ver que esta es una función cuadrática y que tiene dos raices diferentes.
 
-INSERTAR GRÁFICO DE f(x)\\
+Estas raíces existen pues $\alpha > 0$ y como podemos ver las raíces son
+iguales en módulo y nos sirven para hallar $\beta$. Si la raíz encontrada es
+negativa simplemente cambiando el signo obtendremos la raíz en la cual estamos
+interesados. Por lo tanto
 
-$f(x)$ es convexa y su derivada segundo es $f''(x) = 2$, al ser constante y por la
-forma que tienen las derivadas asumimos que siempre va a converger.
+\[
+    x = \sqrt{\alpha} \implies \beta = \frac{ 1 }{ x }
+\]
 
-\subsection{Análisis de $e(x)$}
+$f(x)$ es convexa ya que su derivada segunda es $f''(x) = 2$.
 
-\begin{displaymath}
-    e(x) = 0 \implies 0 = \frac{1}{x^2} - \alpha \implies \alpha = \frac{1}{x^2} \implies x^2 = \frac{1}{\alpha}
-\end{displaymath}
+\subsection{Análisis de $e(x)$}\label{sec:analisis_e_x}
 
-$e(x)$ con $\alpha > 0$ también tiene dos raíces por lo que al igual que con
-$f(x)$ nos es indistinto cuál de las dos obtenemos. En este caso es importante
-notar que en el 0, hay una asíntota de las ordenadas.\\
+\begin{figure}[h]
+  \begin{center}
+    \includegraphics[scale=0.5]{graficos/new/e_x.eps}
+    \caption{\label{fig:e_x} Gráfico de $e(x)$ variando $\alpha$.}
+  \end{center}
+\end{figure}
 
-INSERTAR GRÁFICO DE e(x)
- 
-Los dos métodos que elegimos trabajan con la tangente de las funciones en un
-punto o con una aproximación de esta.\\
+Reescribamos $e(x)$ de la siguiente forma:
 
-Observamos $e''(x) = 6/x^4$. Esto quiere decir que la misma tiene una asíntota en el 0,
-y una pendiente que se agudiza rápidamente cerca de 0, lo cual puede dificultar la convergencia,
-dado que para que las operaciones aritméticas involucradas en los métodos de aproximación 
-den resultados de buena precisión, dependen de trabajar con números bien representables en punto flotante.
+\[
+    e(x) = 0 \implies
+    \frac{ 1 }{ x^2 } - \alpha = 0 \implies
+    \frac{ 1 }{ x^2 } = \alpha \implies
+    x^2 = \frac{ 1 }{ \alpha } \implies
+    x = \frac{ 1 }{ \sqrt{\alpha} }
+\]
 
-\subsection{Convergencia}
-Por lo visto en la teórica sabemos que el órden de convergencia de Newton es cuadrático, mientras que para Secante es $supralineal$ (específicamente es $\phi \approx 1.618$).
+Se puede ver que al encontrar las raices de $e(x)$ encontramos lo deseado, la
+inversa de la raíz cuadrada de $\alpha$.
 
-\subsubsection{Prueba de la convergencia de Newton para $f(x)$}
-Vamos a demostrar inductivamente la convergencia del método de Newton usando la función $\displaystyle f(x) = x^2 - \alpha$. De esta manera la sucesión nos queda:
+$e(x)$ con $\alpha > 0$ tiene dos raíces diferentes de mismo módulo, por lo que
+al igual que en el caso de $f(x)$ nos es indistinto cuál de las dos
+encontremos, ya que cambiando el signo obtenemos la otra raíz.
 
-\begin{displaymath}
-    x_{n + 1} = \frac{1}{2}(x_n + \frac{\alpha}{x_n})
-\end{displaymath}
+Esta función tiene dos asíntotas. En el eje de las ordenadas podemos encontrar
+una en $x = 0$, mientras que en el eje de las abscisas podemos encontrar una
+asíntota en $e(x) = - \alpha$ cuando $x \to \pm \infty$
 
-Lo que queremos demostrar es que si $x_0 > \sqrt{\alpha}$ entonces $x_{n + 1} < x_n$ para todo $n > 0$.\\
+\subsection{Método de Newton}
 
-{\large \bf Inducción en k $\in \mathbb{N}$}\\
-Queremos probar que $x_{k + 1} < x_k$.\\
+El método de Newton es un método iterativo para buscar aproximaciones
+sucecivamente mejores de las raices de una función real $h(x)$.
+
+Para aplicar este método es necesario que exista y conocer la derivada de la
+función a analizar en un intervalo real $[a, b]$.
+
+Dado un $x_0$ inicial suficientemente cerca de la raíz deseada, se pueden
+obtener sucesivas mejores aproximaciones a partir de:
+
+\begin{equation}\label{newton}
+    x_{n + 1} = x_n - \frac{ h(x_n) }{ h'(x_n) }
+\end{equation}
+
+La ``idea gráfica'' de este método es empezar un por un punto ($x_0$), luego
+obtener la tangente de la función en ese punto y obtener el siguiente punto
+(una mejor aproximación) donde la recta tangenta intersecta el eje de las
+abscisas.
+
+El órden de convergencia de este método es cuadrático siempre y cuando la
+multiplicidad de la raíz buscada sea 1. En el caso de las funciones $f(x)$ y
+$e(x)$ esto es así y podemos obtener sus derivadas:
+
+\begin{equation}\label{f_x}
+    f'(x) = 2x
+\end{equation}
+
+\begin{equation}\label{e_x}
+    e'(x) = -\frac{2}{x^3}
+\end{equation}
+
+
+\subsubsection{Convergencia para $f(x)$}\label{sec:convergencia}
+
+Veamos que Newton siempre converge para $f(x)$.
+
+Utilizaremos una demostración inductiva. El paso iterativo de Newton para
+$f(x)$ se puede escribir de la siguiente forma:
+
+\[
+    x_{n + 1} = \frac{ 1 }{ 2 } ( x_n + \frac{ \alpha }{ x_n })
+\]
+
+{\bf Inducción en k $\in \mathbb{N}$}
+
+Queremos probar que si $x_k > \sqrt{\alpha}$ entonces $\sqrt{\alpha} < x_{k + 1}
+< x_k$, es decir, $x_{k + 1}$ se encuentra más cerca de la raíz que $x_k$.
 
 {\bf Caso base: $P(0)$}\\
+
 Sea $k = 1$, queremos ver que $x_1 < x_0$. Entonces reemplazando $x_1$ por su definición tenemos:
 
-\begin{displaymath}
-    \frac{1}{2}(x_0 + \frac{\alpha}{x_0}) < x_0 \iff x_0 + \frac{\alpha}{x_0} < 2x_0 \iff \frac{\alpha}{x_0} < x_0 \iff \alpha < x_0^2 \iff \sqrt{\alpha} < x_0
-\end{displaymath}
+\begin{align*}
+    x_1 < x_0 &\iff \\
+    \frac{1}{2}(x_0 + \frac{\alpha}{x_0}) < x_0 &\iff \\
+    x_0 + \frac{\alpha}{x_0} < 2x_0 &\iff \\
+    \frac{\alpha}{x_0} < x_0 &\iff \\
+    \alpha < x_0^2 &\iff \\
+    \sqrt{\alpha} < x_0&
+\end{align*}
 
 Y esto último es la precondición. Por lo tanto $x_1 < x_0$ $_\square$\\
 
 Veamos también que $x_1 > \sqrt{\alpha}$\\
 
-\begin{displaymath}
-    x_1 > \sqrt{\alpha} \iff \frac{1}{2}(x_0 + \frac{\alpha}{x_0}) > \sqrt{\alpha} \iff x_0 + \frac{\alpha}{x_0} > 2\sqrt{\alpha}
-\end{displaymath}
-
-\begin{displaymath}
-    \iff x_0 - 2\sqrt{\alpha} > -\frac{\alpha}{x_0} \iff x_0^2 - 2\sqrt{\alpha}x_0 + \alpha > 0 \iff (x_0 - \sqrt{\alpha})^2 > 0
-\end{displaymath}
+\begin{align*}
+    x_1 > \sqrt{\alpha} &\iff \\
+    \frac{1}{2}(x_0 + \frac{\alpha}{x_0}) > \sqrt{\alpha} &\iff \\
+    x_0 + \frac{\alpha}{x_0} > 2\sqrt{\alpha} &\iff \\
+    x_0 - 2\sqrt{\alpha} > -\frac{\alpha}{x_0} &\iff \\
+    x_0^2 - 2\sqrt{\alpha}x_0 + \alpha > 0 &\iff \\
+    {(x_0 - \sqrt{\alpha})}^2 > 0
+\end{align*}
 
 Luego esto último vale pues $x_0 > \sqrt{\alpha}$. Por lo tanto, por esto y por lo demostrado antes vale que:
 
-\begin{displaymath}
+\[
     \sqrt{\alpha} < x_1 < x_0
-\end{displaymath}
+\]
 
 {\bf Caso n + 1: $P(n) \implies P(n + 1)$}\\
-Sea $k = n + 1$. Queremos probar que $x_{n + 1} < x_n$. Por lo visto en nuestro caso base la {\bf Hipótesis Inductiva} es:
 
-\begin{displaymath}
-    \sqrt{\alpha} < x_n < x_{n - 1}
-\end{displaymath}
+Sea $k = n + 1$. Veamos que $x_{n + 1} < x_n$.\\
 
-Entonces:
-\begin{displaymath}
-    x_{n + 1} = \frac{1}{2}(x_n + \frac{\alpha}{x_n}) = \frac{x_n^2 + \alpha}{2x_n}
-\end{displaymath}
+Podemos escribir $x_{n + 1}$ como:
 
-Luego por {\bf HI} vale que $\sqrt{\alpha} < x_n \iff \alpha < x_n^2 $ Entonces:
+\begin{align*}
+    x_{n + 1} = \frac{ 1 }{ 2 }(x_n + \frac{ \alpha }{ x_n }) = \frac{ x_n^2 + \alpha }{ 2x_n }
+\end{align*}
 
-\begin{displaymath}
-    \frac{x_n^2 + \alpha}{2x_n} < \frac{x_n^2 + x_n^2}{2x_n} = x_n
-\end{displaymath}
+Por {\bf HI} vale que $\sqrt{\alpha} < x_n \iff \alpha < x_n^2 $ Entonces:
 
-Por lo tanto $x_{n + 1} < x_n$.\\
+\[
+    \frac{ x_n^2 + \alpha } {2x_n } < \frac{ x_n^2 + x_n^2 }{ 2x_n } = x_n
+\]
+
+Por lo tanto $x_{n + 1} < x_n$ \\
 
 Ahora veamos que $\sqrt{\alpha} < x_{n + 1}$:
 
-\begin{displaymath}
-    \sqrt{\alpha} < x_{n + 1} \iff \sqrt{\alpha} < \frac{1}{2}(x_n + \frac{\alpha}{x_n}) \iff \sqrt{\alpha} < \frac{x_n^2 + \alpha}{2x_n}
-\end{displaymath}
+\[
+    \sqrt{\alpha} < x_{n + 1} \iff \sqrt{\alpha} < \frac{1}{2}(x_n + \frac{\alpha}{x_n}) \iff
+\]
 
-\begin{displaymath}
-    \iff 2x_n\sqrt{\alpha} < x_n^2 + \alpha \iff 0 < x_n^2 - 2x_n\sqrt{\alpha} + \alpha
-\end{displaymath}
+\[
+     \sqrt{\alpha} < \frac{x_n^2 + \alpha}{2x_n} \iff 2x_n\sqrt{\alpha} < x_n^2 + \alpha \iff
+\]
 
-\begin{displaymath}
-    \iff 0 < (x_n - \sqrt{\alpha})^2 \iff 0 < x_n - \sqrt{\alpha} \iff \sqrt{\alpha} < x_n
-\end{displaymath}
+\[
+     0 < x_n^2 - 2x_n\sqrt{\alpha} + \alpha \iff 0 < {(x_n - \sqrt{\alpha})}^2
+\]
 
-Y esto último vale por {\bf HI}. Por lo tanto demostramos que:
+Y esto último vale ya que por {\bf HI} $\sqrt{\alpha} < x_n$. Por lo tanto demostramos que:
 
-\begin{displaymath}
-    \sqrt{\alpha} < x_n < x_{n - 1}
-\end{displaymath}
+\[
+    \sqrt{\alpha} < x_n < x_{n - 1} \square
+\]
 
-\begin{center}
-\includegraphics[scale=0.5]{graficos/f(x).png}\\
-Gráfico de $f(x)$ variando $\alpha$
-\end{center}
+\subsection{Método de la Secante}
 
-\begin{center}
-\includegraphics[scale=0.5]{graficos/e(x).png}\\
-Gráfico de $e(x)$ variando $\alpha$
-\end{center}
+El método de la secante es un método iterativo para buscar aproximaciones
+sucecivamente mejores de las raices de una función real $h(x)$. Se puede ver
+como una derivación del método de Newton donde no es necesario conocer la
+derivida de la función, sino que esta se aproxima utilizando la aproximación de
+diferencias finitas. Su paso iterativo es:
+
+\begin{equation}\label{secante}
+    x_{n + 1} = x_n - h(x_n) \frac{ x_n - x_{n - 1} }{ h(x_n) - h(x_{n - 1}) }
+\end{equation}
+
+La ``idea gráfica'' de este método es similar a la del método de Newton, pero en
+este caso, ``aproximar'' la tangente en un punto por la recta que interseca a la
+función en $x_0$ y $x_1$.
+
+Su orden de convergencia es supralineal, específicamente es $\phi \approx
+1.618$.
+
+Al tener un peor orden de convergencia que el método de Newton requiere de más
+pasos para converger, pero al no necesitar calcular la derivida de la función
+en la práctica puede ser más veloz.

@@ -243,19 +243,21 @@ int main (int argc, char * argv[]) {
     printf(" con limite %f\n", limite);
 
     double x_prev = DBL_EPSILON; // Mi x0 con el cual empiezo
-    double x_next = DBL_EPSILON * 10000;
+    double x_next = DBL_EPSILON + 0.0000000001;
 
     // Me fijo si uso las x_next y x_prev default o las que pidio el usuario
-    if (argc == 8) {
+    if (argc == 8 || argc == 7) {
         x_prev = strtod(argv[6], &end);
         if (argv[6] == end) {
             printf("Error: El <x0> debe ser un double\n");
             exit(-1);
         }
-        x_next = strtod(argv[7], &end);
-        if (argv[7] == end) {
-            printf("Error: El <x1> debe ser un double\n");
-            exit(-1);
+        if (argc == 8) {
+            x_next = strtod(argv[7], &end);
+            if (argv[7] == end) {
+                printf("Error: El <x1> debe ser un double\n");
+                exit(-1);
+            }
         }
     } else {
         // TODO: Inicializo x_prev y x_next
@@ -266,7 +268,7 @@ int main (int argc, char * argv[]) {
     printf("Utilizando x0=%f y x1=%f\n", x_prev, x_next);
 
     // Terminado el preambulo, linea en blanco
-    //printf("\n");
+    printf("\n");
 
     int i = 0;
 
@@ -276,13 +278,17 @@ int main (int argc, char * argv[]) {
 
     while ((*criterio)(&limite, (*g_end)(&x_next, &alpha), &alpha, &i, get_time(), 0) &&  i < MAX_ITER) {
         (*iter)(&x_prev, &x_next, &alpha, g, g1);
-        //printf("%.99f Iter\n", x_next);
+        printf("%.99f Iter\n", x_next);
         i++;
+    }
+    if (i == MAX_ITER) {
+        // Devolver NaN si termine por MAX_ITER
+        x_next = 0.0 / 0.0;
     }
     double tiempo_total = get_time();
 
     // Terminadas las iteraciones, linea en blanco
-    printf("\n\n");
+    printf("\n");
 
     printf("%.99f resultado\n", (*g_end)(&x_next, &alpha));
     iteraciones(&limite, (*g_end)(&x_next, &alpha), &alpha, &i, tiempo_total, 1);

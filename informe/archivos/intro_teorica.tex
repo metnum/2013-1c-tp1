@@ -113,8 +113,27 @@ Luego por {\bf HI} vale que $\sqrt{\alpha} < x_n \iff \alpha < x_n^2 $ Entonces:
     \frac{x_n^2 + \alpha}{2x_n} < \frac{x_n^2 + x_n^2}{2x_n} = x_n
 \end{displaymath}
 
-Por lo tanto $x_{n + 1} < x_n$ $\square$
+Por lo tanto $x_{n + 1} < x_n$.\\
 
+Ahora veamos que $\sqrt{\alpha} < x_{n + 1}$:
+
+\begin{displaymath}
+    \sqrt{\alpha} < x_{n + 1} \iff \sqrt{\alpha} < \frac{1}{2}(x_n + \frac{\alpha}{x_n}) \iff \sqrt{\alpha} < \frac{x_n^2 + \alpha}{2x_n}
+\end{displaymath}
+
+\begin{displaymath}
+    \iff 2x_n\sqrt{\alpha} < x_n^2 + \alpha \iff 0 < x_n^2 - 2x_n\sqrt{\alpha} + \alpha
+\end{displaymath}
+
+\begin{displaymath}
+    \iff 0 < (x_n - \sqrt{\alpha})^2 \iff 0 < x_n - \sqrt{\alpha} \iff \sqrt{\alpha} < x_n
+\end{displaymath}
+
+Y esto último vale por {\bf HI}. Por lo tanto demostramos que:
+
+\begin{displaymath}
+    \sqrt{\alpha} < x_n < x_{n - 1}
+\end{displaymath}
 
 \begin{center}
 \includegraphics[scale=0.5]{graficos/f(x).png}\\

@@ -1,6 +1,6 @@
 \section{Introducción Teórica}
 
-El objetivo de este trabajo es encontrar la inversa de la raiz cuadrada de un
+El objetivo de este trabajo es encontrar la inversa de la raíz cuadrada de un
 número, de forma eficiente. Para esto analizamos dos funciones diferentes cuyos
 ceros nos ayudarán a encontrar la inversa de la raíz deseada. Estas dos
 funciones son:
@@ -16,7 +16,7 @@ funciones son:
 En este trabajo sólo estudiaremos el dominio de los reales $\Re$. Debido
 a esto, el dominio de estas funciones en el cual estamos interesados es $\alpha
 > 0$ ya que en $\Re$ la raíz cuadrada solo se puede aplicar a números
-positivos y no se existe la división por $0$.
+positivos y no existe la división por $0$.\\
 
 Para encontrar los puntos en que las funciones se anulan utilizaremos los
 métodos iterativos de Newton y de la Secante.
@@ -31,7 +31,7 @@ métodos iterativos de Newton y de la Secante.
 \end{figure}
 
 Llamemos $\displaystyle \beta = \frac{ 1 }{ \alpha }$. $\beta$ es el número al
-cual le queremos encontrar la inversa de la raíz cudarada.
+cual le queremos encontrar la inversa de la raíz cudarada.\\
 
 Por otro lado la expresión de $f(x)$ la podemos reescribir de esta manera:
 
@@ -39,12 +39,12 @@ Por otro lado la expresión de $f(x)$ la podemos reescribir de esta manera:
     f(x) = x^2 - \alpha = (x + \sqrt{\alpha})(x - \sqrt{\alpha})
 \]
 
-Podemos ver que esta es una función cuadrática y que tiene dos raices diferentes.
+Podemos ver que esta es una función cuadrática y que tiene dos raíces diferentes.\\
 
 Estas raíces existen pues $\alpha > 0$ y como podemos ver las raíces son
 iguales en módulo y nos sirven para hallar $\beta$. Si la raíz encontrada es
 negativa simplemente cambiando el signo obtendremos la raíz en la cual estamos
-interesados. Por lo tanto
+interesados. Por lo tanto:
 
 \[
     x = \sqrt{\alpha} \implies \beta = \frac{ 1 }{ x }
@@ -71,24 +71,24 @@ Reescribamos $e(x)$ de la siguiente forma:
     x = \frac{ 1 }{ \sqrt{\alpha} }
 \]
 
-Se puede ver que al encontrar las raices de $e(x)$ encontramos lo deseado, la
-inversa de la raíz cuadrada de $\alpha$.
+Se puede ver que al encontrar las raíces de $e(x)$ encontramos lo deseado, la
+inversa de la raíz cuadrada de $\alpha$.\\
 
 $e(x)$ con $\alpha > 0$ tiene dos raíces diferentes de mismo módulo, por lo que
 al igual que en el caso de $f(x)$ nos es indistinto cuál de las dos
-encontremos, ya que cambiando el signo obtenemos la otra raíz.
+encontremos, ya que cambiando el signo obtenemos la otra raíz.\\
 
 Esta función tiene dos asíntotas. En el eje de las ordenadas podemos encontrar
 una en $x = 0$, mientras que en el eje de las abscisas podemos encontrar una
-asíntota en $e(x) = - \alpha$ cuando $x \to \pm \infty$
+asíntota en $e(x) = - \alpha$ cuando $x \to \pm \infty$.
 
 \subsection{Método de Newton}
 
 El método de Newton es un método iterativo para buscar aproximaciones
-sucecivamente mejores de las raices de una función real $h(x)$.
+sucesivamente mejores de las raíces de una función real $h(x)$.\\
 
 Para aplicar este método es necesario que exista y conocer la derivada de la
-función a analizar en un intervalo real $[a, b]$.
+función a analizar en un intervalo real $[a, b]$.\\
 
 Dado un $x_0$ inicial suficientemente cerca de la raíz deseada, se pueden
 obtener sucesivas mejores aproximaciones a partir de:
@@ -100,7 +100,7 @@ obtener sucesivas mejores aproximaciones a partir de:
 La ``idea gráfica'' de este método es empezar un por un punto ($x_0$), luego
 obtener la tangente de la función en ese punto y obtener el siguiente punto
 (una mejor aproximación) donde la recta tangenta intersecta el eje de las
-abscisas.
+abscisas.\\
 
 El órden de convergencia de este método es cuadrático siempre y cuando la
 multiplicidad de la raíz buscada sea 1. En el caso de las funciones $f(x)$ y
@@ -117,7 +117,7 @@ $e(x)$ esto es así y podemos obtener sus derivadas:
 
 \subsubsection{Convergencia para $f(x)$}\label{sec:convergencia}
 
-Veamos que Newton siempre converge para $f(x)$.
+Veamos que Newton siempre converge para $f(x)$ si $x_n > \sqrt{\alpha}$.\\
 
 Utilizaremos una demostración inductiva. El paso iterativo de Newton para
 $f(x)$ se puede escribir de la siguiente forma:
@@ -204,7 +204,7 @@ Y esto último vale ya que por {\bf HI} $\sqrt{\alpha} < x_n$. Por lo tanto demo
 \subsection{Método de la Secante}
 
 El método de la secante es un método iterativo para buscar aproximaciones
-sucecivamente mejores de las raices de una función real $h(x)$. Se puede ver
+sucecivamente mejores de las raíces de una función real $h(x)$. Se puede ver
 como una derivación del método de Newton donde no es necesario conocer la
 derivida de la función, sino que esta se aproxima utilizando la aproximación de
 diferencias finitas. Su paso iterativo es:
@@ -215,10 +215,10 @@ diferencias finitas. Su paso iterativo es:
 
 La ``idea gráfica'' de este método es similar a la del método de Newton, pero en
 este caso, ``aproximar'' la tangente en un punto por la recta que interseca a la
-función en $x_0$ y $x_1$.
+función en $x_0$ y $x_1$.\\
 
 Su orden de convergencia es supralineal, específicamente es $\phi \approx
-1.618$.
+1.618$.\\
 
 Al tener un peor orden de convergencia que el método de Newton requiere de más
 pasos para converger, pero al no necesitar calcular la derivida de la función

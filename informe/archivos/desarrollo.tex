@@ -11,7 +11,7 @@
 
 Para realizar el análisis de los métodos y funciones previamente descriptos
 realizamos una implementación en \verb|C| que nos permite decidir
-paramétricamente cómo resolver la inversa de la raíz de un número dado.
+paramétricamente cómo resolver la inversa de la raíz de un número dado.\\
 
 La implementación acepta los siguientes parámetros:
 
@@ -39,13 +39,13 @@ implementación devuelve:
 \end{itemize}
 
 Realizamos también unos helpers en \verb|Python| para poder crear experimentos
-de forma sencilla y poder replicarlos cuantas veces sea necesario y analizar
-los resultados.
+de forma sencilla, poder replicarlos cuantas veces sea necesario y analizar
+los resultados.\\
 
-El codigo escrito se puede optimizar \textbf{mucho}, sobre todo en las cuentas
+El código escrito se puede optimizar \textbf{mucho}, sobre todo en las cuentas
 que realiza el cuerpo de cada metodo. Ahora hay una implementación naive que
-replica el enfoque analitico pero que a nivel cantidad y complejidad de
-operaciones se puede mejorar.
+replica el enfoque analítico pero que a nivel cantidad y complejidad de
+operaciones se puede mejorar.\\
 
 Por otro lado, hay un alto grado de overhead debido a la forma que decidimos
 implementar la flexibilidad de ejecución con los parámetros elegidos, pero
@@ -94,14 +94,15 @@ analítico nos puede permitir elegir un mejor $x_0$.
   \end{center}
 \end{figure}
 
-El la Figura~\ref{fig:f_newton_x0_variable}  podemos ver como varía la cantidad
+En la Figura~\ref{fig:f_newton_x0_variable}  podemos ver como varía la cantidad
 de iteraciones, cambiando la magnitud de $x_0$. Cuando $x_0$ es muy grande
 empezamos muy lejos de la solución, con lo cual se requieren muchas iteraciones
-para llegar al resultado.
+para llegar al resultado.\\
+
 Cuando $x_0$ es muy pequeño, cercano al $0$, la pendiente de la tangente a
-$f(x)$ es cercana al 0, por lo que la siguiente iteración $x_1$, el punto donde
+$f(x)$ es cercana al 0, por lo que en la siguiente iteración $x_1$, el punto donde
 esta recta se interseca con el eje de las abscisas es muy grande, cayendo en el
-caso anterior partiendo desde $x1$ de un punto muy grande, con un valor muy
+caso anterior partiendo desde $x_1$ de un punto muy grande, con un valor muy
 alejado de la solución.
 
 \begin{figure}[!htbp]
@@ -115,11 +116,11 @@ En la Figura~\ref{fig:f_newton_x0_fijo_1} graficamos la cantidad de iteraciones
 necesarias para llegar al resultado, fijando diferentes puntos de partida $x_0$
 y variando la magnitud de $\alpha$. Las variantes que mostramos en esta figura
 son $x_0$ constantes y en función del $\alpha$. Una de las opciones de $x_0$ es
-$\textit{DBL\_EPSILON}$; dependiente de nuestra implementación particuar es el
+$\textit{DBL\_EPSILON}$; dependiente de nuestra implementación particular es el
 menor número tal que $1.0 + \textit{DBL\_EPSILON} \ne 1.0$. En nuestro caso, es
 el menor $x_0$ positivo que podemos utilizar sin entrar en errores de pérdida
 de dígitos significativos. Luego incluímos las opciones constantes de $x_0 = 1$
-y $x_0 = 1000$. Por último incluímos un $x_0$ linealmente dependiente de $\alpha$.
+y $x_0 = 1000$. Por último incluímos un $x_0$ linealmente dependiente de $\alpha$.\\
 
 Se puede observar claramente que $x_0$ con valores constantes crecen más
 lentamente que $x_0 = \alpha$ para la gran mayoría de valores. Intentamos
@@ -141,12 +142,12 @@ tiene sentido ya que se empieza cerca del resultado para diferentes valores de
 $\alpha$. Este corrimiento se realiza en base a la magnitud (o valore relativo)
 de $x_0$ y no en base a su valor, lo que implica que el corrimiento entre $x_0
 = 0.5$ y $x_0 = 1$ es similar al corrimiento entre $x_0 = 1000$ y $x_0 = 2000$
-ya que diferencia relativa entre estos valores es de $1/2$.
+ya que diferencia relativa entre estos valores es de $1/2$.\\
 
 Se puede observar también que tomando diferentes $x_0$ en relación lineal con
-$\alpha$ también produce un corrimiento y no una diferencia en la pendiente.
+$\alpha$ también produce un corrimiento y no una diferencia en la pendiente.\\
 
-En base a estos resultados decidimos tomar $x0 = 1$ para calcular $f(x)$
+En base a estos resultados decidimos tomar $x_0 = 1$ para calcular $f(x)$
 utilizando el método de Newton ya que mantiene un equilibrio entre magnitudes
 muy grandes y magnitudes muy pequeñas.
 
@@ -168,18 +169,18 @@ En la Figura~\ref{fig:e_newton_x0_variable} lo primero que podemos observar es
 como pensado que no todos los $\alpha$ convergen para todos los $x_0$. Cuanto
 mayor es el $\alpha$ necesitamos un mayor $x_0$ para lograr la convergencia. No
 obstante, si fijamos un $x_0$ constante muy grande, la cantidad de iteraciones
-necesarias para llegar al resultado para $\alpha$ chicos es muy grande.
+necesarias para llegar al resultado para $\alpha$ chicos es muy grande.\\
 
-Se nos ocurren dos alternativas posibles por qué no converge hacia el
+Se nos ocurren dos alternativas posibles del porqué no converge hacia el
 resultado. La primera es que simplemente el método no converge para todos los
-$x_0$ para todos los $\alpha$ ya que no tenemos un análsis que lo garantice.
+$x_0$ para todos los $\alpha$ ya que no tenemos un análisis que lo garantice.
 La segunda alternativa es que al poseer dos asíntotas, al variar poco algunos
-numéros varía mucho hacia números \textbf{muy} grandes la intersección con las
+números varía mucho hacia números \textbf{muy} grandes la intersección con las
 abscisas de las tangentes o la evaluación de $e(x)$ en valores cercanos al $0$.
 Esto puede producir la pérdida de dígitos significativos perjudicando la
 convergencia. Para muchas de las pruebas que realizamos durante la
 implementación obtuvimos valores intermedios donde la representación de doble
-punto flotante nativa utilizada llegaba a ``inf''.
+punto flotante nativa utilizada llegaba a $\infty$.
 
 \begin{figure}[!htbp]
   \begin{center}
@@ -194,18 +195,18 @@ la magnitud de $\alpha$. Decidimos probar al igual que en el análisis del
 método de Newton para $f(x)$ el comportamiento con $x_0 =
 \textit{DBL\_EPSILON}$. En este caso, converge para gran cantidad del dominio
 pero necesita muchas iteraciones para $\alpha$ pequeños. En el caso de $x_0 =
-\alpha$ podemos observar que converge para valores muy grandes de $\alpha$.
+\alpha$ podemos observar que converge para valores muy grandes de $\alpha$.\\
 
-Notemos que parecen generar pendientes similares pero invertidas.
+Notemos que parecen generar pendientes similares pero invertidas.\\
 
 Utilizar otras constantes para $x_0$ o multiplicar $\alpha$ por una constante
-genera nuevamente un ``corrimiento'' sin cambio perceptible en la pendiente. 
+genera nuevamente un ``corrimiento'' sin cambio perceptible en la pendiente.\\
 
 En un análisis de la forma de la función pensamos en utilizar $x_0 = 1 /
-\alpha$ pero en la práctica no converge.
+\alpha$ pero en la práctica no converge.\\
 
 Al igual que en el caso anterior decidimos tomar valores para ``equilibrar''
-diferentes magnitudes de $\alpha$ al rededor del $1$. Para esto buscamos
+diferentes magnitudes de $\alpha$ alrededor del $1$. Para esto buscamos
 mediante una búsqueda binaria (manual) los valores para $x_0$ para producir la
 menor cantidad de iteraciones en $\alpha = 1$. Los valores encontrados y que
 utilizaremos para $e(x)$ y el método de Newton son:
@@ -224,11 +225,11 @@ en $\alpha = 1$.
 \subsubsection{Ajuste de $x_0$ y $x_1$ para $e(x)$ y el método de la Secante}
 
 En el caso del método de la secante para $e(x)$ debemos elegir tanto $x_0$ como
-$x_1$. En esta combinación tampoco tenemos asegurada la convergencia.  Al igual
+$x_1$. En esta combinación tampoco tenemos asegurada la convergencia. Al igual
 que en el apartado anterior, en las figuras que mostramos a continuación sólo
-graficamos los valores para los cuales el método converge.
+graficamos los valores para los cuales el método converge.\\
 
-El enfoque que decidimos tomar para esta combinación es el siguiente: teniendo
+El enfoque que decidimos tomar para esta combinación es el siguiente: Teniendo
 en cuenta que el método de la Secante se puede ver como una aproximación por
 diferencias finitas del método de Newton, intentamos replicar los resultados,
 eligiendo los mismos $x_0$ y ajustando los $x_1$ para obtener valores
@@ -246,17 +247,17 @@ similares a los de la Figura~\ref{fig:e_newton_x0_variable}. Al igual que en
 esta no todos los $\alpha$ convergen para todos los $x_0$. Las mismas
 conclusiones aplican, cuanto mayor es el $\alpha$ necesitamos un mayor $x_0$
 para lograr la convergencia a costa de mayor cantidad de iteraciones para
-$\alpha$ chicos. 
+$\alpha$ chicos.\\
 
 Los $x_1$ tomados para este experimiento son $x_1 = x_0 + 0.0001$. Al elegir
 estos $x_1$ cercanos a los $x_0$ la idea fue aproximar la tangente obtenida en
 la primera iteración del método de Newton. Puntos $x_1$ más cercanos a $x_0$
-producían una menor convergencia en el mismo dominio.
+producían una menor convergencia en el mismo dominio.\\
 
 Se puede observar también como la cantidad de iteraciones crece a medida que el
 $\alpha$ crece hasta un punto donde la cantidad de iteraciones se mantiene
 estable. Creemos que esto se debe a las asíntotas, donde la elección de $x_0$ y
-$x_1$ tan grandes producen muy poca variación en el cálculo de la tangente.
+$x_1$ tan grandes producen muy poca variación en el cálculo de la tangente.\\
 
 Se puede notar también una mayor cantidad de iteraciones necesarias para
 alcanzar los mismos resultados que para el método de Newton, lo que concuerda
@@ -275,15 +276,15 @@ la magnitud de $\alpha$. Decidimos probar al igual que en la
 Figura~\ref{fig:e_newton_x0_fijo} el comportamiento con $x_0 =
 \textit{DBL\_EPSILON}$. Para lograr el mismo dominio de convergencia
 necesitamos utilizar un $x_1$ aún más cercano,  $x1 = \textit{DBL\_EPSILON} +
-0.0000000001 = x_0 + 0.0000000001$.
+0.0000000001 = x_0 + 0.0000000001$.\\
 
 Para los casos donde $x_0$ es un múltiplo de $\alpha$ fue necesario multiplicar
-$x_1 = 2 * x_0$ para lograr el mismo dominio de convergencia que en el método
-de Newton.
+$x_1 = 2 \times x_0$ para lograr el mismo dominio de convergencia que en el método
+de Newton.\\
 
 Estos resultados mantienen la misma forma que los de la
 Figura~\ref{fig:e_newton_x0_fijo}, incluso los valores de $x_0$ se mantienen
-para lograr ``equilibrar'' la convergencia en $\alpha = 1$.
+para lograr ``equilibrar'' la convergencia en $\alpha = 1$.\\
 
 Los valores encontrados y que utilizaremos para $e(x)$ y el método de la
 Secante son:

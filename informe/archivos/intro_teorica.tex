@@ -117,7 +117,7 @@ $e(x)$ esto es así y podemos obtener sus derivadas:
 
 \subsubsection{Convergencia para $f(x)$}\label{sec:convergencia}
 
-Veamos que Newton siempre converge para $f(x)$ si $x_n > \sqrt{\alpha}$.\\
+Veamos que Newton siempre converge para $f(x)$ si $x_0 > \sqrt{\alpha}$.\\
 
 Utilizaremos una demostración inductiva. El paso iterativo de Newton para
 $f(x)$ se puede escribir de la siguiente forma:
@@ -128,7 +128,7 @@ $f(x)$ se puede escribir de la siguiente forma:
 
 {\bf Inducción en k $\in \mathbb{N}$}
 
-Queremos probar que si $x_k > \sqrt{\alpha}$ entonces $\sqrt{\alpha} < x_{k + 1}
+Queremos probar que si $x_0 > \sqrt{\alpha}$ entonces $\sqrt{\alpha} < x_{k + 1}
 < x_k$, es decir, $x_{k + 1}$ se encuentra más cerca de la raíz que $x_k$.
 
 {\bf Caso base: $P(0)$}\\
@@ -203,10 +203,10 @@ Y esto último vale ya que por {\bf HI} $\sqrt{\alpha} < x_n$. Por lo tanto demo
 
 \subsection{Método de la Secante}
 
-El método de la secante es un método iterativo para buscar aproximaciones
+El método de la Secante es un método iterativo para buscar aproximaciones
 sucecivamente mejores de las raíces de una función real $h(x)$. Se puede ver
 como una derivación del método de Newton donde no es necesario conocer la
-derivida de la función, sino que esta se aproxima utilizando la aproximación de
+derivada de la función, sino que esta se aproxima utilizando la aproximación de
 diferencias finitas. Su paso iterativo es:
 
 \begin{equation}\label{secante}
@@ -221,5 +221,5 @@ Su orden de convergencia es supralineal, específicamente es $\phi \approx
 1.618$.\\
 
 Al tener un peor orden de convergencia que el método de Newton requiere de más
-pasos para converger, pero al no necesitar calcular la derivida de la función
-en la práctica puede ser más veloz.
+pasos para converger, pero al no necesitar calcular la derivada de la función
+en la práctica podría ser más veloz.

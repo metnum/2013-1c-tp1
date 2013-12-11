@@ -1,5 +1,6 @@
 # coding=UTF-8
 import os
+from decimal import Decimal
 from subprocess import check_output
 
 
@@ -22,6 +23,7 @@ class Experimento(object):
     limite: argumento de limite para el criterio
     x0, x1: puntos iniciales de aproximación
     x0s, x1s: iterables de puntos iniciales de aproximación (uno por cada alfa)
+    auto_x: seleccionar los x0 y x1 basado en el estudio de parametros
     """
     entradas = None
     funcion = None
@@ -32,12 +34,13 @@ class Experimento(object):
     x0s = None
     x1 = None
     x1s = None
+    auto_x = True
 
     _has_run = False
 
     resultados = None
 
-    def __init__(self, entradas=None, funcion=None, metodo=None, criterio=None, limite=None, x0=None, x1=None, x0s=None, x1s=None):
+    def __init__(self, entradas=None, funcion=None, metodo=None, criterio=None, limite=None, x0=None, x1=None, x0s=None, x1s=None, auto_x=None):
         if entradas:
             self.entradas = entradas
         if funcion:
@@ -56,6 +59,8 @@ class Experimento(object):
             self.x0s = x0s
         if x1s:
             self.x1s = x1s
+        if auto_x:
+            self.auto_x = auto_x
 
     def run(self):
         if self.resultados:  # ya se corrio
@@ -139,19 +144,43 @@ class Experimento(object):
                 prog_args = ["%s" % arg for arg in [executable, alpha] + args]
 
                 if self.x0s:
-                    prog_args.append(str(self.x0s.pop()))
+                    prog_args.append(str(self.x0s.pop(0)))
+                    # print alpha, prog_args[-1]
                     if self.x1s:
-                        prog_args.append(str(self.x1s.pop()))
+                        prog_args.append(str(self.x1s.pop(0)))
+                elif self.auto_x:
+                    if not self.x0:
+                        # Setear los parámetros de x0 y x1 a mano
+                        if params['funcion'] == 'f' and params['metodo'] == 'n':
+                            # hardcode x0 = 1
+                            prog_args.append('1')
+                        elif params['funcion'] == 'e' and params['metodo'] == 'n':
+                            if alpha < 1:
+                                # hardcode x0 = 0.1
+                                prog_args.append(0.1)
+                            else:
+                                # hardcode x0 = 1000 * alpha
+                                prog_args.append(Decimal('0.1') / Decimal(alpha))
+                        elif params['funcion'] == 'e' and params['metodo'] == 's':
+                            if alpha < 1:
+                                # hardcode x0 = 0.1, x1=x0+0.00001
+                                prog_args.append(0.1)
+                                prog_args.append(0.10001)
+                            else:
+                                # hardcode x0 = 1000 * alpha, x1 = 2 * x0
+                                prog_args.append(1 / (10 * Decimal(alpha)))
+                                prog_args.append(2 / (10 * Decimal(alpha)))
+                prog_args = ["%s" % arg for arg in prog_args]
 
                 output = check_output(prog_args)
                 segmentos = output.split("\n\n")
                 if len(segmentos) == 3:
                     detalle, iteraciones, resultados = segmentos
-                    iteraciones = map(lambda line: line.split(" ")[0], iteraciones.split("\n"))
+                    detalle_iteraciones = map(lambda line: Decimal(line.split(" ")[0]), iteraciones.split("\n"))
                 else:
                     detalle, resultados = segmentos
                     resultados = resultados.lstrip("\n")
-                    iteraciones = []
+                    detalle_iteraciones = []
 
                 resultados = map(lambda line: line.split(" ")[0], resultados.split("\n"))
                 resultado = float(resultados[0])
@@ -163,6 +192,7 @@ class Experimento(object):
                 self.resultados.append({
                     'alpha': alpha,
                     'iteraciones': iteraciones,
+                    'detalle_iteraciones': detalle_iteraciones,
                     'resultado': resultado,
                     'absoluto': absoluto,
                     'relativo': relativo,

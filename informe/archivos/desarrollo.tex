@@ -77,6 +77,18 @@ Newton hay que elegir una primera aproximación $x_0$ en base a $f(x)$ o $e(x)$
 (que puede o no ser la misma) y para el método de la Secante y $e(x)$ hay que
 elegir $x_0$ y $x_1$.
 
+Decidimos realizar nuestro análisis enfocados en una amplia gama de magnitudes
+de números a los cuales les queremos buscar la inversa de la raíz. Estamos
+interesados tanto en números muy pequeños, cercanos al cero y en números muy
+grandes, lejanos del 0.
+
+Por esta razón, para el ajuste de parámetros decidimos utilizar un criterio de
+parada de error relativo entre iteraciones. Gracias a esta elección y el
+caracter iterativo de los métodos a utilizar nos garantizamos que no importa la
+magnitud del número dado, siempre encontraremos una solución con un error
+relativo al resultado pequeño, por lo que los parámetros a elegir nos deben
+otorgar buenos resultados para números muy grandes y muy pequeños.
+
 \subsubsection{Ajuste de $x_0$ para $f(x)$ y el método de Newton}
 
 Al buscar una raíz de $f(x)$ mediante el método de Newton tenemos asegurada la
@@ -299,3 +311,8 @@ x_0 = \alpha * 1000 \wedge x_1 = x_0 * 2, & \mbox{si } \alpha \ge 1
 La cantidad de iteraciones para estos valores se pueden observar en la
 Figura~\ref{fig:e_secante_x0_fijo} donde se encuentra graficada su intersección
 en $\alpha = 1$.
+
+\subsection{Análisis práctico de convergencia}
+
+En esta sección estudiaremos de forma práctica la convergencia de cada uno de
+los métodos y la compararemos con la convergencia teórica.

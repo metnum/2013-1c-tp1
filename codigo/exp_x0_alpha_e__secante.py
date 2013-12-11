@@ -7,12 +7,13 @@ Newton para x0 == alpha
 import itertools
 
 from copy import deepcopy
+from decimal import Decimal
 from math import isnan
 from pylab import plt, legend
 
 from tp1 import Experimento
 
-alphas = [10 ** (n * 2) for n in range(-25, 25, 2)]
+alphas = [Decimal(10 ** (n * 2)) for n in range(-25, 25, 2)]
 
 marker = itertools.cycle(('+', 'o', '*'))
 
@@ -32,6 +33,7 @@ plt.semilogx()
 # codigo
 
 x0s = deepcopy(alphas)
+x0s = [1 / x0 for x0 in x0s]
 x1s = [2 * x0 for x0 in x0s]
 mi_newton = Newton(entradas=alphas, x0s=x1s, x1s=x0s)
 mi_newton.run()
@@ -39,11 +41,11 @@ resultado = mi_newton.resultados
 valores = [res['resultado'] for res in resultado]
 plot_alphas = [tup[0] for tup in zip(alphas, valores) if not isnan(tup[1])]
 plot_iters = [tup[0]['iteraciones'] for tup in zip(resultado, valores) if not isnan(tup[1])]
-plt.plot(plot_alphas, plot_iters, label=u"x0 = α, x1 = 2 * x0")
+plt.plot(plot_alphas, plot_iters, label=u"x0 = 1 / α, x1 = 2 * x0")
 
 
 x0s = deepcopy(alphas)
-x0s = [x0 * 1000 for x0 in x0s]
+x0s = [1 / (x0 * 10) for x0 in x0s]
 x1s = [2 * x0 for x0 in x0s]
 mi_newton = Newton(entradas=alphas, x0s=x0s, x1s=x1s)
 mi_newton.run()
@@ -51,7 +53,7 @@ resultado = mi_newton.resultados
 valores = [res['resultado'] for res in resultado]
 plot_alphas = [tup[0] for tup in zip(alphas, valores) if not isnan(tup[1])]
 plot_iters = [tup[0]['iteraciones'] for tup in zip(resultado, valores) if not isnan(tup[1])]
-plt.plot(plot_alphas, plot_iters, label=u"x0 = 1000 α, x1 = 2 * x0")
+plt.plot(plot_alphas, plot_iters, label=u"x0 = 1 / (α * 10), x1 = 2 * x0")
 
 
 mi_newton = Newton(entradas=alphas)

@@ -23,136 +23,36 @@ Este análisis nos lleva a suponer que Secante debería ser mas performante que 
 \subsection{Casos de Prueba}
 La aproximación inicial que tuvimos fue tomar cada uno de los parámetros, fijar los demás y hacer un análisis de cada uno de los factores de estudio (tiempo, iteraciones, convergencia, etc.) haciendo crecer los parámetros de turno. Claramente la cantidad de casos era mucha y en general los resultados eran difíciles de interpretar y no aportaban al propósito de develar si nuestra hipótesis se cumplía.\\
 
-Por lo tanto decidimos que lo mejor sería solamente tomar un par de combinaciones de todas las posibles que nos parecieran que fueran representativas. A saber:\\
+Por lo tanto decidimos que lo mejor sería solamente tomar un par de combinaciones de todas las posibles que nos parecieran que fueran representativas. En nuestro caso al ya tener $x_0$ y $x_1$ definidos en base a previa experimentación decidimos hacer comparaciones entre los métodos en términos de iteraciones y tiempo de ejecución para $\alpha$'s crecientes.\\
 
-ACA PONER LOS CASOS PAPA!
+\subsubsection{Iteraciones} % (fold)
+\label{ssub:iteraciones}
 
-\subsection{Gráficos}
+En el caso de hacer crecer $\alpha$ para ver cómo se comportan en función de las iteraciones, nuestra suposición es que Newton tomará menos iteraciones que Secante. Ahora, para Newton con $f(x)$ y $e(x)$ suponemos que el primero tomará menos iteraciones ya que el segundo cuenta con un cociente extra para calcular con respecto al primero en cada iteración.\\
 
-Veamos algunos resultados graficamente:
+\begin{figure}[!htbp]
+  \begin{center}
+    \includegraphics[scale=0.5]{graficos/new/comparacion_iteraciones.eps}
+    \caption{\label{fig:comparacion_iteraciones} Gráfico comparativo de $\alpha$ en función de la cantidad de iteraciones}
+  \end{center}
+\end{figure}
 
-\subsection{Cantidad de iteraciones f(x) con Newton y Secante}
-Estos gráficos fueron generados con un inputs similares. En el caso de secante se utilizó el mismo $x_0$ y para $x_1 = 2x_0$. Podemos ver que ambos gráficos se comportan similarmente, a medida que el $x_0$ crece, crece la cantidad de iteraciones.\\
+Como podemos ver en la Figura~\ref{fig:comparacion_iteraciones} nuestras expectactivas se cumplieron, y podemos ver además como las iteraciones disminuyen a medida que los puntos iniciales están cerca del $\alpha$.
 
-\begin{center}
-\includegraphics[scale=0.5]{graficos/iteraciones-f-newton-alfa_fijo-absoluto-0.001-alejando.png}\\
-$f(x)$ aproximada con Newton, criterio de parada error absoluto igual a $0.001$
-\end{center}
+% subsubsection iteraciones (end)
 
-\begin{center}
-\includegraphics[scale=0.5]{graficos/iteraciones-f-secante-alfa_fijo-absoluto-0.001-alejando.png}\\
-$f(x)$ aproximada con Secante, criterio de parada error absoluto igual a $0.001$
-\end{center}
+\subsubsection{Tiempo de Ejecución} % (fold)
+\label{ssub:tiempo_de_ejecuci_n}
 
-\subsection{Error Absoluto f(x) con Newton y Secante}
-Al igual que en los gráficos anteriores acá también se realizaron las pruebas con inputs similares.\\
+En esta sección entra en juego lo que hablamos en la parte de Hipótesis. En términos prácticos, uno de los factores a tomar en cuenta es cuán rápido obtenemos el resultado requerido. Como bien enunciamos anteriormente suponemos que Secante será mas rápido que Newton.\\
 
-\begin{center}
-\includegraphics[scale=0.5]{graficos/x0s-f-newton-alfa_fijo-absoluto-0.001-alejando.png}\\
-Newton. Criterio de parada: Error absoluto igual a 1 $\times$ $10^{-3}$
-\end{center}
+\begin{figure}[!htbp]
+  \begin{center}
+    \includegraphics[scale=0.5]{graficos/new/comparacion_tiempos.eps}
+    \caption{\label{fig:comparacion_tiempos} Gráfico comparativo de $\alpha$ en función del tiempo de ejecución}
+  \end{center}
+\end{figure}
 
-\begin{center}
-\includegraphics[scale=0.5]{graficos/x0s-f-secante-alfa_fijo-absoluto-0.001-alejando.png}\\
-Secante. Criterio de parada: Error absoluto igual a 1 $\times$ $10^{-3}$
-\end{center}
+En la Figura~\ref{fig:comparacion_tiempos} vemos cómo lo que habíamos anticipado al final no sucede, Newton con $f(x)$ es el que termina siendo mas performante y lo otro que podemos ver es que para $e(x)$ con Newton y Secante, el primero es mas performante desde valores chicos, pasando por el valor exacto, hasta que cuando $alpha$ crece mas, llega un punto donde Newton supera a Secante.\\
 
-
-\subsection{Tiempo de Computo f(x) con Newton y Secante}
-Nuevamente se utilizaron inputs similares para ambos gráficos. La idea era comparar los tiempos de CPU para cada método.\\
-
-Las variaciones de tiempo se deben al hecho de que la máquina donde se realizan las pruebas corre tareas de fondo; quitando la mayoria de los procesos que corrían en la maquina y realizando las pruebas varias veces mostró que las variaciones de tiempo no siguen un patrón establecido.\\
-
-A los valores de tiempo se les restó $0,03$ milisegundos, que se estima que es el tiempo fijo que el programa se toma en invocar la función \verb|gettimeofday()| dos veces (podemos ver que a veces, por cuestiones del scheduler de la CPU, las funciones toman dramáticamente menos tiempo en correr y hacer un cambio de contexto, por lo que el tiempo resulta "negativo" en unos pocos casos). Podemos observar luego que el tiempo para obtener los resultados incrementan en una curva logarítmica muy suave, correspondiente a la cantidad de iteraciones necesarias, no obstante la distancia de $x_0$ se tuvo que aumentar dramáticamente (hasta 1 millón) para que la diferencia sea claramente observable.\\
-
-\begin{center}
-\includegraphics[scale=0.5]{graficos/tiempo-f-newton-alfa_fijo-absoluto-0.001-alejando.png}\\
-Newton con $\alpha$ fijo y error absoluto de $0.001$ con $x_0$ creciente.
-\end{center}
-
-\begin{center}
-\includegraphics[scale=0.5]{graficos/tiempo-f-secante-alfa_fijo-absoluto-0.001-alejando.png}\\
-Secante con $\alpha$ fijo y error absoluto de $0.001$ con $x_0$ creciente.
-\end{center}
-
-\subsection{Graficos para f(x) con error absoluto 0.0001}
-Los siguiente gráficos detallan la resolución de $f(x)$ con Newton, específicamente cuando el $x_0$ inicial es cercano a la respuesta conocida, con $\alpha = 10$. Vemos que requiere una cantidad mucho menor de iteraciones, y el comportamiento del resultado es mucho más simple de entender.
-
-\begin{center}
-\includegraphics[scale=0.5]{graficos/iteraciones-f-newton-alfa_fijo-absoluto-0.0001-alejando_cercano.png}\\
-Cantidad de iteraciones.
-\end{center}
-
-\begin{center}
-\includegraphics[scale=0.5]{graficos/x0s-f-newton-alfa_fijo-absoluto-0.0001-alejando_cercano.png}\\
-Error absoluto.
-\end{center}
-
-\begin{center}
-\includegraphics[scale=0.5]{graficos/tiempo-f-newton-alfa_fijo-absoluto-0.0001-alejando_cercano.png}\\
-Tiempo de computo.
-\end{center}
-
-\subsection{Graficos para e(x)}
-
-Los $x_0$ y $x_1$ se tomaron en $\frac{1}{\sqrt{\alpha}} + 0.001$ y superiores a $-\frac{1}{\sqrt{\alpha}} - 0.001$
-
-Se observa que la función converge solo para un intervalo limitado, probablemente debido a que la función tiene dos asíntotas, y su derivada en los límites al infinito tiende a cero, dificultando cálculos por números demasiado grandes y demasiado chicos.
-
-Se ve que el comportamiento es errático y difícil de predecir, en comparación a la resolución del inverso.
-
-Las mismas observaciones sobre la dificultad de medir el tiempo de ejecución se aplican aquí.
-
-\begin{center}
-\includegraphics[scale=0.5]{graficos/iteraciones-e-secante-alfa_fijo-absoluto-0.0001-alejando.png}\\
-poner titulos
-\end{center}
-
-\begin{center}
-\includegraphics[scale=0.5]{graficos/x0s-e-secante-alfa_fijo-absoluto-0.0001-alejando.png}\\
-poner titulos
-\end{center}
-
-\begin{center}
-\includegraphics[scale=0.5]{graficos/tiempo-e-secante-alfa_fijo-absoluto-0.0001-alejando.png}\\
-poner titulos
-\end{center}
-
-\begin{center}
-\includegraphics[scale=0.5]{graficos/relativo-e-newton-alfa_fijo-absoluto-0.0001-alejando.png}\\
-poner titulos
-\end{center}
-
-\begin{center}
-\includegraphics[scale=0.5]{graficos/iteraciones-e-newton-alfa_fijo-absoluto-0.0001-alejando.png}\\
-poner titulos
-\end{center}
-
-\begin{center}
-\includegraphics[scale=0.5]{graficos/x0s-e-newton-alfa_fijo-absoluto-0.0001-alejando.png}\\
-poner titulos
-\end{center}
-
-\begin{center}
-\includegraphics[scale=0.5]{graficos/tiempo-e-newton-alfa_fijo-absoluto-0.0001-alejando.png}\\
-poner titulos
-\end{center}
-
-% Ver un grafico que muestra los picos del error relativo conforme el alapha se aleja del x0. La explicacion es que conforme mas lejos esta el x0 del resultado, tiene que realizar mas itreraciones y el error relativo de la ultima iteracion que vale crece conforme aumenta la distancia entre alpah y x0 hasta que la iteracion no califica para entrar en el criterio de tension relativo. Entonces debe realizar una iteracion mas que resulta mas precisa y asi sucesivamente
-
-% Hay que un hacer un grafico del mismo experimento pero con el numero de iteraciones y queremos mosrtar que conforme la distancaio del x0 al alpha crece pasa que la cant de iteraciones para converger aumenta.
-
-% Hacer un exp de un alpha fijo con un x0 que se va corriendo. Para observar las iteraciones sobre un valor fijo con la distancia entre x0 y alpha, corriendo el x0. Ademas un grafico de tiempo.
-
-% Un grafico de newton de 1 al 10000 con error absoluto con x0 cercanos al resultado real y compararlo con las iteraciones del relativo
-
-%Los tipos de experimentos:
-%* Comparar newton y secante para f(x) y e(x) en función de:
-%    1. cantidad de iteraciones
-%    2. tiempo de ejecución
-%    3. error relativo, error absoluto
-%    4. orden de convergencia
-%* Los tipos de inputs a utilizar pueden ser:
-%    1. crecientes de 1 a 1000 en intervalos de 1, 5 y 10
-%    2. crecientes de 0 a 1 en intervalos chiquitos, la idea es ver cuando forzamos a que la precisión se pierda
-%    2. aleatorios con magnitud definida
+% subsubsection tiempo_de_ejecuci_n (end)

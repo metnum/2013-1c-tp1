@@ -75,12 +75,12 @@ Cada una de estas variantes tiene parámetros según el método utilizado que se
 pueden ajustar según la función a analizar. En particular para el método de
 Newton hay que elegir una primera aproximación $x_0$ en base a $f(x)$ o $e(x)$
 (que puede o no ser la misma) y para el método de la Secante y $e(x)$ hay que
-elegir $x_0$ y $x_1$.
+elegir $x_0$ y $x_1$.\\
 
 Decidimos realizar nuestro análisis enfocados en una amplia gama de magnitudes
 de números a los cuales les queremos buscar la inversa de la raíz. Estamos
 interesados tanto en números muy pequeños, cercanos al cero y en números muy
-grandes, lejanos del 0.
+grandes, lejanos del 0.\\
 
 Por esta razón, para el ajuste de parámetros decidimos utilizar un criterio de
 parada de error relativo entre iteraciones. Gracias a esta elección y el
@@ -97,7 +97,7 @@ convergencia para cualquier $x_0$ mayor a alguna de las raices
 podemos elegir $x_0 = 0 + \epsilon$ y tener garantizada la convergencia. Notar
 que no se puede elegir $x_0 = 0$ ya que la recta tangente en ese punto es
 constante y no se interseca con el eje de las abscisas. No obstante un análsis
-analítico nos puede permitir elegir un mejor $x_0$.
+analítico nos puede permitir elegir un mejor $x_0$.\\
 
 \begin{figure}[!htbp]
   \begin{center}
@@ -115,7 +115,7 @@ Cuando $x_0$ es muy pequeño, cercano al $0$, la pendiente de la tangente a
 $f(x)$ es cercana al 0, por lo que en la siguiente iteración $x_1$, el punto donde
 esta recta se interseca con el eje de las abscisas es muy grande, cayendo en el
 caso anterior partiendo desde $x_1$ de un punto muy grande, con un valor muy
-alejado de la solución.
+alejado de la solución.\\
 
 \begin{figure}[!htbp]
   \begin{center}
@@ -138,7 +138,7 @@ Se puede observar claramente que $x_0$ con valores constantes crecen más
 lentamente que $x_0 = \alpha$ para la gran mayoría de valores. Intentamos
 probar también con $x_0 = 1 / \alpha$ pero para valores muy chicos encontramos
 rápidamente errores de pérdida de dígitos significativos y para valores grandes
-no se observaban beneficios.
+no se observaban beneficios.\\
 
 \begin{figure}[!htbp]
   \begin{center}
@@ -151,7 +151,7 @@ En la Figura~\ref{fig:f_newton_x0_fijo_2} graficamos algunos valores más para
 $x_0$ variando las constantes utilizadas. Se observa claramente que variar la
 constante produce un \emph{corrimiento} de la cantidad de iteraciones lo cual
 tiene sentido ya que se empieza cerca del resultado para diferentes valores de
-$\alpha$. Este corrimiento se realiza en base a la magnitud (o valore relativo)
+$\alpha$. Este corrimiento se realiza en base a la magnitud (o valores relativos)
 de $x_0$ y no en base a su valor, lo que implica que el corrimiento entre $x_0
 = 0.5$ y $x_0 = 1$ es similar al corrimiento entre $x_0 = 1000$ y $x_0 = 2000$
 ya que diferencia relativa entre estos valores es de $1/2$.\\
@@ -168,7 +168,7 @@ muy grandes y magnitudes muy pequeñas.
 A diferencia de $f(x)$ para el método de Newton, no contamos con seguridad en
 la convergencia de este método para esta función. En las figuras que mostramos
 a continuación sólo graficamos los valores para los cuales el método converge,
-por esto se verán sectores de cada variante no graficados.
+por esto se verán sectores de cada variante no graficados.\\
 
 \begin{figure}[!htbp]
   \begin{center}
@@ -177,8 +177,8 @@ por esto se verán sectores de cada variante no graficados.
   \end{center}
 \end{figure}
 
-En la Figura~\ref{fig:e_newton_x0_variable} lo primero que podemos observar es
-como pensado que no todos los $\alpha$ convergen para todos los $x_0$. Cuanto
+En la Figura~\ref{fig:e_newton_x0_variable} lo primero que podemos observar es que
+como habíamos pensado no todos los $\alpha$ convergen para todos los $x_0$. Cuanto
 mayor es el $\alpha$ necesitamos un mayor $x_0$ para lograr la convergencia. No
 obstante, si fijamos un $x_0$ constante muy grande, la cantidad de iteraciones
 necesarias para llegar al resultado para $\alpha$ chicos es muy grande.\\
@@ -192,7 +192,7 @@ abscisas de las tangentes o la evaluación de $e(x)$ en valores cercanos al $0$.
 Esto puede producir la pérdida de dígitos significativos perjudicando la
 convergencia. Para muchas de las pruebas que realizamos durante la
 implementación obtuvimos valores intermedios donde la representación de doble
-punto flotante nativa utilizada llegaba a $\infty$.
+punto flotante nativa utilizada llegaba a $\infty$.\\
 
 \begin{figure}[!htbp]
   \begin{center}
@@ -245,7 +245,7 @@ El enfoque que decidimos tomar para esta combinación es el siguiente: Teniendo
 en cuenta que el método de la Secante se puede ver como una aproximación por
 diferencias finitas del método de Newton, intentamos replicar los resultados,
 eligiendo los mismos $x_0$ y ajustando los $x_1$ para obtener valores
-similares.
+similares.\\
 
 \begin{figure}[!htbp]
   \begin{center}
@@ -273,7 +273,7 @@ $x_1$ tan grandes producen muy poca variación en el cálculo de la tangente.\\
 
 Se puede notar también una mayor cantidad de iteraciones necesarias para
 alcanzar los mismos resultados que para el método de Newton, lo que concuerda
-con la el grado de convergencia teórico.
+con el grado de convergencia teórico.\\
 
 \begin{figure}[!htbp]
   \begin{center}

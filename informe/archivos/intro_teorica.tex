@@ -16,7 +16,7 @@ funciones son:
 En este trabajo sólo estudiaremos el dominio de los reales $\Re$. Debido
 a esto, el dominio de estas funciones en el cual estamos interesados es $\alpha
 > 0$ ya que en $\Re$ la raíz cuadrada solo se puede aplicar a números
-positivos y no existe la división por $0$.\\
+positivos y no existe la división por $0$.
 
 Para encontrar los puntos en que las funciones se anulan utilizaremos los
 métodos iterativos de Newton y de la Secante.
@@ -31,7 +31,7 @@ métodos iterativos de Newton y de la Secante.
 \end{figure}
 
 Llamemos $\displaystyle \beta = \frac{ 1 }{ \alpha }$. $\beta$ es el número al
-cual le queremos encontrar la inversa de la raíz cudarada.\\
+cual le queremos encontrar la inversa de la raíz cudarada.
 
 Por otro lado la expresión de $f(x)$ la podemos reescribir de esta manera:
 
@@ -39,7 +39,7 @@ Por otro lado la expresión de $f(x)$ la podemos reescribir de esta manera:
     f(x) = x^2 - \alpha = (x + \sqrt{\alpha})(x - \sqrt{\alpha})
 \]
 
-Podemos ver que esta es una función cuadrática y que tiene dos raíces diferentes.\\
+Podemos ver que esta es una función cuadrática y que tiene dos raíces diferentes.
 
 Estas raíces existen pues $\alpha > 0$ y como podemos ver las raíces son
 iguales en módulo y nos sirven para hallar $\beta$. Si la raíz encontrada es
@@ -72,11 +72,11 @@ Reescribamos $e(x)$ de la siguiente forma:
 \]
 
 Se puede ver que al encontrar las raíces de $e(x)$ encontramos lo deseado, la
-inversa de la raíz cuadrada de $\alpha$.\\
+inversa de la raíz cuadrada de $\alpha$.
 
 $e(x)$ con $\alpha > 0$ tiene dos raíces diferentes de mismo módulo, por lo que
 al igual que en el caso de $f(x)$ nos es indistinto cuál de las dos
-encontremos, ya que cambiando el signo obtenemos la otra raíz.\\
+encontremos, ya que cambiando el signo obtenemos la otra raíz.
 
 Esta función tiene dos asíntotas. En el eje de las ordenadas podemos encontrar
 una en $x = 0$, mientras que en el eje de las abscisas podemos encontrar una
@@ -85,10 +85,10 @@ asíntota en $e(x) = - \alpha$ cuando $x \to \pm \infty$.
 \subsection{Método de Newton}
 
 El método de Newton es un método iterativo para buscar aproximaciones
-sucesivamente mejores de las raíces de una función real $h(x)$.\\
+sucesivamente mejores de las raíces de una función real $h(x)$.
 
 Para aplicar este método es necesario que exista y conocer la derivada de la
-función a analizar en un intervalo real $[a, b]$.\\
+función a analizar en un intervalo real $[a, b]$.
 
 Dado un $x_0$ inicial suficientemente cerca de la raíz deseada, se pueden
 obtener sucesivas mejores aproximaciones a partir de:
@@ -100,24 +100,24 @@ obtener sucesivas mejores aproximaciones a partir de:
 La ``idea gráfica'' de este método es empezar un por un punto ($x_0$), luego
 obtener la tangente de la función en ese punto y obtener el siguiente punto
 (una mejor aproximación) donde la recta tangenta intersecta el eje de las
-abscisas.\\
+abscisas.
 
 El órden de convergencia de este método es cuadrático siempre y cuando la
 multiplicidad de la raíz buscada sea 1. En el caso de las funciones $f(x)$ y
 $e(x)$ esto es así y podemos obtener sus derivadas:
 
-\begin{equation}\label{f_x}
+\begin{equation}\label{f1_x}
     f'(x) = 2x
 \end{equation}
 
-\begin{equation}\label{e_x}
+\begin{equation}\label{e1_x}
     e'(x) = -\frac{2}{x^3}
 \end{equation}
 
 
 \subsubsection{Convergencia para $f(x)$}\label{sec:convergencia}
 
-Veamos que Newton siempre converge para $f(x)$ si $x_0 > \sqrt{\alpha}$.\\
+Veamos que Newton siempre converge para $f(x)$ si $x_0 > \sqrt{\alpha}$.
 
 Utilizaremos una demostración inductiva. El paso iterativo de Newton para
 $f(x)$ se puede escribir de la siguiente forma:
@@ -131,7 +131,7 @@ $f(x)$ se puede escribir de la siguiente forma:
 Queremos probar que si $x_0 > \sqrt{\alpha}$ entonces $\sqrt{\alpha} < x_{k + 1}
 < x_k$, es decir, $x_{k + 1}$ se encuentra más cerca de la raíz que $x_k$.
 
-{\bf Caso base: $P(0)$}\\
+{\bf Caso base: $P(0)$}
 
 Sea $k = 1$, queremos ver que $x_1 < x_0$. Entonces reemplazando $x_1$ por su definición tenemos:
 
@@ -144,9 +144,9 @@ Sea $k = 1$, queremos ver que $x_1 < x_0$. Entonces reemplazando $x_1$ por su de
     \sqrt{\alpha} < x_0&
 \end{align*}
 
-Y esto último es la precondición. Por lo tanto $x_1 < x_0$ $_\square$\\
+Y esto último es la precondición. Por lo tanto $x_1 < x_0$ $_\square$
 
-Veamos también que $x_1 > \sqrt{\alpha}$\\
+Veamos también que $x_1 > \sqrt{\alpha}$
 
 \begin{align*}
     x_1 > \sqrt{\alpha} &\iff \\
@@ -163,9 +163,9 @@ Luego esto último vale pues $x_0 > \sqrt{\alpha}$. Por lo tanto, por esto y por
     \sqrt{\alpha} < x_1 < x_0
 \]
 
-{\bf Caso n + 1: $P(n) \implies P(n + 1)$}\\
+{\bf Caso n + 1: $P(n) \implies P(n + 1)$}
 
-Sea $k = n + 1$. Veamos que $x_{n + 1} < x_n$.\\
+Sea $k = n + 1$. Veamos que $x_{n + 1} < x_n$.
 
 Podemos escribir $x_{n + 1}$ como:
 
@@ -179,7 +179,7 @@ Por {\bf HI} vale que $\sqrt{\alpha} < x_n \iff \alpha < x_n^2 $ Entonces:
     \frac{ x_n^2 + \alpha } {2x_n } < \frac{ x_n^2 + x_n^2 }{ 2x_n } = x_n
 \]
 
-Por lo tanto $x_{n + 1} < x_n$ \\
+Por lo tanto $x_{n + 1} < x_n$
 
 Ahora veamos que $\sqrt{\alpha} < x_{n + 1}$:
 
@@ -215,10 +215,10 @@ diferencias finitas. Su paso iterativo es:
 
 La ``idea gráfica'' de este método es similar a la del método de Newton, pero en
 este caso, ``aproximar'' la tangente en un punto por la recta que interseca a la
-función en $x_0$ y $x_1$.\\
+función en $x_0$ y $x_1$.
 
 Su orden de convergencia es supralineal, específicamente es $\phi \approx
-1.618$.\\
+1.618$.
 
 Al tener un peor orden de convergencia que el método de Newton requiere de más
 pasos para converger, pero al no necesitar calcular la derivada de la función

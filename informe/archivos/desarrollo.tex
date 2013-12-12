@@ -170,8 +170,9 @@ muy grandes y magnitudes muy pequeñas.
 
 A diferencia de $f(x)$ para el método de Newton, no contamos con seguridad en
 la convergencia de este método para esta función. En las figuras que mostramos
-a continuación sólo graficamos los valores para los cuales el método converge,
-por esto se verán sectores de cada variante no graficados.
+a continuación sólo graficamos los valores para los cuales el método converge
+en una cantidad acotada de iteraciones, por esto se verán sectores de cada
+variante no graficados.
 
 \begin{figure}[!htbp]
   \begin{center}
@@ -210,15 +211,16 @@ la magnitud de $\alpha$. Decidimos probar al igual que en el análisis del
 método de Newton para $f(x)$ el comportamiento con $x_0 =
 \textit{DBL\_EPSILON}$. En este caso, converge para gran cantidad del dominio
 pero necesita muchas iteraciones para $\alpha$ pequeños. En el caso de $x_0 =
-\alpha$ podemos observar que converge para valores muy grandes de $\alpha$.
+1 / \alpha$ podemos observar que converge para valores muy grandes de $\alpha$.
+Esto se debe a que el punto de inicio se encuentra en la asíntota de las
+ordenadas donde la pendiente de la tangente es muy grande, y las sucesivas
+iteraciones se mantienen en la misma asíntota mejorando la aproximación en cada
+iteración.
 
 Notemos que parecen generar pendientes similares pero invertidas.
 
 Utilizar otras constantes para $x_0$ o multiplicar $\alpha$ por una constante
 genera nuevamente un ``corrimiento'' sin cambio perceptible en la pendiente.
-
-En un análisis de la forma de la función pensamos en utilizar $x_0 = 1 /
-\alpha$ pero en la práctica no converge.
 
 Al igual que en el caso anterior decidimos tomar valores para ``equilibrar''
 diferentes magnitudes de $\alpha$ alrededor del $1$. Para esto buscamos
@@ -229,7 +231,7 @@ utilizaremos para $e(x)$ y el método de Newton son:
 \[
 \begin{cases}
 x_0 = 0.1, & \mbox{si } \alpha < 1\\
-x_0 = \alpha * 1000, & \mbox{si } \alpha \ge 1
+x_0 = 1 / (\alpha * 10), & \mbox{si } \alpha \ge 1
 \end{cases}
 \]
 
@@ -245,7 +247,7 @@ $x_1$. En esta combinación tampoco tenemos asegurada la convergencia. Al igual
 que en el apartado anterior, en las figuras que mostramos a continuación sólo
 graficamos los valores para los cuales el método converge.
 
-El enfoque que decidimos tomar para esta combinación es el siguiente: Teniendo
+El enfoque que decidimos tomar para esta combinación es el siguiente: teniendo
 en cuenta que el método de la Secante se puede ver como una aproximación por
 diferencias finitas del método de Newton, intentamos replicar los resultados,
 eligiendo los mismos $x_0$ y ajustando los $x_1$ para obtener valores
@@ -294,8 +296,8 @@ Figura~\ref{fig:e_newton_x0_fijo} el comportamiento con $x_0 =
 necesitamos utilizar un $x_1$ aún más cercano,  $x1 = \textit{DBL\_EPSILON} +
 0.0000000001 = x_0 + 0.0000000001$.
 
-Para los casos donde $x_0$ es un múltiplo de $\alpha$ fue necesario multiplicar
-$x_1 = 2 \times x_0$ para lograr el mismo dominio de convergencia que en el método
+Para los casos donde $x_0$ es inverso a $\alpha$ fue necesario multiplicar $x_1
+= 2 \times x_0$ para lograr el mismo dominio de convergencia que en el método
 de Newton.
 
 Estos resultados mantienen la misma forma que los de la
@@ -308,7 +310,7 @@ Secante son:
 \[
 \begin{cases}
 x_0 = 0.1 \wedge x_1 = x_0 + 0.00001, & \mbox{si } \alpha < 1\\
-x_0 = \alpha * 1000 \wedge x_1 = x_0 * 2, & \mbox{si } \alpha \ge 1
+x_0 = 1 / (\alpha * 10) \wedge x_1 = x_0 * 2, & \mbox{si } \alpha \ge 1
 \end{cases}
 \]
 

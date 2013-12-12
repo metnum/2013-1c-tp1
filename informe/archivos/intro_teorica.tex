@@ -223,3 +223,23 @@ Su orden de convergencia es supralineal, específicamente es $\phi \approx
 Al tener un peor orden de convergencia que el método de Newton requiere de más
 pasos para converger, pero al no necesitar calcular la derivada de la función
 en la práctica podría ser más veloz.
+
+\subsection{Hipótesis}
+
+En base a este análsis teórico de las funciones y los métodos llegamos a la
+idea de que los resultados se comportarán de la siguiente forma. Primero al
+haber calculado la derivada de $f(x)$ y de $e(x)$, y por consiguiente poder
+utilizar el método de Newton, creemos que este convergerá en una menor cantidad
+de iteraciones que el método de la Secante debido a su mejor convergencia
+teórica.
+
+Por otro lado, en teoría el método de la secante realiza menos cuentas al no
+tener que calcular la derivada en cada iteración, pero en la práctica dependerá
+de la implementación.
+
+Por último creemos que $f(x)$ convergerá más rápido para una gran cantidad de
+$\alpha$ que $e(x)$ ya que las pendientes de las tangentes en $f(x)$ son más
+suaves que las pendientes de las tangentes en $e(x)$. La primera es una
+parábola, mientras que la segunda tiene asíntotas muy marcadas, y una vez el
+método se encuentre en una de estas asíntotas le costará mucho ``salir'' de
+estas, produciendo una convergencia más lenta al resultado.

@@ -65,8 +65,8 @@ calcular la inversa de la raíz de un número:
 \end{itemize}
 
 Recordemos que para el caso de estas funciones, es lo mismo encontrar
-cualquiera de sus raices ya que tienen igual módulo y encontrando raíz se puede
-encontrar la otra cambiando el signo (\ref{sec:analisis_f_x}
+cualquiera de sus raices ya que tienen igual módulo y encontrando una raíz se
+puede encontrar la otra cambiando el signo (\ref{sec:analisis_f_x}
 y~\ref{sec:analisis_e_x}).
 
 \subsection{Ajuste de parámetros}
@@ -129,11 +129,12 @@ En la Figura~\ref{fig:f_newton_x0_fijo_1} graficamos la cantidad de iteraciones
 necesarias para llegar al resultado, fijando diferentes puntos de partida $x_0$
 y variando la magnitud de $\alpha$. Las variantes que mostramos en esta figura
 son $x_0$ constantes y en función del $\alpha$. Una de las opciones de $x_0$ es
-$\textit{DBL\_EPSILON}$; dependiente de nuestra implementación particular es el
-menor número tal que $1.0 + \textit{DBL\_EPSILON} \ne 1.0$. En nuestro caso, es
-el menor $x_0$ positivo que podemos utilizar sin entrar en errores de pérdida
-de dígitos significativos. Luego incluímos las opciones constantes de $x_0 = 1$
-y $x_0 = 1000$. Por último incluímos un $x_0$ linealmente dependiente de $\alpha$.
+$\textit{DBL\_EPSILON}$; dependiente de nuestra implementación particular, es
+el menor número tal que $1.0 + \textit{DBL\_EPSILON} \ne 1.0$. En nuestro caso,
+es el menor $x_0$ positivo que podemos utilizar sin entrar en errores de
+pérdida de dígitos significativos. Luego incluímos las opciones constantes de
+$x_0 = 1$ y $x_0 = 1000$. Por último incluímos un $x_0$ linealmente dependiente
+de $\alpha$.
 
 Se puede observar claramente que $x_0$ con valores constantes crecen más
 lentamente que $x_0 = \alpha$ para la gran mayoría de valores. Intentamos

@@ -233,9 +233,11 @@ utilizar el método de Newton, creemos que este convergerá en una menor cantida
 de iteraciones que el método de la Secante debido a su mejor convergencia
 teórica.
 
-Por otro lado, en teoría el método de la secante realiza menos cuentas al no
+Por otro lado, en teoría el método de la Secante realiza menos cuentas al no
 tener que calcular la derivada en cada iteración, pero en la práctica dependerá
-de la implementación.
+de la implementación. Secante solo requiere una evaluación de la función por
+iteración, dado que el valor de $f(x_{n - 1})$ se puede guardar de la iteración
+previa.
 
 Por último creemos que $f(x)$ convergerá más rápido para una gran cantidad de
 $\alpha$ que $e(x)$ ya que las pendientes de las tangentes en $f(x)$ son más

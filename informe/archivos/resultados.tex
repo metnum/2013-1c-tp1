@@ -1,4 +1,4 @@
-\section{Resultados y Conclusiones}
+\section{Resultados}
 % Deben incluir los resultados de los experimentos, utilizando el formato mas
 % adecuado para su presentacion. Deberan especicar claramente a que
 % experiencia corresponde cada resultado. No se incluiran aqu corridas de
@@ -12,149 +12,141 @@
 % teoremasa a la cual se ajustan. Ademas, se deben mencionar los resul- tados
 % interesantes y los casos \patologicos" encontrados.
 
-\subsection{Hipótesis}
-Como vimos en la Introducción Teórica, Newton tiene convergencia cuadrática y
-Secante $supralineal$ (alrededor de 1.6).
+En esta sección compararemos las diferentes variantes propuestas en este
+trabajo. El objeto de este es calcular la inversa de la raíz cuadrada de un
+número $\alpha$, por lo que las métricas que nos interesan para decidir entre
+variantes es cuánto tarda cada una de las variantes en producir el resultado
+esperado y cuán bueno es este.
 
-Sería normal suponer que Newton tiene mejor performance dado que converge más
-rápido. Sin embargo para comparar performance, debemos considerar costo como
-rapidez de convergencia. Un algoritmo que converge rápido pero tarda algunos
-segundos por iteración podría tomar mas tiempo que uno que converge mas lento
-pero toma solo algunos milisegundos por iteración.
+Dado que una de nuestras primicias es que la magnitud del número incial es
+desconocida, analizaremos cada variante para una gran variación de magnitud en
+los $\alpha$.
 
-Podemos asumir que el costo de una iteración está marcado por la evaluación de
-la función, de hecho, este vendría a ser nuestro caso. Entonces la cantidad de
-evaluaciones de una función puede ser una buena medida de costo.
+Al igual que en los experimentos de ajustes de parámetros el criterio de parada
+elegido para las siguientes pruebas es el de la diferencia relativa. De esta
+forma nos aseguramos un error pequeño en relación con la magnitud de cada
+$\alpha$. Por ende, compararemos las variantes sólo para resultados ``buenos''.
 
-Secante solo requiere una evaluación de la función por iteración, dado que el
-valor de $f(x_{n - 1})$ se puede guardar de la iteración previa.
+Por otro lado, utilizaremos cada método ajustando los parámetros en base al
+análsis previo visto en la Sección~\ref{sec:ajuste_parametros}.
 
-Newton requiere una evaluación de la función y otra de su derivada por
-iteración. Es complicado estimar el costo de evaluar la derivada en general. En
-algunos casos la derivada puede ser fácil de evaluar y en otros puede ser
-incluso mas difícil de evaluar que la función original.
-
-Podemos asumir entonces, que en general, calcular la derivada es al menos tan
-costoso como calcular la función. Por lo tanto asumimos que Newton va a tomar
-dos evaluaciones por iteración.
-
-Este análisis nos lleva a suponer que Secante debería ser mas performante que
-Newton en general.
-
-\subsection{Casos de Prueba}
-La aproximación inicial que tuvimos fue tomar cada uno de los parámetros, fijar
-los demás y hacer un análisis de cada uno de los factores de estudio (tiempo,
-iteraciones, convergencia, etc.) haciendo crecer los parámetros de turno.
-Claramente la cantidad de casos era mucha y en general los resultados eran
-difíciles de interpretar y no aportaban al propósito de develar si nuestra
-hipótesis se cumplía.
-
-Por lo tanto decidimos que lo mejor sería solamente tomar un par de
-combinaciones de todas las posibles que nos parecieran que fueran
-representativas. En nuestro caso al ya tener $x_0$ y $x_1$ definidos en base a
-previa experimentación decidimos hacer comparaciones entre los métodos en
-términos de iteraciones y tiempo de ejecución para $\alpha$'s crecientes.
-
-\subsubsection{Iteraciones} % (fold)
-\label{ssub:iteraciones}
-
-En el caso de hacer crecer $\alpha$ para ver cómo se comportan en función de
-las iteraciones, nuestra suposición es que Newton tomará menos iteraciones que
-Secante. Ahora, para Newton con $f(x)$ y $e(x)$ suponemos que el primero tomará
-menos iteraciones ya que el segundo cuenta con un cociente extra para calcular
-con respecto al primero en cada iteración.
+\subsubsection{Iteraciones}
 
 \begin{figure}[!htbp]
   \begin{center}
     \includegraphics[scale=0.5]{graficos/new/comparacion_iteraciones.eps}
-    \caption{\label{fig:comparacion_iteraciones} Gráfico comparativo de $\alpha$ en función de la cantidad de iteraciones}
+    \caption{\label{fig:comparacion_iteraciones} Cantidad de iteraciones en función de $\alpha$.}
   \end{center}
 \end{figure}
 
-Como podemos ver en la Figura~\ref{fig:comparacion_iteraciones} nuestras
-expectactivas se cumplieron, y podemos ver además como las iteraciones
-disminuyen a medida que los puntos iniciales están cerca del $\alpha$.
+Una primer métrica que nos interesa analizar es la cantidad de iteraciones
+necesarias para obtener el resultado para diferentes $\alpha$.  En la
+Figura~\ref{fig:comparacion_iteraciones} podemos observar esta métrica.
 
-% subsubsection iteraciones (end)
+Se puede ver claramente que los $\alpha \simeq 1$ se encuentran beneficiados
+con una menor cantidad de iteraciones necesarias. Esto concuerda con nuestro
+ajuste de parámetros $x_0$ y $x_1$ ya que decidimos benificiar estos $\alpha$
+para equilibrar las iteraciones necesarias para magnitudes pequeñas y grandes
+de $\alpha$.
 
-\subsubsection{Tiempo de Ejecución} % (fold)
-\label{ssub:tiempo_de_ejecuci_n}
+En cuanto a la comparación entre las diferentes variantes observamos, que
+$f(x)$ mediante el método de Newton necesita la menor cantidad de iteraciones,
+seguido de $e(x)$ mediante el mismo método y por último $e(x)$ mediante el
+método de la Secante.
 
-Para hacer el cálculo del tiempo lo que hicimos fue hacer 1000 corridas de cada
-método y luego tomar el promedio, de esta manera podemos descartar outliers. En
-esta sección entra en juego lo que mencionamos en la parte de Hipótesis. En
-términos prácticos, uno de los factores a tomar en cuenta es cuán rápido
-obtenemos el resultado requerido. Como bien enunciamos anteriormente, suponemos
-que Secante será mas rápido que Newton.
+Por último se observa que las pendientes en la cantidad de iteraciones son
+similares para magnitudes pequeñas y grandes de $\alpha$.
+
+
+\subsubsection{Tiempo de Ejecución}
 
 \begin{figure}[!htbp]
   \begin{center}
     \includegraphics[scale=0.5]{graficos/new/comparacion_tiempos.eps}
-    \caption{\label{fig:comparacion_tiempos} Gráfico comparativo de $\alpha$ en función del tiempo de ejecución}
+    \caption{\label{fig:comparacion_tiempos} Tiempo necesario para llegar al resultado en función de $\alpha$.}
   \end{center}
 \end{figure}
 
-En la Figura~\ref{fig:comparacion_tiempos} vemos cómo lo que habíamos
-anticipado al final no sucede, Newton con $f(x)$ es el que termina siendo mas
-performante y lo otro que podemos ver es que para $e(x)$ con Newton y Secante,
-el primero es mas performante desde valores chicos, pasando por el valor
-exacto, hasta que cuando $alpha$ crece mas, llega un punto donde Newton supera
-a Secante.
+No sólo es importante la cantidad de iteraciones que necesita cada variante
+sino también el tiempo real necesario para llegar al resultado. En la
+Figura~\ref{fig:comparacion_tiempos} realizamos los mismos experimentos que en
+la Figura~\ref{fig:comparacion_iteraciones}, pero midiendo el tiempo medio de
+1000 ejecuciones.
 
-% subsubsection tiempo_de_ejecuci_n (end)
+Notamos cierta correspondencia entre la cantidad de iteraciones necesarias y el
+tiempo de ejecución para cada variante. Sobre todo esto es así para $\alpha <
+1$ mientras que para $\alpha > 1$ los tiempos parecen acercarse más alla de la
+cantidad de iteraciones necesarias.
+
+Para $\alpha > 1$ las variantes de $e(x)$ parecen necesitar menos tiempo por
+iteración, mientras que la variante de $f(x)$ parece necesitar más tiempo por
+iteración.
+
+No obstante, se observa que $(f)$ mediante el método de Newton necesita menos
+tiempo para llegar al resultado.
+
+\newpage
 \section{Discusión y Conclusiones}
 
-En esta parte analizaremos, cuestionaremos y concluiremos sobre aquellos puntos
-que nos parecieron interesantes pero que además fueron preponderantes en el
-desarrollo del presente trabajo.
+\subsection{Elección de función y método}
 
-\subsection{Elección de los puntos iniciales de las sucesiones} % (fold)
-\label{sub:elecci_n_de_los_puntos_iniciales_de_las_sucesiones}
+Los resultados obtenidos parecen concordar con nuestras hipótesis inciales. La
+variante estudiada de $f(x)$ mediante el método de Newton ofrece los mejores
+resultados tanto en cantidad de iteraciones como tiempo necesario para obtener
+el resultado.
 
-En la secciones \ref{ssub:ajuste_f_x0_newton}, \ref{ssub:ajuste_e_x0_newton}, \ref{ssub:ajuste_e_x0_x1_secante}
-% Hablar sobre las variantes que descartamos al hacer este tipo de enfoque y sus posibles repercusiones
+No obstante es importante notar que si no se cuenta con la derivada de la
+función deseada el método de la Secante ofrece buenos resultados.
 
-% subsection elecci_n_de_los_puntos_iniciales_de_las_sucesiones (end)
+Por otro lado, nuestra implementación es naive, con un enfoque analítico y no
+se encuentra optimizada por lo que los resultados relativos al tiempo de
+ejecución pueden cambiar sustancialmente.
 
-\subsection{Análisis de los resultados en función del tiempo y las iteraciones} % (fold)
-\label{sub:an_lisis_de_los_resultados_en_funci_n_del_tiempo_y_las_iteraciones}
+No encontramos justificación para la diferencia de pendientes encontradas en la
+Figura~\ref{fig:comparacion_iteraciones}. La cantidad de instrucciones
+realizadas para $\alpha$ de diferentes magnitudes que necesitan la misma
+cantidad de iteraciones es la misma, por lo que no sabemos a que se debe la
+disminución o aumento del tiempo de ejecución por iteración para $\alpha > 1$.
 
-\subsubsection{Iteraciones} % (fold)
-\label{ssub:iteraciones}
+\subsection{Ajuste de parámetros}
 
-Para este gráfico (Figura~\ref{fig:comparacion_iteraciones}) no existe
-demasiada discusión ya que el resultado cumple con las expectativas que
-teníamos previamente. Cabe destacar que las pendientes de las rectas con
-respecto al origen en módulo no son iguales, esto es interesante dado que el
-análisis previo de cada función nos mostró que podíamos hacer uso indistinto de
-cualquiera de las raíces, lo cual hacía suponer que el gráfico tendría que
-tener mayor simetría.
+Nuestro ajuste de parámetros (ver Sección~\ref{sec:ajuste_parametros}) se basa
+en no conocer la magnitud de las entradas. Por esta razón decidimos centrar el
+análisis en un amplio rango de magnitudes tratando de equilibrar los resultados
+entre magnitudes pequeñas y grandes.
 
-Mas allá de estos detalles, pudimos cerciorar empíricamente que si se toma en
-cuenta la cantidad de iteraciones, usando $f(x)$ con el método de Newton es la
-opción mas recomendable
+De conocerse la magnitud con la cual se trabajará se pueden modificar los
+parámetros inciales para beneficiar el tiempo necesario para la obtención de
+los resultados dentro de esa magnitud. Esto se puede realizar en base a los
+``corrimientos'' que encontramos ocurren modificando las constantes que
+utilizamos para calcular cada $x_0$ y $x_1$.
 
-% subsubsection iteraciones (end)
+Incluso si no se conoce la magnitud de entrada, se pueden realizar
+``particiones'' de los parámetros de entrada, centrando las magnitudes
+beneficiadas en cada partición. Esto provee una heurística donde se pueden
+agregar cuantas particiones uno desee mejorando el resultado y manteniendo la
+cantidad de iteraciones en un rango acotado a lo largo del dominio de los
+$\alpha$.
 
-\subsubsection{Tiempo de ejecución} % (fold)
-\label{ssub:tiempo_de_ejecuci_n}
+\subsection{Trabajo futuro}
 
-En esta gráfico (Figura~\ref{fig:comparacion_tiempos}) es en donde pudimos ver
-un comportamiento al menos no esperado de nuestra parte. Suponemos que nuestra
-hipótesis no se cumple, pues la derivada en este caso es fácil de calcular y
-evaluar, haciendo que el factor que menos beneficiaba a este método no afecte
-para este caso a la performance.
+Proponemos el siguiente trabajo futuro basado en los resultados, conclusiones y
+experiencias obtenidas a lo largo del desarrollo de este trabajo:
 
-% subsubsection tiempo_de_ejecuci_n (end)
+\begin{itemize}
 
-% subsection an_lisis_de_los_resultados_en_funci_n_del_tiempo_y_las_iteraciones (end)
+\item Optimizar la implementación. Actualmente contamos con una implementación
+naive que puede ser ampliamente optimizada. Creemos que una fuerte optimización
+puede traer cambios en los resultados del tiempo de ejecución, sobre todo en el
+caso del método de la Secante.
 
-\subsection{Resoluciones finales} % (fold)
-\label{sub:resoluciones_finales}
+\item Analizar los cambios de pendiente en el tiempo de ejecución para $\alpha$
+mayor y menor que 1. No logramos encontrar a que se debe esto, pero creemos que
+puede ser aprovechado para mejorar los resultados obtenidos, haciendo uso del
+beneficio para tanto $\alpha$ pequeños como para $\alpha$ grandes.
 
-% subsection resoluciones_finales (end)
+\item Analizar una buena cantidad y distribución de particiones del dominio de
+$\alpha$ ajustando los parámetros inciales en cada partición para obtener
+mejores resultados para diversas magnitudes.
 
-\subsection{Trabajos futuros} % (fold)
-\label{sub:trabajos_futuros}
-
-% subsection trabajos_futuros (end)
+\end{itemize}

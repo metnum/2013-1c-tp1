@@ -6,63 +6,43 @@
 % teoremasa a la cual se ajustan. Ademas, se deben mencionar los resul- tados
 % interesantes y los casos \patologicos" encontrados.
 
-\subsection{Casos intersantes}
+En esta parte analizaremos, cuestionaremos y concluiremos sobre aquellos puntos que nos parecieron interesantes pero que además fueron preponderantes en el desarrollo del presente trabajo.
 
-primer caso
-===========
+\subsection{Elección de los puntos iniciales de las sucesiones} % (fold)
+\label{sub:elecci_n_de_los_puntos_iniciales_de_las_sucesiones}
 
-bin/tp1 0.0000000000000000000000000000000001 e n r 0.000000000000000000000000000001 1 2
-se queda saltando entre dos numeros diferentes
+En la secciones \ref{ssub:ajuste_f_x0_newton}, \ref{ssub:ajuste_e_x0_newton}, \ref{ssub:ajuste_e_x0_x1_secante}
+% Hablar sobre las variantes que descartamos al hacer este tipo de enfoque y sus posibles repercusiones
 
-con numeros tan chicos de alhpa el punto flotante explota y se pone a hacer cosas raras, analizarlo un poco mas y decir por que parece que hace esto.
+% subsection elecci_n_de_los_puntos_iniciales_de_las_sucesiones (end)
 
+\subsection{Análisis de los resultados en función del tiempo y las iteraciones} % (fold)
+\label{sub:an_lisis_de_los_resultados_en_funci_n_del_tiempo_y_las_iteraciones}
 
-segundo caso
-============
+\subsubsection{Iteraciones} % (fold)
+\label{ssub:iteraciones}
 
-una corrida, si le agregamos un 0 al error relativo corta por cantidad de iteraciones y no por llegar al error relativo
+Para este gráfico (Figura~\ref{fig:comparacion_iteraciones}) no existe demasiada discusión ya que el resultado cumple con las expectativas que teníamos previamente. Cabe destacar que las pendientes de las rectas con respecto al origen en módulo no son iguales, esto es interesante dado que el análisis previo de cada función nos mostró que podíamos hacer uso indistinto de cualquiera de las raíces, lo cual hacía suponer que el gráfico tendría que tener mayor simetría.\\
 
-*********************** bin/tp1 9999 e s r 0.000000000000001 0.09999 0.009999
-Buscando 1 / sqrt(9999.000000)
-Utilizando e(x)
-Utilizando Secante
-Criterio de parada error relativo con limite 0.000000
-Utilizando x0=0.099990 y x1=0.009999
+Mas allá de estos detalles, pudimos cerciorar empíricamente que si se toma en cuenta la cantidad de iteraciones, usando $f(x)$ con el método de Newton es la opción mas recomendable
 
-0.010026267273090912895971982266019040253013372421264648437500000000000000000000000000000000000000000 Iter
-0.010000505837327295852179354085365048376843333244323730468750000000000000000000000000000000000000000 Iter
-0.010000500015077814705555248053769901162013411521911621093750000000000000000000000000000000000000000 Iter
-0.010000500037503143660466697895117249572649598121643066406250000000000000000000000000000000000000000 Iter
-0.010000500037503126313231938127046305453404784202575683593750000000000000000000000000000000000000000 Iter
+% subsubsection iteraciones (end)
 
-0.010000500037503126313231938127046305453404784202575683593750000000000000000000000000000000000000000 resultado
-5 iteraciones
--0.000000000001818989403545856475830078125000000000000000000000000000000000000000000000000000000000000 error absoluto
--0.000000000000000181917132067792432769858681142675088907883197372229722166281362660811282694339752197 error relativo
-0.000067999999999999999463970445923166607826715335249900817871093750000000000000000000000000000000000 tiempo
+\subsubsection{Tiempo de ejecución} % (fold)
+\label{ssub:tiempo_de_ejecuci_n}
 
-*********************** bin/tp1 9999 e s r 0.0000000000000001 0.09999 0.009999
-0.010000500037503124578508462150239211041480302810668945312500000000000000000000000000000000000000000 Iter
-0.010000500037503124578508462150239211041480302810668945312500000000000000000000000000000000000000000 Iter
-0.010000500037503124578508462150239211041480302810668945312500000000000000000000000000000000000000000 Iter
-0.010000500037503124578508462150239211041480302810668945312500000000000000000000000000000000000000000 Iter
-0.010000500037503124578508462150239211041480302810668945312500000000000000000000000000000000000000000 Iter
-0.010000500037503124578508462150239211041480302810668945312500000000000000000000000000000000000000000 Iter
+En esta gráfico (Figura~\ref{fig:comparacion_tiempos}) es en donde pudimos ver un comportamiento al menos no esperado de nuestra parte. Suponemos que nuestra hipótesis no se cumple, pues la derivada en este caso es fácil de calcular y evaluar, haciendo que el factor que menos beneficiaba a este método no afecte para este caso a la performance.
 
-0.010000500037503124578508462150239211041480302810668945312500000000000000000000000000000000000000000 resultado
-1000 iteraciones
-0.000000000001818989403545856475830078125000000000000000000000000000000000000000000000000000000000000 error absoluto
-0.000000000000000181917132067792432769858681142675088907883197372229722166281362660811282694339752197 error relativo
-0.011587999999999999342636947119444812415167689323425292968750000000000000000000000000000000000000000 tiempo
+% subsubsection tiempo_de_ejecuci_n (end)
 
-todo depende, de que depende? de si buscas velocidad o precision
-Veamos lo que podemos implicar a partir de la comparación que se hizo de cada gráfico
-\begin{itemize}
-\item {\bf Cantidad de iteraciones f(x) con Newton y Secante:} Acá se puede observar que a medida que el $x_0$ crece la cantidad de iteraciones crece pero mas despacio, casi logrando un crecimiento logarítmico. Sin embargo es apreciable que el método de Newton toma menos iteraciones.
-\item {\bf Error Absoluto f(x) con Newton y Secante:} En los gráficos se puede apreciar que cuando $x_0$ es chico Newton y Secante alcanzan el criterio de parada casi en los mismos puntos. Pero a medida que $x_0$ crece Secante empieza a llegar antes al criterio de parada. Se podría decir que Secante es mas preciso que Newton.
-\item {\bf Tiempo de Computo f(x) con Newton y Secante:} En este caso es claro ver  
+% subsection an_lisis_de_los_resultados_en_funci_n_del_tiempo_y_las_iteraciones (end)
 
-\end{itemize}
+\subsection{Resoluciones finales} % (fold)
+\label{sub:resoluciones_finales}
 
+% subsection resoluciones_finales (end)
 
+\subsection{Trabajos futuros} % (fold)
+\label{sub:trabajos_futuros}
 
+% subsection trabajos_futuros (end)

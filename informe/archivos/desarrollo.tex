@@ -90,6 +90,7 @@ relativo al resultado pequeño, por lo que los parámetros a elegir nos deben
 otorgar buenos resultados para números muy grandes y muy pequeños.
 
 \subsubsection{Ajuste de $x_0$ para $f(x)$ y el método de Newton}
+\label{ssub:ajuste_f_x0_newton}
 
 Al buscar una raíz de $f(x)$ mediante el método de Newton tenemos asegurada la
 convergencia para cualquier $x_0$ mayor a alguna de las raices
@@ -164,6 +165,7 @@ utilizando el método de Newton ya que mantiene un equilibrio entre magnitudes
 muy grandes y magnitudes muy pequeñas.
 
 \subsubsection{Ajuste de $x_0$ para $e(x)$ y el método de Newton}
+\label{ssub:ajuste_e_x0_newton}
 
 A diferencia de $f(x)$ para el método de Newton, no contamos con seguridad en
 la convergencia de este método para esta función. En las figuras que mostramos
@@ -235,6 +237,7 @@ Figura~\ref{fig:e_newton_x0_fijo} donde se encuentra graficada su intersección
 en $\alpha = 1$.
 
 \subsubsection{Ajuste de $x_0$ y $x_1$ para $e(x)$ y el método de la Secante}
+\label{ssub:ajuste_e_x0_x1_secante}
 
 En el caso del método de la Secante para $e(x)$ debemos elegir tanto $x_0$ como
 $x_1$. En esta combinación tampoco tenemos asegurada la convergencia. Al igual
@@ -311,8 +314,3 @@ x_0 = \alpha * 1000 \wedge x_1 = x_0 * 2, & \mbox{si } \alpha \ge 1
 La cantidad de iteraciones para estos valores se pueden observar en la
 Figura~\ref{fig:e_secante_x0_fijo} donde se encuentra graficada su intersección
 en $\alpha = 1$.
-
-\subsection{Análisis práctico de convergencia}
-
-En esta sección estudiaremos de forma práctica la convergencia de cada uno de
-los métodos y la compararemos con la convergencia teórica.
